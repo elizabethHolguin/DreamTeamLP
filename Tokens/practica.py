@@ -11,8 +11,12 @@ reserved = {'or': 'OR','and': 'AND','if': 'IF','else': 'ELSE','while': 'WHILE','
             'private': 'PRIVATE', 'protected': 'PROTECTED', 'public': 'PUBLIC', 'require': 'REQUIRE',
             'require_once': 'REQUIRE_ONCE', 'return': 'RETURN','static': 'STATIC', 'switch': 'SWITCH', 'throw': 'THROW',
             'try': 'TRY', 'unset': 'UNSET', 'use': 'USE', 'var': 'VAR', 'xor': 'XOR', 'callable': 'CALLABLE', 'clone': 'CLONE',
-            'die': 'DIE', 'eval': 'EVAL', 'insteadof': 'INSTEADOF'
-            }
+            'die': 'DIE', 'eval': 'EVAL', 'insteadof': 'INSTEADOF', 'boolean': 'BOOLEAN', 'fopen': "FOPEN",
+            'fpassthru': 'FPASSTHRU', 'feof': 'FEOF','fgets': 'FGETS', 'nl2br': 'NL2BR', 'round': 'ROUND', 'floor': 'FLOOR',
+            'ceil': 'CEIL', 'potencia': 'POTENCIA', 'maxmix': 'MAXMIN', 'number_format': 'NUMBER_FORMAT',
+            'trim': 'TRIM', 'substr': 'SUBSTR', 'wordwrap': 'WORDWRAP', 'sort': 'SORT', 'count': 'COUNT', 'next': 'NEXT',
+            'getclass': 'GETCLASS', 'is_a': 'IS_A'
+}
 constants = {'class': 'CLASS', 'dir': 'DIR', 'file': 'FILE', 'line': 'LINE', 'method': 'METHOD',
              'namespace': 'NAMESPACE', 'trait': 'TRAIT'
              }
@@ -20,11 +24,11 @@ constants = {'class': 'CLASS', 'dir': 'DIR', 'file': 'FILE', 'line': 'LINE', 'me
 tokens = ["MENOS", "MAS", "PRODUCTO", "DIVISION", "MODULO", "NUMEROS", "LPAREN", "RPAREN", "IGUAL_IGUAL", "IDENTICO", "DISTINTO",
           "NOIDENTICO", "MENORQUE","MAYORQUE", "MENOROIGUAL", "MAYOROIGUAL", "ANDAND", "OROR", "NO", "ID", "PUNTOCOMA",
           "VARIABLE", "CADENA", "PREINCREMENTO","POSTINCREMENTO", "PREDECREMENTO", "R_LLAVE", "L_LLAVE", "COMA",
-          "APOSTROFO", "IGUAL", "RCORCHETE", "LCORCHETE", "COMILLA" \
+          "APOSTROFO", "IGUAL"] \
          + list (reserved.values ()) + list (constants.values())
 
 t_MENOS = r'-' ;t_MAS = r'\+';t_PRODUCTO = r'\*';t_DIVISION=r'/';t_MODULO=r'%'; t_COMA = r','
-t_NUMEROS = r'[0-9]+';t_LPAREN = r'\(';t_RPAREN = r'\)'; t_R_LLAVE = r"}"; t_L_LLAVE= r'{'; t_IGUAL = r"="; t_RCORCHETE = r"]"; t_LCORCHETE = r"["; t_COMILLA = "\""
+t_NUMEROS = r'[0-9]+';t_LPAREN = r'\(';t_RPAREN = r'\)'; t_R_LLAVE = r"}"; t_L_LLAVE= r'{'; t_IGUAL = r"="
 t_IGUAL_IGUAL = r'==';t_IDENTICO=r'===';t_DISTINTO=r'!=|<>';t_NOIDENTICO=r'!==';t_MENORQUE=r'<';t_MAYORQUE=r'>';t_MENOROIGUAL=r'<=';t_MAYOROIGUAL=r'>='
 t_ANDAND=r' \&\&';t_OROR=r' \|\|';t_NO=r'!'
 t_PUNTOCOMA=r';';t_VARIABLE=r'\$\w+'
@@ -48,7 +52,10 @@ t_PROTECTED = r'protected'; t_PUBLIC = r'public'; t_REQUIRE = r'require'; t_REQU
 t_RETURN = r'return'; t_STATIC = r'static'; t_SWITCH = r'switch'; t_THROW= r'throw'; t_TRY = r'try'; t_UNSET = r'unset'
 t_USE = r'use'; t_VAR = r'var'; t_XOR = r'xor'; t_CALLABLE = r'callable'; t_CLONE = r'clone'; t_DIE = r'die'
 t_EVAL = r'eval'; t_INSTEADOF = r'insteadof'
-
+t_BOOLEAN = r'True|False'; t_FOPEN = r'fopen'; t_FPASSTHRU = r'fpassthru'; t_FEOF = r'feof';t_FGETS = r'fgets';
+t_NL2BR = r'nl2br'; t_ROUND = r'round'; t_FLOOR = r'floor'; t_CEIL = r'ceil'; t_POTENCIA = r'pow'; t_MAXMIN ='maxmin';
+t_NUMBER_FORMAT = r'number_format'; t_TRIM = r'trim'; t_SUBSTR = r'substr'; t_WORDWRAP = r'wordwrap'; t_SORT = r'sort';
+t_COUNT = r'count'; t_NEXT = r'next'; t_GETCLASS = r'getclass'; t_IS_A = r'is_a'
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     t.type = reserved.get (t.value, 'ID')
