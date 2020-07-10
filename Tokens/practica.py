@@ -20,11 +20,11 @@ constants = {'class': 'CLASS', 'dir': 'DIR', 'file': 'FILE', 'line': 'LINE', 'me
 tokens = ["MENOS", "MAS", "PRODUCTO", "DIVISION", "MODULO", "NUMEROS", "LPAREN", "RPAREN", "IGUAL_IGUAL", "IDENTICO", "DISTINTO",
           "NOIDENTICO", "MENORQUE","MAYORQUE", "MENOROIGUAL", "MAYOROIGUAL", "ANDAND", "OROR", "NO", "ID", "PUNTOCOMA",
           "VARIABLE", "CADENA", "PREINCREMENTO","POSTINCREMENTO", "PREDECREMENTO", "R_LLAVE", "L_LLAVE", "COMA",
-          "APOSTROFO", "IGUAL"] \
+          "APOSTROFO", "IGUAL", "RCORCHETE", "LCORCHETE", "COMILLA" \
          + list (reserved.values ()) + list (constants.values())
 
 t_MENOS = r'-' ;t_MAS = r'\+';t_PRODUCTO = r'\*';t_DIVISION=r'/';t_MODULO=r'%'; t_COMA = r','
-t_NUMEROS = r'[0-9]+';t_LPAREN = r'\(';t_RPAREN = r'\)'; t_R_LLAVE = r"}"; t_L_LLAVE= r'{'; t_IGUAL = "="
+t_NUMEROS = r'[0-9]+';t_LPAREN = r'\(';t_RPAREN = r'\)'; t_R_LLAVE = r"}"; t_L_LLAVE= r'{'; t_IGUAL = r"="; t_RCORCHETE = r"]"; t_LCORCHETE = r"["; t_COMILLA = "\""
 t_IGUAL_IGUAL = r'==';t_IDENTICO=r'===';t_DISTINTO=r'!=|<>';t_NOIDENTICO=r'!==';t_MENORQUE=r'<';t_MAYORQUE=r'>';t_MENOROIGUAL=r'<=';t_MAYOROIGUAL=r'>='
 t_ANDAND=r' \&\&';t_OROR=r' \|\|';t_NO=r'!'
 t_PUNTOCOMA=r';';t_VARIABLE=r'\$\w+'
