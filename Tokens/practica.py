@@ -87,8 +87,8 @@ constants = {'class': 'CLASS', 'dir': 'DIR', 'file': 'FILE', 'line': 'LINE', 'me
 
 tokens = ["MENOS", "MAS", "PRODUCTO", "DIVISION", "MODULO", "NUMEROS", "LPAREN", "RPAREN", "IGUAL_IGUAL", "IDENTICO", "DISTINTO",
           "NOIDENTICO", "MENORQUE","MAYORQUE", "MENOROIGUAL", "MAYOROIGUAL", "ANDAND", "OROR", "NO", "ID", "PUNTOCOMA",
-          "VARIABLE", "CADENA", "PREINCREMENTO","POSTINCREMENTO", "PREDECREMENTO", "R_LLAVE", "L_LLAVE", "COMA",
-          "APOSTROFE", "IGUAL"] + list (reserved.values ()) + list (constants.values())
+          "VARIABLE", "CADENASIMPLE", "CADENADOBLE", "PREINCREMENTO","POSTINCREMENTO", "PREDECREMENTO", "R_LLAVE", "L_LLAVE", "COMA",
+          "IGUAL", "APOSTROFE", "PUNTO"] + list (reserved.values ()) + list (constants.values())
 
 t_MENOS = r'-';t_MAS = r'\+';t_PRODUCTO = r'\*';t_DIVISION=r'/';t_MODULO=r'%';t_COMA = r','
 t_NUMEROS = r'[0-9]+';t_LPAREN = r'\(';t_RPAREN = r'\)';t_R_LLAVE = r"}";t_L_LLAVE= r'{';t_IGUAL = r"="
@@ -100,7 +100,10 @@ t_PREINCREMENTO=r'\+\+\$\w+';t_POSTINCREMENTO=r'\$\w+\+\+';t_PREDECREMENTO=r'--\
 t_IF = r'if';t_FOR = r'for';t_WHILE = r'while';t_ELSE = r'else'
 t_ECHO=r'echo';t_PRINT=r'print'
 t_BREAK=r'break'
-t_CADENA = r'([a-zA-Z_][a-zA-Z_0-9]*)'; t_APOSTROFE = r"\'"
+t_CADENASIMPLE = r'((\')[a-zA-Z_][a-zA-Z_0-9]*(\'))'
+t_CADENADOBLE = r'((\")[a-zA-Z_][a-zA-Z_0-9]*(\"))'
+t_PUNTO=r'\.'
+t_APOSTROFE=r'\'|\"'
 t_ignore = ' \t'
 t_CLASS = r'class';t_DIR=r'dir';t_FILE=r'file';t_FUNCTION=r'function';t_LINE=r'line';t_METHOD=r'method';t_NAMESPACE=r'namespace'
 t_TRAIT=r'trait'
@@ -165,7 +168,7 @@ cadena4 = "foreach (array(1, 2, 3, 4) as $valor) {$valor * 2;}"
 analizadorK = lex.lex()
 analizadorK.input(cadena4)
 
-cadena5 = "class Foo { public $aMemberVar = 'aMemberVar Member Variable'; public $aFuncName = 'aMemberFunc';"
+cadena5 = "class Foo { public $aMemberVar = \'aMemberVar Member Variable\'; public $aFuncName = \'aMemberFunc\';"
 analizadorK = lex.lex()
 analizadorK.input(cadena5)
 
@@ -177,3 +180,22 @@ while True:
     else:
         break
 
+#EJEMPLOS DAVID LEON
+cadena7 = "$VAR = \'soy una variable\'"
+analizadorD = lex.lex()
+analizadorD.input(cadena7)
+
+cadena8 = "trim($cadena) count($frutitas) "
+analizadorD = lex.lex()
+analizadorD.input(cadena8)
+
+cadena9 = "next($dulces) $archivo = fopen(\"archivo.txt\", \"r\");"
+analizadorD = lex.lex()
+analizadorD.input(cadena9)
+
+while True:
+    tokenPru = analizadorD.token()
+    if tokenPru != None:
+        print (tokenPru)
+    else:
+        break
