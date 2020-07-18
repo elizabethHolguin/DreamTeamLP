@@ -12,88 +12,126 @@ def p_sentencias(p):
     | if
     | for
     | while'''
+
 def p_for(p):
-    'for : LPAREN asignacion VARIABLE condicion PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE'
+    'for : LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE'
+
 def p_while(p):
-    '''while : WHILE LPAREN condicion RPAREN L_LLAVE sentencias R_LLAVE
-    | WHILE LPAREN condiciones RPAREN L_LLAVE sentencias R_LLAVE'''
-def p_incremento_decremento(p):
-    '''incremento_decremento : PREINCREMENTO VARIABLE
-    | VARIABLE POSTINCREMENTO
-    | PREDECREMENTO VARIABLE'''
+    'while : WHILE LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE'
+
+def p_incremento_decremento_prein(p):
+    'incremento_decremento : PREINCREMENTO VARIABLE'
+def p_incremento_decremento_postin(p):
+    'incremento_decremento : VARIABLE POSTINCREMENTO'
+def p_incremento_decremento_prede(p):
+    'incremento_decremento : PREDECREMENTO VARIABLE'
+
 def p_conver_object(p):
     'object : LPAREN OBJECT RPAREN term'
+
 def p_metodos(p):
     '''metodos : imprimir
-    | object'''
-def p_imprimir(p):
-    '''imprimir : ECHO factor PUNTOCOMA
-    | PRINT LPAREN factor RPAREN PUNTOCOMA
-    | PRINT factor '''
+    | object
+    | potencia'''
+def p_imprimir_uno(p):
+    'imprimir : ECHO factor PUNTOCOMA'
+def p_imprimir_dos(p):
+    'imprimir : PRINT LPAREN factor RPAREN PUNTOCOMA'
+def p_imprimir_tres(p):
+    'imprimir : PRINT factor'
+def p_potencia(p):
+    'potencia : POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN'
+
 def p_if(p):
-    '''if : IF LPAREN condiciones RPAREN L_LLAVE sentencias R_LLAVE
-    | IF condiciones L_LLAVE sentencias R_LLAVE else
-    | IF condiciones L_LLAVE sentencias R_LLAVE elseif else'''
+    'if : IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE'
+def p_if_else(p):
+    'if : IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE else'
+def p_if_elseif(p):
+    'if : IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif else'
+
 def p_elseif(p):
-    '''elseif : ELSEIF condicion L_LLAVE sentencias R_LLAVE
-    | ELSEIF condiciones L_LLAVE sentencias R_LLAVE elseif'''
+    'elseif : ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE'
+def p_elseif_dos(p):
+    'elseif : ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif'
+
 def p_else(p):
     'else : ELSE L_LLAVE sentencias R_LLAVE'
+
 def p_asignacion(p):
     'asignacion : VARIABLE IGUAL expresion PUNTOCOMA'
+
 def p_expresion_suma(p):
-    'expresion : expresion MAS term'
+    'expresion : term operadores term'
 def p_expresion_resta(p):
-    'expresion : expresion MENOS term'
-def p_expresion_producto(p):
-    'expresion : expresion PRODUCTO term'
-def p_expresion_division(p):
-    'expresion : expresion DIVISION term'
-def p_expresion_potencia(p):
-    'expresion : expresion POTENCIA term'
-def p_expresion_modulo(p):
-    '''expresion : MODULO LPAREN NUMEROS COMA NUMEROS RPAREN
-    | MODULO LPAREN NUMEROS COMA factorF RPAREN'''
-def p_factor_float(p):
-    'factorF : NUMEROS PUNTO NUMEROS'
-def p_expression_term(p):
-    'expresion : term'
+    'expresion : term operadores term expresion'
+
+def p_operadores_mas(p):
+    'operadores : MAS'
+def p_operadores_menos(p):
+    'operadores : MENOS'
+def p_operadores_producto(p):
+    'operadores : PRODUCTO'
+def p_operadores_division(p):
+    'operadores : DIVISION'
+def p_operadores_modulo(p):
+    'operadores : MODULO'
+def p_operadores_exponenciacion(p):
+    'operadores : EXPONENCIACION'
+
+def p_comparacion(p):
+    'comparacion : condiciones'
+def p_comparaciones_paren(p):
+    'comparacion : LPAREN condiciones RPAREN'
+def p_comparaciones_negado(p):
+    'comparacion : NO LPAREN condiciones RPAREN'
+
 def p_igualdad_compare(p):
-    'condicion : factor IGUAL_IGUAL factor'
+    'condiciones : factor IGUAL_IGUAL factor'
 def p_identidad_compare(p):
-    'condicion : factor IDENTICO factor'
+    'condiciones : factor IDENTICO factor'
 def p_distinto_compare(p):
-    'condicion : factor DISTINTO factor'
+    'condiciones : factor DISTINTO factor'
 def p_noidentico_compare(p):
-    'condicion : factor NOIDENTICO factor'
+    'condiciones : factor NOIDENTICO factor'
 def p_menorque_compare(p):
-    'condicion : factor MENORQUE factor'
+    'condiciones : factor MENORQUE factor'
 def p_mayorque_compare(p):
-    'condicion : factor MAYORQUE factor'
+    'condiciones : factor MAYORQUE factor'
 def p_menoroigual_compare(p):
-    'condicion : factor MENOROIGUAL factor'
+    'condiciones : factor MENOROIGUAL factor'
 def p_mayoroigual_compare(p):
-    'condicion : factor MAYOROIGUAL factor'
-def p_condiciones(p):
-    'condiciones : condicion'
-def p_condiciones_xor(p):
-    'condiciones : condiciones XOR condicion'
-def p_condiciones_andand(p):
-    'condiciones : condiciones ANDAND condicion'
-def p_condiciones_and(p):
-    'condiciones : condiciones AND condicion'
-def p_condiciones_or(p):
-    'condiciones : condiciones OR condicion'
-def p_condiciones_oror(p):
-    'condiciones : condiciones OROR condicion'
+    'condiciones : factor MAYOROIGUAL factor'
+
+def p_comparaciones(p):
+    'comparaciones : comparacion'
+def p_comparaciones_uno(p):
+    'comparaciones : comparacion anado comparaciones'
+
+def p_condicion_extra(p):
+    'anado : condicion'
+
+def p_condicion_xor(p):
+    'condicion : XOR'
+def p_condicion_andand(p):
+    'condicion : ANDAND'
+def p_condicion_and(p):
+    'condicion : AND'
+def p_condicion_or(p):
+    'condicion : OR'
+def p_condicion_oror(p):
+    'condicion : OROR'
+
 def p_term_factor(p):
-    '''term : factor
-    | factorF'''
+    'term : factor'
 def p_factor_num(p):
     'factor : NUMEROS'
-def p_factor_str(p):
-    '''factor : CADENASIMPLE
-    | CADENADOBLE'''
+def p_factor_float(p):
+    'factor : NUMEROS PUNTO NUMEROS'
+def p_factor_strsimple(p):
+    'factor : CADENASIMPLE'
+def p_factor_strdoble(p):
+    'factor : CADENADOBLE'
+
 def p_factor_var(p):
     'factor : VARIABLE'
 def p_factor_var2(p):
