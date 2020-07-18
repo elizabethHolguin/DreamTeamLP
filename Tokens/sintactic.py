@@ -5,27 +5,34 @@ tokens = practica.tokens
 #if $var==5 { echo 3; }
 #if $var1!=$var2 { echo 'Ayer'; } else { date('Hoy'); }
 
+#ejemplos Kevin
+#for($a=3;$a<4;$a++){$a=4;}
+#while($a<4 && $b>5){$a++;}
+#if($a<$b){print(5);}
+#if($a<$b){print(5);}else{$a= 5+5;}
+#if($a<$b){print(5);}elseif($a>4 || $b<4){$a="hola mundo1";}else{$a= 5+5;}
+
 def p_sentencias(p):
     '''sentencias : asignacion
-    | expresion
     | metodos
     | if
     | for
     | while'''
 
 def p_for(p):
-    'for : LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE'
+    'for : FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE'
 
 def p_while(p):
     'while : WHILE LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE'
 
 def p_incremento_decremento_prein(p):
-    'incremento_decremento : PREINCREMENTO VARIABLE'
+    'incremento_decremento : PREINCREMENTO'
 def p_incremento_decremento_postin(p):
-    'incremento_decremento : VARIABLE POSTINCREMENTO'
+    'incremento_decremento : POSTINCREMENTO'
 def p_incremento_decremento_prede(p):
-    'incremento_decremento : PREDECREMENTO VARIABLE'
-
+    'incremento_decremento : PREDECREMENTO'
+def p_incremento_decremento_postde(p):
+    'incremento_decremento : POSTDECREMENTO'
 def p_conver_object(p):
     'object : LPAREN OBJECT RPAREN term'
 
@@ -57,13 +64,17 @@ def p_elseif_dos(p):
 def p_else(p):
     'else : ELSE L_LLAVE sentencias R_LLAVE'
 
-def p_asignacion(p):
+def p_asignacion_uno(p):
     'asignacion : VARIABLE IGUAL expresion PUNTOCOMA'
+def p_asignacion_dos(p):
+    'asignacion : VARIABLE IGUAL factor PUNTOCOMA'
+def p_asignacion_incredecre(p):
+    'asignacion : incremento_decremento PUNTOCOMA'
 
-def p_expresion_suma(p):
+def p_expresion_uno(p):
     'expresion : term operadores term'
-def p_expresion_resta(p):
-    'expresion : term operadores term expresion'
+def p_expresion_dos(p):
+    'expresion : expresion term operadores term'
 
 def p_operadores_mas(p):
     'operadores : MAS'
@@ -91,8 +102,6 @@ def p_identidad_compare(p):
     'condiciones : factor IDENTICO factor'
 def p_distinto_compare(p):
     'condiciones : factor DISTINTO factor'
-def p_noidentico_compare(p):
-    'condiciones : factor NOIDENTICO factor'
 def p_menorque_compare(p):
     'condiciones : factor MENORQUE factor'
 def p_mayorque_compare(p):
@@ -134,8 +143,6 @@ def p_factor_strdoble(p):
 
 def p_factor_var(p):
     'factor : VARIABLE'
-def p_factor_var2(p):
-    'factor : ID'
 def p_factor_bool(p):
     'factor : BOOLEAN'
 def p_factor_expr(p):
