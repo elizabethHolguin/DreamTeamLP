@@ -61,7 +61,7 @@ t_NUMBER_FORMAT = r'number_format'; t_TRIM = r'trim'; t_SUBSTR = r'substr'; t_WO
 t_COUNT = r'count'; t_NEXT = r'next'
 
 def t_error(t):
-    print ("No se ha reconocido'%s'" % t.value[0])
+    print ("No definido'%s'" % t.value[0])
     t.lexer.skip (1)
 
 
@@ -70,7 +70,7 @@ def t_newline(t):
     t.lexer.lineno += len (t.value)
 
 #EJEMPLOS JOSELYN HOLGUIN
-cadena = "++$hola $var hello 4+5"
+cadena = "++$hola $var 4+5"
 analizadorJ = lex.lex()
 analizadorJ.input(cadena)
 
@@ -78,7 +78,7 @@ cadena1 = "--$var $pol ($a>2) && ($b<3) 2*4 "
 analizadorJ = lex.lex()
 analizadorJ.input(cadena1)
 
-cadena2 = "($a>2) || ($b<3) 6%2 $r1==$r2 $a1===$a1 hola && hola $s ! $s1"
+cadena2 = "($a>2) || ($b<3) 6%2 $r1==$r2 $a1===$a1 && $s ! $s1"
 analizadorJ = lex.lex()
 analizadorJ.input(cadena2)
 
@@ -90,7 +90,7 @@ while True:
         break
 
 #EJEMPLOS KEVIN  BRIONES
-cadena3 = "if($var1 == $var2 and var === 1)"
+cadena3 = "if($var1 == $var2 and === 1)"
 analizadorK = lex.lex()
 analizadorK.input(cadena3)
 
@@ -98,7 +98,7 @@ cadena4 = "foreach (array(1, 2, 3, 4) as $valor) {$valor * 2;}"
 analizadorK = lex.lex()
 analizadorK.input(cadena4)
 
-cadena5 = "class Foo { public $aMemberVar = \'aMemberVar Member Variable\'; public $aFuncName = \'aMemberFunc\';"
+cadena5 = "{ $aMemberVar = \'aMemberVar Member Variable\'; $aFuncName = \'aMemberFunc\';"
 analizadorK = lex.lex()
 analizadorK.input(cadena5)
 
@@ -119,12 +119,13 @@ cadena8 = "trim($cadena) count($frutitas) "
 analizadorD = lex.lex()
 analizadorD.input(cadena8)
 
-cadena9 = "next($dulces) $archivo = fopen(\"archivo.txt\", \"r\");"
+cadena9 = "next($dulces) $archivo = ds ds  fopen(\"archivo.txt\", \"r\");"
 analizadorD = lex.lex()
 analizadorD.input(cadena9)
 
 while True:
     tokenPru = analizadorD.token()
+
     if tokenPru != None:
         print (tokenPru)
     else:
