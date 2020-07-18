@@ -149,14 +149,19 @@ def p_factor_expr(p):
     'factor : LPAREN expresion RPAREN'
 # Error generado
 def p_error(p):
-    print("Error de sintaxis:")
+    if p:
+        print("Error de sintaxis antes del '%s'" % p.value)
+    else:
+        print("Error de definicion")
 # Construir parser
 parser = sintaxis.yacc()
+
 while True:
     try:
         s = input('<php?> ')
     except EOFError:
         break
-    if not s: continue
+    if not s:
+        continue
     result = parser.parse(s)
     print(result)
