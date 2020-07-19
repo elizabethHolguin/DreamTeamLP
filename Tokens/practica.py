@@ -30,16 +30,17 @@ reserved = {'or': 'OR',
             'sort': 'SORT',
             'count': 'COUNT',
             'next': 'NEXT',
-            'object': 'OBJECT'}
+            'object': 'OBJECT',
+            'php_round_half_up' :'PHP_ROUND_HALF_UP'}
 
 
-tokens = ["MENOS", "MAS", "PRODUCTO", "DIVISION", "MODULO", "NUMEROS", "LPAREN", "RPAREN", "IGUAL_IGUAL", "IDENTICO", "DISTINTO",
+tokens = ["MENOS", "MAS", "PRODUCTO", "DIVISION", "MODULO", "DECIMAL", "NUMEROS", "LPAREN", "RPAREN", "IGUAL_IGUAL", "IDENTICO", "DISTINTO",
            "MENORQUE","MAYORQUE", "MENOROIGUAL", "MAYOROIGUAL", "ANDAND", "OROR", "NO", "PUNTOCOMA",
           "VARIABLE", "CADENASIMPLE", "CADENADOBLE","POSTDECREMENTO", "PREINCREMENTO","POSTINCREMENTO", "PREDECREMENTO", "R_LLAVE", "L_LLAVE", "COMA",
-          "IGUAL", "PUNTO", "EXPONENCIACION"] + list (reserved.values())
+          "IGUAL", "PUNTO", "EXPONENCIACION", "MODOESCRITURA", "URL"] + list (reserved.values())
 
 t_MENOS = r'-';t_MAS = r'\+';t_PRODUCTO = r'\*';t_DIVISION=r'/';t_MODULO=r'%';t_COMA = r','; t_EXPONENCIACION = r'\*\*'
-t_NUMEROS = r'[0-9]+';t_LPAREN = r'\(';t_RPAREN = r'\)';t_R_LLAVE = r"}";t_L_LLAVE= r'{';t_IGUAL = r"="
+t_NUMEROS = r'[0-9]+';t_DECIMAL=r'\d+\.+\d+';t_LPAREN = r'\(';t_RPAREN = r'\)';t_R_LLAVE = r"}";t_L_LLAVE= r'{';t_IGUAL = r"="
 t_IGUAL_IGUAL = r'==';t_IDENTICO=r'===';t_DISTINTO=r'!=|<>'
 t_MENORQUE=r'<';t_MAYORQUE=r'>';t_MENOROIGUAL=r'<=';t_MAYOROIGUAL=r'>='
 t_ANDAND=r' \&\&';t_OROR=r' \|\|';t_NO=r'!'
@@ -59,6 +60,9 @@ t_BOOLEAN = r'True|False'; t_FOPEN = r'fopen'; t_FPASSTHRU = r'fpassthru'; t_FEO
 t_NL2BR = r'nl2br'; t_ROUND = r'round'; t_FLOOR = r'floor'; t_CEIL = r'ceil'; t_POTENCIA = r'pow'; t_MAXMIN ='maxmin'
 t_NUMBER_FORMAT = r'number_format'; t_TRIM = r'trim'; t_SUBSTR = r'substr'; t_WORDWRAP = r'wordwrap'; t_SORT = r'sort'
 t_COUNT = r'count'; t_NEXT = r'next'
+t_URL=r'[\"][[a-zA-Z]*\:*\\\\*|\/*[a-z]+\\*\\*|\/*[a-z]*\/*[a-z]+\.txt\"|\.gif]+\"'
+t_MODOESCRITURA=r'r|w|wb|r\+|w\+|a|a\+|x|x\+|c|c\+|e'
+t_PHP_ROUND_HALF_UP=r'php_round_half_up'
 
 def t_error(t):
     print ("No definido'%s'" % t.value[0])
@@ -119,9 +123,10 @@ cadena8 = "trim($cadena) count($frutitas) "
 analizadorD = lex.lex()
 analizadorD.input(cadena8)
 
-cadena9 = "next($dulces) $archivo = ds ds  fopen(\"archivo.txt\", \"r\");"
+cadena9 = "next($dulces) $archivo = fopen(\"archivo.txt\", \"r\");"
 analizadorD = lex.lex()
 analizadorD.input(cadena9)
+
 
 while True:
     tokenPru = analizadorD.token()
