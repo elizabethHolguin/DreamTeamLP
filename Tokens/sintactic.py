@@ -1,16 +1,6 @@
 import ply.yacc as sintaxis
 import practica
 tokens = practica.tokens
-#Ejemplos para probar con IF
-#if $var==5 { echo 3; }
-#if $var1!=$var2 { echo 'Ayer'; } else { date('Hoy'); }
-
-#ejemplos Kevin
-#for($a=3;$a<4;$a++){$a=4;}
-#while($a<4 && $b>5){$a++;}
-#if($a<$b){print(5);}
-#if($a<$b){print(5);}else{$a= 5+5;}
-#if($a<$b){print(5);}elseif($a>4 || $b<4){$a="hola mundo1";}else{$a= 5+5;}
 
 def p_sentencias(p):
     '''sentencias : asignacion
@@ -151,52 +141,69 @@ def p_factor_expr(p):
 
 
 def p_fopen(p):
-    'fopen : LPAREN URL COMA MODOESCRITURA RPAREN PUNTOCOMA'
+    'fopen : FOPEN LPAREN URL COMA MODOESCRITURA RPAREN PUNTOCOMA'
 
 def p_fpassthru(p):
-    'fpassthru : LPAREN VAR RPAREN PUNTOCOMA'
+    'fpassthru : FPASSTHRU LPAREN VARIABLE RPAREN'
 
 def p_feof(p):
-    'feof : LPAREN VARIABLE RPAREN PUNTOCOMA'
+    'feof : FEOF LPAREN VARIABLE RPAREN PUNTOCOMA'
 
 def p_fgets(p):
-    '''fgets : LPAREN VARIABLE COMA NUMEROS RPAREN
-    |LPAREN VARIABLE RPAREN'''
+    '''fgets : FGETS LPAREN VARIABLE COMA NUMEROS RPAREN
+    | LPAREN VARIABLE RPAREN'''
 
 def p_nl2br(p):
-    '''nl2br : LPAREN CADENADOBLE RPAREN PUNTOCOMA
-    |LPAREN CADENADOBLE COMA BOOLEAN RPAREN PUNTOCOMA
-    |LPAREN VARIABLE RPAREN PUNTOCOMA
-    |LPAREN CADENASIMPLE RPAREN PUNTOCOMA'''
+    '''nl2br : NL2BR LPAREN CADENADOBLE
+    | CADENADOBLE COMA BOOLEAN
+    | VARIABLE
+    | CADENASIMPLE RPAREN PUNTOCOMA'''
 
 def p_round(p):
-    '''round : LPAREN DECIMAL RPAREN PUNTOCOMA
-    |LPAREN MENOS DECIMAL RPAREN PUNTOCOMA
-    |LPAREN DECIMAL COMA NUMEROS RPAREN PUNTOCOMA
-    |LPAREN DECIMAL COMA MENOS NUMEROS RPAREN PUNTOCOMA
-    |LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN PUNTOCOMA
-    |LPAREN MENOS DECIMAL COMA NUMEROS RPAREN PUNTOCOMA
-    |LPAREN MENOS DECIMAL COMA NUMEROS COMA PHP_ROUND_HALF_DOWN RPAREN PUNTOCOMA
-    |LPAREN DECIMAL COMA NUMEROS COMA PHP_ROUND_HALF_DOWN RPAREN PUNTOCOMA'''
+    '''round : ROUND LPAREN DECIMAL RPAREN PUNTOCOMA
+    | LPAREN MENOS DECIMAL RPAREN PUNTOCOMA
+    | LPAREN DECIMAL COMA NUMEROS RPAREN PUNTOCOMA
+    | LPAREN DECIMAL COMA MENOS NUMEROS RPAREN PUNTOCOMA
+    | LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN PUNTOCOMA
+    | LPAREN MENOS DECIMAL COMA NUMEROS RPAREN PUNTOCOMA'''
 
 def p_floor(p):
-    '''floor : LPAREN DECIMAL RPAREN PUNTOCOMA
-    |LPAREN MENOS DECIMAL RPAREN PUNTOCOMA
-    |LPAREN DECIMAL PRODUCTO NUMEROS RPAREN PUNTOCOMA
-    |LPAREN VARIABLE RPAREN PUNTOCOMA'''
+    '''floor : FLOOR LPAREN DECIMAL
+    | MENOS DECIMAL
+    | DECIMAL PRODUCTO NUMEROS
+    | LPAREN VARIABLE RPAREN PUNTOCOMA'''
 
-def p_ceil(p):
-    '''ceil : LPAREN DECIMAL RPAREN PUNTOCOMA
-    |LPAREN MENOS DECIMAL RPAREN PUNTOCOMA
-    |LPAREN VARIABLE RPAREN PUNTOCOMA
-    |LPAREN VARIABLE PRODUCTO NUMEROS RPAREN PUNTOCOMA'''
+def p_ceil_1(p):
+    'ceil : CEIL LPAREN MENOS DECIMAL'
+def p_ceil_2(p):
+    'ceil : CEIL LPAREN DECIMAL RPAREN PUNTOCOMA'
+def p_ceil_3(p):
+    'ceil : CEIL LPAREN VARIABLE RPAREN PUNTOCOMA'
+def p_ceil_4(p):
+    'ceil : CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN PUNTOCOMA'
+
 
 def p_list(p):
-    'list : LPAREN VARIABLE COMA VARIABLE COMA VARIABLE RPAREN IGUAL VARIABLE PUNTOCOMA'
+    'list : LIST LPAREN VARIABLE COMA VARIABLE COMA VARIABLE RPAREN IGUAL VARIABLE PUNTOCOMA'
 
 def p_max_funcion(p):
     '''max : MAX LPAREN ARRAY
     | LIST RPAREN'''
+
+def p_element(p):
+    '''element : elemento
+    | CADENADOBLE
+    | CADENASIMPLE MENOROIGUAL
+    | CADENASIMPLE
+    | CADENADOBLE COMA'''
+
+def p_elemento(p):
+    '''elemento : CADENADOBLE MENOROIGUAL CADENADOBLE COMA
+    | CADENASIMPLE MENOROIGUAL CADENASIMPLE COMA
+    | element'''
+
+def p_array(p):
+    '''array : VARIABLE IGUAL LCORC element RCORC'''
 
 def p_min_funcion(p):
     '''min : MIN LPAREN ARRAY
@@ -216,17 +223,27 @@ def p_number_format_4(p):
 def p_funciones_s(p):
     '''funciones : VARIABLE IGUAL trim
     | substr
-    | wordwrap'''
+    | wordwrap
+    | fopen
+    | fpassthru
+    | feof
+    | fgets
+    | nl2br'''
 
 def p_funciones_a(p):
-    '''funciones : VARIABLE IGUAL next'''
+    '''funciones : VARIABLE IGUAL next
+    | list
+    | array'''
 
 def p_funciones_i(p):
     '''funciones : VARIABLE IGUAL max
     | min
     | sort
     | count
-    | number_format'''
+    | number_format
+    | floor
+    | round
+    | ceil'''
 
 def p_trim_1(p):
     'trim : TRIM LPAREN VARIABLE RPAREN'
@@ -273,4 +290,27 @@ while True:
         continue
     result = parser.parse(s)
     print(result)
+
+#Ejemplos para probar con IF
+#if $var==5 { echo 3; }
+#if $var1!=$var2 { echo 'Ayer'; } else { date('Hoy'); }
+
+#ejemplos Kevin
+#for($a=3;$a<4;$a++){$a=4;}
+#while($a<4 && $b>5){$a++;}
+#if($a<$b){print(5);}
+#if($a<$b){print(5);}else{$a= 5+5;}
+#if($a<$b){print(5);}elseif($a>4 || $b<4){$a="hola mundo1";}else{$a= 5+5;}
+
+#EJEMPLOS DAVID
+# $VAR = ["foo" => "bar",
+#         "bar" => "foo",]
+# $VAR1 = sort($VAR)
+# $VAR2 = trim(TELEFONO)
+# $VAR3 = count($VAR1);
+
+#EJEMPLOS JOSELYN
+#floor(-5.46);
+#nl2br("foo no es bar");
+#round(5.6);
 
