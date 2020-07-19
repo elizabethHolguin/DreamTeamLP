@@ -70,7 +70,8 @@ def p_asignacion_dos(p):
     'asignacion : VARIABLE IGUAL factor PUNTOCOMA'
 def p_asignacion_incredecre(p):
     'asignacion : incremento_decremento PUNTOCOMA'
-
+def p_asignacion_funcion(p):
+    'asignacion : funciones'
 def p_expresion_uno(p):
     'expresion : term operadores term'
 def p_expresion_dos(p):
@@ -167,6 +168,21 @@ def p_number_format_4(p):
     | CADENADOBLE COMA CADENASIMPLE
     | CADENADOBLE RPAREN'''
 
+def p_funciones_s(p):
+    '''funciones : VARIABLE IGUAL trim
+    | substr
+    | wordwrap'''
+
+def p_funciones_a(p):
+    '''funciones : VARIABLE IGUAL next'''
+
+def p_funciones_i(p):
+    '''funciones : VARIABLE IGUAL max
+    | min
+    | sort
+    | count
+    | number_format'''
+
 def p_trim_1(p):
     'trim : TRIM LPAREN VARIABLE RPAREN'
 
@@ -216,3 +232,4 @@ while True:
         continue
     result = parser.parse(s)
     print(result)
+
