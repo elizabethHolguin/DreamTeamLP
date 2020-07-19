@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7cffc16-5700-4f69-bbdd-eadd3685ce22" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tokens/practica.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tokens/practica.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tokens/sintactic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tokens/sintactic.py" afterDir="false" />
     </list>
@@ -12,29 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tokens/sintactic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="263" selection-start-line="263" selection-end-line="263" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tokens/practica.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="148" column="26" lean-forward="true" selection-start-line="148" selection-start-column="26" selection-end-line="148" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,9 +37,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="949" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="948" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -194,7 +173,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -216,20 +194,20 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tokens/sintactic.py">
+    <entry file="file://$PROJECT_DIR$/Tokens/practica.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="263" selection-start-line="263" selection-end-line="263" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="286">
+          <caret line="82" column="104" selection-start-line="82" selection-start-column="104" selection-end-line="82" selection-end-column="104" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tokens/practica.py">
+    <entry file="file://$PROJECT_DIR$/Tokens/sintactic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="148" column="26" lean-forward="true" selection-start-line="148" selection-start-column="26" selection-end-line="148" selection-end-column="26" />
+        <state relative-caret-position="275">
+          <caret line="310" lean-forward="true" selection-start-line="310" selection-end-line="310" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -313,4 +313,6 @@ while True:
 #floor(-5.46);
 #nl2br("foo no es bar");
 #round(5.6);
+#fopen=("c:\\folder\\resource.txt", "r");
+
 

@@ -80,7 +80,7 @@ t_SORT = r'sort'
 t_COUNT = r'count'
 t_NEXT = r'next'
 t_URL=r'[\"][[a-zA-Z]*\:*\\\\*|\/*[a-z]+\\*\\*|\/*[a-z]*\/*[a-z]+\.txt\"|\.gif]+\"'
-t_MODOESCRITURA=r'r|w|wb|r\+|w\+|a|a\+|x|x\+|c|c\+|e'
+t_MODOESCRITURA=r'[\"r\"|\"w\"|\"wb\"|\"r\+\"|\"w\+\"|\"a\"|\"a\+\"|\"x\"|\"x\+\"|\"c\"|\"c\+\""|\"e\"]'
 
 
 def t_error(t):
