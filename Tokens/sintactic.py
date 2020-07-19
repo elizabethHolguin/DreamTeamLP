@@ -70,7 +70,8 @@ def p_asignacion_dos(p):
     'asignacion : VARIABLE IGUAL factor PUNTOCOMA'
 def p_asignacion_incredecre(p):
     'asignacion : incremento_decremento PUNTOCOMA'
-
+def p_asignacion_funcion(p):
+    'asignacion : funciones'
 def p_expresion_uno(p):
     'expresion : term operadores term'
 def p_expresion_dos(p):
@@ -148,6 +149,7 @@ def p_factor_bool(p):
 def p_factor_expr(p):
     'factor : LPAREN expresion RPAREN'
 
+
 def p_fopen(p):
     'fopen : LPAREN URL COMA MODOESCRITURA RPAREN PUNTOCOMA'
 
@@ -192,6 +194,66 @@ def p_ceil(p):
 def p_list(p):
     'list : LPAREN VARIABLE COMA VARIABLE COMA VARIABLE RPAREN IGUAL VARIABLE PUNTOCOMA'
 
+def p_max_funcion(p):
+    '''max : MAX LPAREN ARRAY
+    | LIST RPAREN'''
+
+def p_min_funcion(p):
+    '''min : MIN LPAREN ARRAY
+    | LIST RPAREN'''
+
+def p_number_format_1(p):
+    'number_format : NUMBER_FORMAT LPAREN VARIABLE RPAREN'
+
+def p_number_format_2(p):
+    'number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN'
+
+def p_number_format_4(p):
+    '''number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE
+    | CADENADOBLE COMA CADENASIMPLE
+    | CADENADOBLE RPAREN'''
+
+def p_funciones_s(p):
+    '''funciones : VARIABLE IGUAL trim
+    | substr
+    | wordwrap'''
+
+def p_funciones_a(p):
+    '''funciones : VARIABLE IGUAL next'''
+
+def p_funciones_i(p):
+    '''funciones : VARIABLE IGUAL max
+    | min
+    | sort
+    | count
+    | number_format'''
+
+def p_trim_1(p):
+    'trim : TRIM LPAREN VARIABLE RPAREN'
+
+def p_trim_2(p):
+    '''trim : TRIM LPAREN VARIABLE COMA CADENADOBLE
+    | CADENASIMPLE RPAREN'''
+
+def p_substr(p):
+    'substr : SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN'
+
+def p_wordwrap(p):
+    '''wordwrap : WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE
+    | CADENASIMPLE COMA BOOLEAN RPAREN'''
+
+def p_sort(p):
+    'sort : SORT LPAREN VARIABLE RPAREN'
+
+def p_sort_2(p):
+    'sort : SORT LPAREN VARIABLE COMA FLAG RPAREN'
+
+def p_count(p):
+    'count : COUNT LPAREN VARIABLE RPAREN'
+
+def p_next(p):
+    'next : NEXT LPAREN VARIABLE RPAREN'
+
 
 # Error generado
 def p_error(p):
@@ -200,7 +262,6 @@ def p_error(p):
     else:
         print("Error de definicion")
 
-#Construir parser
 parser = sintaxis.yacc()
 
 while True:
@@ -212,3 +273,4 @@ while True:
         continue
     result = parser.parse(s)
     print(result)
+
