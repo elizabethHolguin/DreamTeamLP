@@ -31,20 +31,19 @@ reserved = {'or': 'OR',
             'sort': 'SORT',
             'count': 'COUNT',
             'next': 'NEXT',
-            'object': 'OBJECT',
-            'php_round_half_up' :'PHP_ROUND_HALF_UP'}
+            'object': 'OBJECT'}
 
 
 
-tokens = ["MENOS", "MAS", "PRODUCTO", "DIVISION", "MODULO", "NUMEROS", "DECIMAL", "FLOAT", "LCORC", "RCORC", "FLAG", "LPAREN", "RPAREN", "IGUAL_IGUAL", "IDENTICO", "DISTINTO",
+tokens = ["MENOS", "MAS", "PRODUCTO", "DIVISION", "MODULO", "LCORC", "RCORC", "NUMEROS", "DECIMAL", "FLAG", "LPAREN", "RPAREN", "IGUAL_IGUAL", "IDENTICO", "DISTINTO",
           "MENORQUE","MAYORQUE", "MENOROIGUAL", "MAYOROIGUAL", "ANDAND", "OROR", "NO", "PUNTOCOMA",
           "VARIABLE", "CADENASIMPLE", "CADENADOBLE","POSTDECREMENTO", "PREINCREMENTO","POSTINCREMENTO", "PREDECREMENTO", "R_LLAVE", "L_LLAVE", "COMA",
           "IGUAL", "PUNTO", "EXPONENCIACION", "MODOESCRITURA", "URL"]+list (reserved.values())
 
 t_MENOS = r'-';t_MAS = r'\+';t_PRODUCTO = r'\*';t_DIVISION=r'/';t_MODULO=r'%';t_COMA = r','; t_EXPONENCIACION = r'\*\*'
-t_NUMEROS = r'[0-9]+';t_DECIMAL=r'\d+\.+\d+';t_FLOAT = r'[0-9]+\.[0-9]+' ;t_LCORC = r'\['; t_RCORC = r'\]';t_LPAREN = r'\(';t_RPAREN = r'\)';t_R_LLAVE = r"}";t_L_LLAVE= r'{';t_IGUAL = r"="
+t_NUMEROS = r'[0-9]+';t_DECIMAL=r'\d+\.+\d+';t_LPAREN = r'\(';t_RPAREN = r'\)';t_R_LLAVE = r"}";t_L_LLAVE= r'{';t_IGUAL = r"="
 t_FLAG = r'[SORT_REGULAR | SORT_NUMERIC | SORT_STRING | SORT_LOCALE_STRING | SORT_NATURAL | SORT_FLAG_CASE ]'
-t_IGUAL_IGUAL = r'==';t_IDENTICO=r'===';t_DISTINTO=r'!=|<>'
+t_IGUAL_IGUAL = r'==';t_IDENTICO=r'===';t_DISTINTO=r'!=|<>';t_LCORC = r'\['; t_RCORC = r'\]';
 t_MENORQUE=r'<';t_MAYORQUE=r'>';t_MENOROIGUAL=r'<=';t_MAYOROIGUAL=r'>='
 t_ANDAND=r' \&\&';t_OROR=r' \|\|';t_NO=r'!'
 t_PUNTOCOMA=r';';t_VARIABLE=r'\$\w+'; t_OBJECT = r'object'
@@ -82,7 +81,6 @@ t_COUNT = r'count'
 t_NEXT = r'next'
 t_URL=r'[\"][[a-zA-Z]*\:*\\\\*|\/*[a-z]+\\*\\*|\/*[a-z]*\/*[a-z]+\.txt\"|\.gif]+\"'
 t_MODOESCRITURA=r'r|w|wb|r\+|w\+|a|a\+|x|x\+|c|c\+|e'
-t_PHP_ROUND_HALF_UP=r'php_round_half_up'
 
 
 def t_error(t):
