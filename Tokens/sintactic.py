@@ -7,7 +7,8 @@ def p_sentencias(p):
     | metodos
     | if
     | for
-    | while'''
+    | while
+    | funciones'''
 
 def p_for(p):
     'for : FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE'
