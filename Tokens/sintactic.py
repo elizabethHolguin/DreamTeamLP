@@ -147,12 +147,63 @@ def p_factor_bool(p):
     'factor : BOOLEAN'
 def p_factor_expr(p):
     'factor : LPAREN expresion RPAREN'
+
+def p_max_funcion(p):
+    '''max : MAX LPAREN ARRAY
+    | LIST RPAREN'''
+
+def p_min_funcion(p):
+    '''min : MIN LPAREN ARRAY
+    | LIST RPAREN'''
+
+def p_number_format_1(p):
+    'number_format : NUMBER_FORMAT LPAREN VARIABLE RPAREN'
+
+def p_number_format_2(p):
+    'number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN'
+
+def p_number_format_4(p):
+    '''number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE
+    | CADENADOBLE COMA CADENASIMPLE
+    | CADENADOBLE RPAREN'''
+
+def p_trim_1(p):
+    'trim : TRIM LPAREN VARIABLE RPAREN'
+
+def p_trim_2(p):
+    '''trim : TRIM LPAREN VARIABLE COMA CADENADOBLE
+    | CADENASIMPLE RPAREN'''
+
+def p_substr(p):
+    'substr : SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN'
+
+def p_wordwrap(p):
+    '''wordwrap : WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE
+    | CADENASIMPLE COMA BOOLEAN RPAREN'''
+
+def p_sort(p):
+    'sort : SORT LPAREN VARIABLE RPAREN'
+
+def p_sort_2(p):
+    'sort : SORT LPAREN VARIABLE COMA FLAG RPAREN'
+
+def p_count(p):
+    'count : COUNT LPAREN VARIABLE RPAREN'
+
+def p_next(p):
+    'next : NEXT LPAREN VARIABLE RPAREN'
+
+
 # Error generado
 def p_error(p):
     if p:
         print("Error de sintaxis antes del '%s'" % p.value)
     else:
         print("Error de definicion")
+
+
+
+
 # Construir parser
 parser = sintaxis.yacc()
 
