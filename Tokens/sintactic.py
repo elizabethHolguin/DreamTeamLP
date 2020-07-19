@@ -274,11 +274,13 @@ def p_next(p):
 
 # Error generado
 def p_error(p):
+    global bandera
     if p:
-        print("Error de sintaxis antes del '%s'" % p.value)
+        print("Error de sintaxis en la linea: ", p.lineno, " posicion ", p.lexpos, "de tipo ", p.type)
+        bandera = False
     else:
         print("Error de definicion")
-
+        bandera = False
 parser = sintaxis.yacc()
 
 while True:
