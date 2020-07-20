@@ -162,7 +162,7 @@ def p_feof(p):
 
 def p_fgets(p):
     '''fgets : FGETS LPAREN VARIABLE COMA NUMEROS RPAREN
-    | LPAREN VARIABLE RPAREN'''
+    | FGETS LPAREN VARIABLE RPAREN'''
 
 def p_nl2br(p):
     '''nl2br : NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN

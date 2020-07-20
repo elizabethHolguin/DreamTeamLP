@@ -77,7 +77,7 @@ Rule 71    fopen -> FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN
 Rule 72    fpassthru -> FPASSTHRU LPAREN VARIABLE RPAREN
 Rule 73    feof -> FEOF LPAREN VARIABLE RPAREN
 Rule 74    fgets -> FGETS LPAREN VARIABLE COMA NUMEROS RPAREN
-Rule 75    fgets -> LPAREN VARIABLE RPAREN
+Rule 75    fgets -> FGETS LPAREN VARIABLE RPAREN
 Rule 76    nl2br -> NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN
 Rule 77    nl2br -> NL2BR LPAREN CADENADOBLE COMA BOOLEAN RPAREN
 Rule 78    nl2br -> NL2BR LPAREN CADENADOBLE RPAREN
@@ -173,7 +173,7 @@ ELSE                 : 31
 ELSEIF               : 29 30
 EXPONENCIACION       : 43
 FEOF                 : 73
-FGETS                : 74
+FGETS                : 74 75
 FLAG                 : 144
 FLOOR                : 88 89 90 91
 FMOD                 : 96
@@ -649,7 +649,7 @@ state 19
     (72) fpassthru -> . FPASSTHRU LPAREN VARIABLE RPAREN
     (73) feof -> . FEOF LPAREN VARIABLE RPAREN
     (74) fgets -> . FGETS LPAREN VARIABLE COMA NUMEROS RPAREN
-    (75) fgets -> . LPAREN VARIABLE RPAREN
+    (75) fgets -> . FGETS LPAREN VARIABLE RPAREN
     (76) nl2br -> . NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN
     (77) nl2br -> . NL2BR LPAREN CADENADOBLE COMA BOOLEAN RPAREN
     (78) nl2br -> . NL2BR LPAREN CADENADOBLE RPAREN
@@ -794,7 +794,7 @@ state 20
     (72) fpassthru -> . FPASSTHRU LPAREN VARIABLE RPAREN
     (73) feof -> . FEOF LPAREN VARIABLE RPAREN
     (74) fgets -> . FGETS LPAREN VARIABLE COMA NUMEROS RPAREN
-    (75) fgets -> . LPAREN VARIABLE RPAREN
+    (75) fgets -> . FGETS LPAREN VARIABLE RPAREN
     (76) nl2br -> . NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN
     (77) nl2br -> . NL2BR LPAREN CADENADOBLE COMA BOOLEAN RPAREN
     (78) nl2br -> . NL2BR LPAREN CADENADOBLE RPAREN
@@ -1036,7 +1036,7 @@ state 26
     (72) fpassthru -> . FPASSTHRU LPAREN VARIABLE RPAREN
     (73) feof -> . FEOF LPAREN VARIABLE RPAREN
     (74) fgets -> . FGETS LPAREN VARIABLE COMA NUMEROS RPAREN
-    (75) fgets -> . LPAREN VARIABLE RPAREN
+    (75) fgets -> . FGETS LPAREN VARIABLE RPAREN
     (76) nl2br -> . NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN
     (77) nl2br -> . NL2BR LPAREN CADENADOBLE COMA BOOLEAN RPAREN
     (78) nl2br -> . NL2BR LPAREN CADENADOBLE RPAREN
@@ -1465,6 +1465,7 @@ state 38
     DIVISION        reduce using rule 67 (factor -> VARIABLE .)
     MODULO          reduce using rule 67 (factor -> VARIABLE .)
     EXPONENCIACION  reduce using rule 67 (factor -> VARIABLE .)
+    RPAREN          reduce using rule 67 (factor -> VARIABLE .)
     IGUAL           shift and go to state 106
 
 
@@ -1512,7 +1513,6 @@ state 39
 state 40
 
     (69) factor -> LPAREN . expresion RPAREN
-    (75) fgets -> LPAREN . VARIABLE RPAREN
     (36) expresion -> . expresion operadores term
     (37) expresion -> . term
     (62) term -> . factor
@@ -1524,17 +1524,17 @@ state 40
     (68) factor -> . BOOLEAN
     (69) factor -> . LPAREN expresion RPAREN
 
-    VARIABLE        shift and go to state 109
     NUMEROS         shift and go to state 34
     DECIMAL         shift and go to state 35
     CADENASIMPLE    shift and go to state 36
     CADENADOBLE     shift and go to state 37
+    VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    expresion                      shift and go to state 108
+    expresion                      shift and go to state 107
     term                           shift and go to state 93
-    factor                         shift and go to state 110
+    factor                         shift and go to state 108
 
 state 41
 
@@ -1750,7 +1750,7 @@ state 51
 
     (124) funciones -> POTENCIA . LPAREN NUMEROS COMA NUMEROS RPAREN
 
-    LPAREN          shift and go to state 111
+    LPAREN          shift and go to state 109
 
 
 state 52
@@ -2011,7 +2011,7 @@ state 64
     (136) trim -> TRIM . LPAREN VARIABLE COMA CADENADOBLE RPAREN
     (137) trim -> TRIM . LPAREN VARIABLE COMA CADENASIMPLE RPAREN
 
-    LPAREN          shift and go to state 112
+    LPAREN          shift and go to state 110
 
 
 state 65
@@ -2021,14 +2021,14 @@ state 65
     (140) substr -> SUBSTR . LPAREN VARIABLE COMA NUMEROS RPAREN
     (141) substr -> SUBSTR . LPAREN CADENADOBLE COMA NUMEROS RPAREN
 
-    LPAREN          shift and go to state 113
+    LPAREN          shift and go to state 111
 
 
 state 66
 
     (142) wordwrap -> WORDWRAP . LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
 
-    LPAREN          shift and go to state 114
+    LPAREN          shift and go to state 112
 
 
 state 67
@@ -2036,28 +2036,29 @@ state 67
     (70) fopen -> FOPEN . LPAREN CADENADOBLE COMA CADENADOBLE RPAREN
     (71) fopen -> FOPEN . LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN
 
-    LPAREN          shift and go to state 115
+    LPAREN          shift and go to state 113
 
 
 state 68
 
     (72) fpassthru -> FPASSTHRU . LPAREN VARIABLE RPAREN
 
-    LPAREN          shift and go to state 116
+    LPAREN          shift and go to state 114
 
 
 state 69
 
     (73) feof -> FEOF . LPAREN VARIABLE RPAREN
 
-    LPAREN          shift and go to state 117
+    LPAREN          shift and go to state 115
 
 
 state 70
 
     (74) fgets -> FGETS . LPAREN VARIABLE COMA NUMEROS RPAREN
+    (75) fgets -> FGETS . LPAREN VARIABLE RPAREN
 
-    LPAREN          shift and go to state 118
+    LPAREN          shift and go to state 116
 
 
 state 71
@@ -2069,21 +2070,21 @@ state 71
     (80) nl2br -> NL2BR . LPAREN VARIABLE COMA VARIABLE RPAREN
     (81) nl2br -> NL2BR . LPAREN VARIABLE RPAREN
 
-    LPAREN          shift and go to state 119
+    LPAREN          shift and go to state 117
 
 
 state 72
 
     (97) lista -> LIST . LPAREN elements RPAREN
 
-    LPAREN          shift and go to state 120
+    LPAREN          shift and go to state 118
 
 
 state 73
 
     (105) arrays -> ARRAY . LPAREN elements RPAREN
 
-    LPAREN          shift and go to state 121
+    LPAREN          shift and go to state 119
 
 
 state 74
@@ -2112,29 +2113,29 @@ state 74
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
     ARRAY           shift and go to state 73
     LCORC           shift and go to state 74
     LIST            shift and go to state 72
 
-    elements                       shift and go to state 122
-    factor                         shift and go to state 123
-    element                        shift and go to state 124
-    arrays                         shift and go to state 125
-    lista                          shift and go to state 126
+    elements                       shift and go to state 120
+    factor                         shift and go to state 121
+    element                        shift and go to state 122
+    arrays                         shift and go to state 123
+    lista                          shift and go to state 124
 
 state 75
 
     (104) max -> MAX . LPAREN elements RPAREN
 
-    LPAREN          shift and go to state 127
+    LPAREN          shift and go to state 125
 
 
 state 76
 
     (107) min -> MIN . LPAREN elements RPAREN
 
-    LPAREN          shift and go to state 128
+    LPAREN          shift and go to state 126
 
 
 state 77
@@ -2142,14 +2143,14 @@ state 77
     (143) sort -> SORT . LPAREN VARIABLE RPAREN
     (144) sort -> SORT . LPAREN VARIABLE COMA FLAG RPAREN
 
-    LPAREN          shift and go to state 129
+    LPAREN          shift and go to state 127
 
 
 state 78
 
     (145) count -> COUNT . LPAREN VARIABLE RPAREN
 
-    LPAREN          shift and go to state 130
+    LPAREN          shift and go to state 128
 
 
 state 79
@@ -2158,7 +2159,7 @@ state 79
     (109) number_format -> NUMBER_FORMAT . LPAREN VARIABLE COMA NUMEROS RPAREN
     (110) number_format -> NUMBER_FORMAT . LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
 
-    LPAREN          shift and go to state 131
+    LPAREN          shift and go to state 129
 
 
 state 80
@@ -2168,7 +2169,7 @@ state 80
     (90) floor -> FLOOR . LPAREN DECIMAL PRODUCTO NUMEROS RPAREN
     (91) floor -> FLOOR . LPAREN VARIABLE RPAREN
 
-    LPAREN          shift and go to state 132
+    LPAREN          shift and go to state 130
 
 
 state 81
@@ -2180,7 +2181,7 @@ state 81
     (86) round -> ROUND . LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN
     (87) round -> ROUND . LPAREN MENOS DECIMAL COMA NUMEROS RPAREN
 
-    LPAREN          shift and go to state 133
+    LPAREN          shift and go to state 131
 
 
 state 82
@@ -2190,7 +2191,7 @@ state 82
     (94) ceil -> CEIL . LPAREN VARIABLE RPAREN
     (95) ceil -> CEIL . LPAREN VARIABLE PRODUCTO NUMEROS RPAREN
 
-    LPAREN          shift and go to state 134
+    LPAREN          shift and go to state 132
 
 
 state 83
@@ -2198,28 +2199,28 @@ state 83
     (122) rand -> RAND . LPAREN NUMEROS COMA NUMEROS RPAREN
     (123) rand -> RAND . LPAREN RPAREN
 
-    LPAREN          shift and go to state 135
+    LPAREN          shift and go to state 133
 
 
 state 84
 
     (96) fmod -> FMOD . LPAREN VARIABLE COMA VARIABLE RPAREN
 
-    LPAREN          shift and go to state 136
+    LPAREN          shift and go to state 134
 
 
 state 85
 
     (149) getclass -> GETCLASS . LPAREN VARIABLE RPAREN
 
-    LPAREN          shift and go to state 137
+    LPAREN          shift and go to state 135
 
 
 state 86
 
     (150) is_a -> IS_A . LPAREN VARIABLE COMA CADENADOBLE RPAREN
 
-    LPAREN          shift and go to state 138
+    LPAREN          shift and go to state 136
 
 
 state 87
@@ -2227,7 +2228,6 @@ state 87
     (22) imprimir -> PRINT LPAREN . factor RPAREN PUNTOCOMA
     (23) imprimir -> PRINT LPAREN . funciones RPAREN PUNTOCOMA
     (69) factor -> LPAREN . expresion RPAREN
-    (75) fgets -> LPAREN . VARIABLE RPAREN
     (63) factor -> . NUMEROS
     (64) factor -> . DECIMAL
     (65) factor -> . CADENASIMPLE
@@ -2274,7 +2274,7 @@ state 87
     (72) fpassthru -> . FPASSTHRU LPAREN VARIABLE RPAREN
     (73) feof -> . FEOF LPAREN VARIABLE RPAREN
     (74) fgets -> . FGETS LPAREN VARIABLE COMA NUMEROS RPAREN
-    (75) fgets -> . LPAREN VARIABLE RPAREN
+    (75) fgets -> . FGETS LPAREN VARIABLE RPAREN
     (76) nl2br -> . NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN
     (77) nl2br -> . NL2BR LPAREN CADENADOBLE COMA BOOLEAN RPAREN
     (78) nl2br -> . NL2BR LPAREN CADENADOBLE RPAREN
@@ -2313,11 +2313,11 @@ state 87
     (150) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
     (62) term -> . factor
 
-    VARIABLE        shift and go to state 141
     NUMEROS         shift and go to state 34
     DECIMAL         shift and go to state 35
     CADENASIMPLE    shift and go to state 36
     CADENADOBLE     shift and go to state 37
+    VARIABLE        shift and go to state 38
     BOOLEAN         shift and go to state 39
     LPAREN          shift and go to state 40
     POTENCIA        shift and go to state 51
@@ -2345,9 +2345,9 @@ state 87
     GETCLASS        shift and go to state 85
     IS_A            shift and go to state 86
 
-    factor                         shift and go to state 139
-    funciones                      shift and go to state 140
-    expresion                      shift and go to state 108
+    factor                         shift and go to state 137
+    funciones                      shift and go to state 138
+    expresion                      shift and go to state 107
     trim                           shift and go to state 41
     substr                         shift and go to state 42
     wordwrap                       shift and go to state 43
@@ -2421,15 +2421,15 @@ state 90
     (42) operadores -> . MODULO
     (43) operadores -> . EXPONENCIACION
 
-    PUNTOCOMA       shift and go to state 142
-    MAS             shift and go to state 144
-    MENOS           shift and go to state 145
-    PRODUCTO        shift and go to state 146
-    DIVISION        shift and go to state 147
-    MODULO          shift and go to state 148
-    EXPONENCIACION  shift and go to state 149
+    PUNTOCOMA       shift and go to state 139
+    MAS             shift and go to state 141
+    MENOS           shift and go to state 142
+    PRODUCTO        shift and go to state 143
+    DIVISION        shift and go to state 144
+    MODULO          shift and go to state 145
+    EXPONENCIACION  shift and go to state 146
 
-    operadores                     shift and go to state 143
+    operadores                     shift and go to state 140
 
 state 91
 
@@ -2437,7 +2437,7 @@ state 91
     (62) term -> factor .
 
   ! shift/reduce conflict for PUNTOCOMA resolved as shift
-    PUNTOCOMA       shift and go to state 150
+    PUNTOCOMA       shift and go to state 147
     MAS             reduce using rule 62 (term -> factor .)
     MENOS           reduce using rule 62 (term -> factor .)
     PRODUCTO        reduce using rule 62 (term -> factor .)
@@ -2452,7 +2452,7 @@ state 92
 
     (35) asignacion -> VARIABLE IGUAL funciones . PUNTOCOMA
 
-    PUNTOCOMA       shift and go to state 151
+    PUNTOCOMA       shift and go to state 148
 
 
 state 93
@@ -2497,11 +2497,11 @@ state 94
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    condiciones                    shift and go to state 152
-    expresion                      shift and go to state 108
-    factor                         shift and go to state 153
+    condiciones                    shift and go to state 149
+    expresion                      shift and go to state 107
+    factor                         shift and go to state 150
     term                           shift and go to state 93
 
 state 95
@@ -2517,15 +2517,15 @@ state 95
     (60) condicion -> . OR
     (61) condicion -> . OROR
 
-    RPAREN          shift and go to state 154
-    XOR             shift and go to state 157
-    ANDAND          shift and go to state 158
-    AND             shift and go to state 159
-    OR              shift and go to state 160
-    OROR            shift and go to state 161
+    RPAREN          shift and go to state 151
+    XOR             shift and go to state 154
+    ANDAND          shift and go to state 155
+    AND             shift and go to state 156
+    OR              shift and go to state 157
+    OROR            shift and go to state 158
 
-    anado                          shift and go to state 155
-    condicion                      shift and go to state 156
+    anado                          shift and go to state 152
+    condicion                      shift and go to state 153
 
 state 96
 
@@ -2557,7 +2557,7 @@ state 98
 
     (46) comparacion -> NO . LPAREN condiciones RPAREN
 
-    LPAREN          shift and go to state 162
+    LPAREN          shift and go to state 159
 
 
 state 99
@@ -2570,13 +2570,13 @@ state 99
     (52) condiciones -> factor . MENOROIGUAL factor
     (53) condiciones -> factor . MAYOROIGUAL factor
 
-    IGUAL_IGUAL     shift and go to state 163
-    IDENTICO        shift and go to state 164
-    DISTINTO        shift and go to state 165
-    MENORQUE        shift and go to state 166
-    MAYORQUE        shift and go to state 167
-    MENOROIGUAL     shift and go to state 168
-    MAYOROIGUAL     shift and go to state 169
+    IGUAL_IGUAL     shift and go to state 160
+    IDENTICO        shift and go to state 161
+    DISTINTO        shift and go to state 162
+    MENORQUE        shift and go to state 163
+    MAYORQUE        shift and go to state 164
+    MENOROIGUAL     shift and go to state 165
+    MAYOROIGUAL     shift and go to state 166
 
 
 state 100
@@ -2590,8 +2590,6 @@ state 100
     MAYORQUE        reduce using rule 67 (factor -> VARIABLE .)
     MENOROIGUAL     reduce using rule 67 (factor -> VARIABLE .)
     MAYOROIGUAL     reduce using rule 67 (factor -> VARIABLE .)
-    RCORC           reduce using rule 67 (factor -> VARIABLE .)
-    COMA            reduce using rule 67 (factor -> VARIABLE .)
     RPAREN          reduce using rule 67 (factor -> VARIABLE .)
     MAS             reduce using rule 67 (factor -> VARIABLE .)
     MENOS           reduce using rule 67 (factor -> VARIABLE .)
@@ -2599,6 +2597,8 @@ state 100
     DIVISION        reduce using rule 67 (factor -> VARIABLE .)
     MODULO          reduce using rule 67 (factor -> VARIABLE .)
     EXPONENCIACION  reduce using rule 67 (factor -> VARIABLE .)
+    RCORC           reduce using rule 67 (factor -> VARIABLE .)
+    COMA            reduce using rule 67 (factor -> VARIABLE .)
     VARIABLE        reduce using rule 67 (factor -> VARIABLE .)
     IF              reduce using rule 67 (factor -> VARIABLE .)
     FOR             reduce using rule 67 (factor -> VARIABLE .)
@@ -2638,10 +2638,10 @@ state 101
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    term                           shift and go to state 170
-    factor                         shift and go to state 110
+    term                           shift and go to state 167
+    factor                         shift and go to state 108
 
 state 102
 
@@ -2675,7 +2675,7 @@ state 102
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
 
-    comparaciones                  shift and go to state 171
+    comparaciones                  shift and go to state 168
     comparacion                    shift and go to state 96
     condiciones                    shift and go to state 97
     factor                         shift and go to state 99
@@ -2691,15 +2691,15 @@ state 103
     (60) condicion -> . OR
     (61) condicion -> . OROR
 
-    RPAREN          shift and go to state 172
-    XOR             shift and go to state 157
-    ANDAND          shift and go to state 158
-    AND             shift and go to state 159
-    OR              shift and go to state 160
-    OROR            shift and go to state 161
+    RPAREN          shift and go to state 169
+    XOR             shift and go to state 154
+    ANDAND          shift and go to state 155
+    AND             shift and go to state 156
+    OR              shift and go to state 157
+    OROR            shift and go to state 158
 
-    anado                          shift and go to state 155
-    condicion                      shift and go to state 156
+    anado                          shift and go to state 152
+    condicion                      shift and go to state 153
 
 state 104
 
@@ -2744,37 +2744,11 @@ state 106
     (119) funciones -> VARIABLE IGUAL . next
     (146) next -> . NEXT LPAREN VARIABLE RPAREN
 
-    NEXT            shift and go to state 174
+    NEXT            shift and go to state 171
 
-    next                           shift and go to state 173
+    next                           shift and go to state 170
 
 state 107
-
-    (69) factor -> LPAREN . expresion RPAREN
-    (36) expresion -> . expresion operadores term
-    (37) expresion -> . term
-    (62) term -> . factor
-    (63) factor -> . NUMEROS
-    (64) factor -> . DECIMAL
-    (65) factor -> . CADENASIMPLE
-    (66) factor -> . CADENADOBLE
-    (67) factor -> . VARIABLE
-    (68) factor -> . BOOLEAN
-    (69) factor -> . LPAREN expresion RPAREN
-
-    NUMEROS         shift and go to state 34
-    DECIMAL         shift and go to state 35
-    CADENASIMPLE    shift and go to state 36
-    CADENADOBLE     shift and go to state 37
-    VARIABLE        shift and go to state 100
-    BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
-
-    expresion                      shift and go to state 108
-    term                           shift and go to state 93
-    factor                         shift and go to state 110
-
-state 108
 
     (69) factor -> LPAREN expresion . RPAREN
     (36) expresion -> expresion . operadores term
@@ -2785,34 +2759,17 @@ state 108
     (42) operadores -> . MODULO
     (43) operadores -> . EXPONENCIACION
 
-    RPAREN          shift and go to state 175
-    MAS             shift and go to state 144
-    MENOS           shift and go to state 145
-    PRODUCTO        shift and go to state 146
-    DIVISION        shift and go to state 147
-    MODULO          shift and go to state 148
-    EXPONENCIACION  shift and go to state 149
+    RPAREN          shift and go to state 172
+    MAS             shift and go to state 141
+    MENOS           shift and go to state 142
+    PRODUCTO        shift and go to state 143
+    DIVISION        shift and go to state 144
+    MODULO          shift and go to state 145
+    EXPONENCIACION  shift and go to state 146
 
-    operadores                     shift and go to state 143
+    operadores                     shift and go to state 140
 
-state 109
-
-    (75) fgets -> LPAREN VARIABLE . RPAREN
-    (67) factor -> VARIABLE .
-
-  ! shift/reduce conflict for RPAREN resolved as shift
-    RPAREN          shift and go to state 176
-    MAS             reduce using rule 67 (factor -> VARIABLE .)
-    MENOS           reduce using rule 67 (factor -> VARIABLE .)
-    PRODUCTO        reduce using rule 67 (factor -> VARIABLE .)
-    DIVISION        reduce using rule 67 (factor -> VARIABLE .)
-    MODULO          reduce using rule 67 (factor -> VARIABLE .)
-    EXPONENCIACION  reduce using rule 67 (factor -> VARIABLE .)
-
-  ! RPAREN          [ reduce using rule 67 (factor -> VARIABLE .) ]
-
-
-state 110
+state 108
 
     (62) term -> factor .
 
@@ -2839,71 +2796,72 @@ state 110
     PUNTOCOMA       reduce using rule 62 (term -> factor .)
 
 
-state 111
+state 109
 
     (124) funciones -> POTENCIA LPAREN . NUMEROS COMA NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 177
+    NUMEROS         shift and go to state 173
 
 
-state 112
+state 110
 
     (135) trim -> TRIM LPAREN . VARIABLE RPAREN
     (136) trim -> TRIM LPAREN . VARIABLE COMA CADENADOBLE RPAREN
     (137) trim -> TRIM LPAREN . VARIABLE COMA CADENASIMPLE RPAREN
 
-    VARIABLE        shift and go to state 178
+    VARIABLE        shift and go to state 174
 
 
-state 113
+state 111
 
     (138) substr -> SUBSTR LPAREN . VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
     (139) substr -> SUBSTR LPAREN . CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
     (140) substr -> SUBSTR LPAREN . VARIABLE COMA NUMEROS RPAREN
     (141) substr -> SUBSTR LPAREN . CADENADOBLE COMA NUMEROS RPAREN
 
-    VARIABLE        shift and go to state 179
-    CADENADOBLE     shift and go to state 180
+    VARIABLE        shift and go to state 175
+    CADENADOBLE     shift and go to state 176
 
 
-state 114
+state 112
 
     (142) wordwrap -> WORDWRAP LPAREN . VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
 
-    VARIABLE        shift and go to state 181
+    VARIABLE        shift and go to state 177
 
 
-state 115
+state 113
 
     (70) fopen -> FOPEN LPAREN . CADENADOBLE COMA CADENADOBLE RPAREN
     (71) fopen -> FOPEN LPAREN . CADENASIMPLE COMA CADENADOBLE RPAREN
 
-    CADENADOBLE     shift and go to state 182
-    CADENASIMPLE    shift and go to state 183
+    CADENADOBLE     shift and go to state 178
+    CADENASIMPLE    shift and go to state 179
+
+
+state 114
+
+    (72) fpassthru -> FPASSTHRU LPAREN . VARIABLE RPAREN
+
+    VARIABLE        shift and go to state 180
+
+
+state 115
+
+    (73) feof -> FEOF LPAREN . VARIABLE RPAREN
+
+    VARIABLE        shift and go to state 181
 
 
 state 116
 
-    (72) fpassthru -> FPASSTHRU LPAREN . VARIABLE RPAREN
+    (74) fgets -> FGETS LPAREN . VARIABLE COMA NUMEROS RPAREN
+    (75) fgets -> FGETS LPAREN . VARIABLE RPAREN
 
-    VARIABLE        shift and go to state 184
+    VARIABLE        shift and go to state 182
 
 
 state 117
-
-    (73) feof -> FEOF LPAREN . VARIABLE RPAREN
-
-    VARIABLE        shift and go to state 185
-
-
-state 118
-
-    (74) fgets -> FGETS LPAREN . VARIABLE COMA NUMEROS RPAREN
-
-    VARIABLE        shift and go to state 186
-
-
-state 119
 
     (76) nl2br -> NL2BR LPAREN . CADENADOBLE COMA VARIABLE RPAREN
     (77) nl2br -> NL2BR LPAREN . CADENADOBLE COMA BOOLEAN RPAREN
@@ -2912,11 +2870,11 @@ state 119
     (80) nl2br -> NL2BR LPAREN . VARIABLE COMA VARIABLE RPAREN
     (81) nl2br -> NL2BR LPAREN . VARIABLE RPAREN
 
-    CADENADOBLE     shift and go to state 187
-    VARIABLE        shift and go to state 188
+    CADENADOBLE     shift and go to state 183
+    VARIABLE        shift and go to state 184
 
 
-state 120
+state 118
 
     (97) lista -> LIST LPAREN . elements RPAREN
     (98) elements -> . factor
@@ -2942,18 +2900,18 @@ state 120
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
     ARRAY           shift and go to state 73
     LCORC           shift and go to state 74
     LIST            shift and go to state 72
 
-    elements                       shift and go to state 189
-    factor                         shift and go to state 123
-    element                        shift and go to state 124
-    arrays                         shift and go to state 125
-    lista                          shift and go to state 126
+    elements                       shift and go to state 185
+    factor                         shift and go to state 121
+    element                        shift and go to state 122
+    arrays                         shift and go to state 123
+    lista                          shift and go to state 124
 
-state 121
+state 119
 
     (105) arrays -> ARRAY LPAREN . elements RPAREN
     (98) elements -> . factor
@@ -2979,28 +2937,28 @@ state 121
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
     ARRAY           shift and go to state 73
     LCORC           shift and go to state 74
     LIST            shift and go to state 72
 
-    elements                       shift and go to state 190
-    factor                         shift and go to state 123
-    element                        shift and go to state 124
-    arrays                         shift and go to state 125
-    lista                          shift and go to state 126
+    elements                       shift and go to state 186
+    factor                         shift and go to state 121
+    element                        shift and go to state 122
+    arrays                         shift and go to state 123
+    lista                          shift and go to state 124
 
-state 122
+state 120
 
     (106) arrays -> LCORC elements . RCORC
     (100) elements -> elements . COMA factor
     (101) elements -> elements . COMA element
 
-    RCORC           shift and go to state 191
-    COMA            shift and go to state 192
+    RCORC           shift and go to state 187
+    COMA            shift and go to state 188
 
 
-state 123
+state 121
 
     (98) elements -> factor .
 
@@ -3009,7 +2967,7 @@ state 123
     RPAREN          reduce using rule 98 (elements -> factor .)
 
 
-state 124
+state 122
 
     (99) elements -> element .
 
@@ -3018,7 +2976,7 @@ state 124
     RPAREN          reduce using rule 99 (elements -> element .)
 
 
-state 125
+state 123
 
     (102) element -> arrays .
 
@@ -3027,7 +2985,7 @@ state 125
     RPAREN          reduce using rule 102 (element -> arrays .)
 
 
-state 126
+state 124
 
     (103) element -> lista .
 
@@ -3036,7 +2994,7 @@ state 126
     RPAREN          reduce using rule 103 (element -> lista .)
 
 
-state 127
+state 125
 
     (104) max -> MAX LPAREN . elements RPAREN
     (98) elements -> . factor
@@ -3062,18 +3020,18 @@ state 127
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
     ARRAY           shift and go to state 73
     LCORC           shift and go to state 74
     LIST            shift and go to state 72
 
-    elements                       shift and go to state 193
-    factor                         shift and go to state 123
-    element                        shift and go to state 124
-    arrays                         shift and go to state 125
-    lista                          shift and go to state 126
+    elements                       shift and go to state 189
+    factor                         shift and go to state 121
+    element                        shift and go to state 122
+    arrays                         shift and go to state 123
+    lista                          shift and go to state 124
 
-state 128
+state 126
 
     (107) min -> MIN LPAREN . elements RPAREN
     (98) elements -> . factor
@@ -3099,54 +3057,54 @@ state 128
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
     ARRAY           shift and go to state 73
     LCORC           shift and go to state 74
     LIST            shift and go to state 72
 
-    elements                       shift and go to state 194
-    factor                         shift and go to state 123
-    element                        shift and go to state 124
-    arrays                         shift and go to state 125
-    lista                          shift and go to state 126
+    elements                       shift and go to state 190
+    factor                         shift and go to state 121
+    element                        shift and go to state 122
+    arrays                         shift and go to state 123
+    lista                          shift and go to state 124
 
-state 129
+state 127
 
     (143) sort -> SORT LPAREN . VARIABLE RPAREN
     (144) sort -> SORT LPAREN . VARIABLE COMA FLAG RPAREN
 
-    VARIABLE        shift and go to state 195
+    VARIABLE        shift and go to state 191
 
 
-state 130
+state 128
 
     (145) count -> COUNT LPAREN . VARIABLE RPAREN
 
-    VARIABLE        shift and go to state 196
+    VARIABLE        shift and go to state 192
 
 
-state 131
+state 129
 
     (108) number_format -> NUMBER_FORMAT LPAREN . VARIABLE RPAREN
     (109) number_format -> NUMBER_FORMAT LPAREN . VARIABLE COMA NUMEROS RPAREN
     (110) number_format -> NUMBER_FORMAT LPAREN . VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
 
-    VARIABLE        shift and go to state 197
+    VARIABLE        shift and go to state 193
 
 
-state 132
+state 130
 
     (88) floor -> FLOOR LPAREN . DECIMAL RPAREN
     (89) floor -> FLOOR LPAREN . MENOS DECIMAL RPAREN
     (90) floor -> FLOOR LPAREN . DECIMAL PRODUCTO NUMEROS RPAREN
     (91) floor -> FLOOR LPAREN . VARIABLE RPAREN
 
-    DECIMAL         shift and go to state 198
-    MENOS           shift and go to state 199
-    VARIABLE        shift and go to state 200
+    DECIMAL         shift and go to state 194
+    MENOS           shift and go to state 195
+    VARIABLE        shift and go to state 196
 
 
-state 133
+state 131
 
     (82) round -> ROUND LPAREN . DECIMAL RPAREN
     (83) round -> ROUND LPAREN . MENOS DECIMAL RPAREN
@@ -3155,59 +3113,59 @@ state 133
     (86) round -> ROUND LPAREN . MENOS DECIMAL COMA MENOS NUMEROS RPAREN
     (87) round -> ROUND LPAREN . MENOS DECIMAL COMA NUMEROS RPAREN
 
-    DECIMAL         shift and go to state 201
-    MENOS           shift and go to state 202
+    DECIMAL         shift and go to state 197
+    MENOS           shift and go to state 198
 
 
-state 134
+state 132
 
     (92) ceil -> CEIL LPAREN . MENOS DECIMAL RPAREN
     (93) ceil -> CEIL LPAREN . DECIMAL RPAREN
     (94) ceil -> CEIL LPAREN . VARIABLE RPAREN
     (95) ceil -> CEIL LPAREN . VARIABLE PRODUCTO NUMEROS RPAREN
 
-    MENOS           shift and go to state 203
-    DECIMAL         shift and go to state 204
-    VARIABLE        shift and go to state 205
+    MENOS           shift and go to state 199
+    DECIMAL         shift and go to state 200
+    VARIABLE        shift and go to state 201
 
 
-state 135
+state 133
 
     (122) rand -> RAND LPAREN . NUMEROS COMA NUMEROS RPAREN
     (123) rand -> RAND LPAREN . RPAREN
 
-    NUMEROS         shift and go to state 206
-    RPAREN          shift and go to state 207
+    NUMEROS         shift and go to state 202
+    RPAREN          shift and go to state 203
+
+
+state 134
+
+    (96) fmod -> FMOD LPAREN . VARIABLE COMA VARIABLE RPAREN
+
+    VARIABLE        shift and go to state 204
+
+
+state 135
+
+    (149) getclass -> GETCLASS LPAREN . VARIABLE RPAREN
+
+    VARIABLE        shift and go to state 205
 
 
 state 136
 
-    (96) fmod -> FMOD LPAREN . VARIABLE COMA VARIABLE RPAREN
+    (150) is_a -> IS_A LPAREN . VARIABLE COMA CADENADOBLE RPAREN
 
-    VARIABLE        shift and go to state 208
+    VARIABLE        shift and go to state 206
 
 
 state 137
-
-    (149) getclass -> GETCLASS LPAREN . VARIABLE RPAREN
-
-    VARIABLE        shift and go to state 209
-
-
-state 138
-
-    (150) is_a -> IS_A LPAREN . VARIABLE COMA CADENADOBLE RPAREN
-
-    VARIABLE        shift and go to state 210
-
-
-state 139
 
     (22) imprimir -> PRINT LPAREN factor . RPAREN PUNTOCOMA
     (62) term -> factor .
 
   ! shift/reduce conflict for RPAREN resolved as shift
-    RPAREN          shift and go to state 211
+    RPAREN          shift and go to state 207
     MAS             reduce using rule 62 (term -> factor .)
     MENOS           reduce using rule 62 (term -> factor .)
     PRODUCTO        reduce using rule 62 (term -> factor .)
@@ -3218,33 +3176,14 @@ state 139
   ! RPAREN          [ reduce using rule 62 (term -> factor .) ]
 
 
-state 140
+state 138
 
     (23) imprimir -> PRINT LPAREN funciones . RPAREN PUNTOCOMA
 
-    RPAREN          shift and go to state 212
+    RPAREN          shift and go to state 208
 
 
-state 141
-
-    (75) fgets -> LPAREN VARIABLE . RPAREN
-    (67) factor -> VARIABLE .
-    (119) funciones -> VARIABLE . IGUAL next
-
-  ! shift/reduce conflict for RPAREN resolved as shift
-    RPAREN          shift and go to state 176
-    MAS             reduce using rule 67 (factor -> VARIABLE .)
-    MENOS           reduce using rule 67 (factor -> VARIABLE .)
-    PRODUCTO        reduce using rule 67 (factor -> VARIABLE .)
-    DIVISION        reduce using rule 67 (factor -> VARIABLE .)
-    MODULO          reduce using rule 67 (factor -> VARIABLE .)
-    EXPONENCIACION  reduce using rule 67 (factor -> VARIABLE .)
-    IGUAL           shift and go to state 106
-
-  ! RPAREN          [ reduce using rule 67 (factor -> VARIABLE .) ]
-
-
-state 142
+state 139
 
     (32) asignacion -> VARIABLE IGUAL expresion PUNTOCOMA .
 
@@ -3269,7 +3208,7 @@ state 142
     R_LLAVE         reduce using rule 32 (asignacion -> VARIABLE IGUAL expresion PUNTOCOMA .)
 
 
-state 143
+state 140
 
     (36) expresion -> expresion operadores . term
     (62) term -> . factor
@@ -3287,12 +3226,12 @@ state 143
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    term                           shift and go to state 213
-    factor                         shift and go to state 110
+    term                           shift and go to state 209
+    factor                         shift and go to state 108
 
-state 144
+state 141
 
     (38) operadores -> MAS .
 
@@ -3305,7 +3244,7 @@ state 144
     LPAREN          reduce using rule 38 (operadores -> MAS .)
 
 
-state 145
+state 142
 
     (39) operadores -> MENOS .
 
@@ -3318,7 +3257,7 @@ state 145
     LPAREN          reduce using rule 39 (operadores -> MENOS .)
 
 
-state 146
+state 143
 
     (40) operadores -> PRODUCTO .
 
@@ -3331,7 +3270,7 @@ state 146
     LPAREN          reduce using rule 40 (operadores -> PRODUCTO .)
 
 
-state 147
+state 144
 
     (41) operadores -> DIVISION .
 
@@ -3344,7 +3283,7 @@ state 147
     LPAREN          reduce using rule 41 (operadores -> DIVISION .)
 
 
-state 148
+state 145
 
     (42) operadores -> MODULO .
 
@@ -3357,7 +3296,7 @@ state 148
     LPAREN          reduce using rule 42 (operadores -> MODULO .)
 
 
-state 149
+state 146
 
     (43) operadores -> EXPONENCIACION .
 
@@ -3370,7 +3309,7 @@ state 149
     LPAREN          reduce using rule 43 (operadores -> EXPONENCIACION .)
 
 
-state 150
+state 147
 
     (33) asignacion -> VARIABLE IGUAL factor PUNTOCOMA .
 
@@ -3395,7 +3334,7 @@ state 150
     R_LLAVE         reduce using rule 33 (asignacion -> VARIABLE IGUAL factor PUNTOCOMA .)
 
 
-state 151
+state 148
 
     (35) asignacion -> VARIABLE IGUAL funciones PUNTOCOMA .
 
@@ -3420,14 +3359,14 @@ state 151
     R_LLAVE         reduce using rule 35 (asignacion -> VARIABLE IGUAL funciones PUNTOCOMA .)
 
 
-state 152
+state 149
 
     (45) comparacion -> LPAREN condiciones . RPAREN
 
-    RPAREN          shift and go to state 214
+    RPAREN          shift and go to state 210
 
 
-state 153
+state 150
 
     (47) condiciones -> factor . IGUAL_IGUAL factor
     (48) condiciones -> factor . IDENTICO factor
@@ -3438,13 +3377,13 @@ state 153
     (53) condiciones -> factor . MAYOROIGUAL factor
     (62) term -> factor .
 
-    IGUAL_IGUAL     shift and go to state 163
-    IDENTICO        shift and go to state 164
-    DISTINTO        shift and go to state 165
-    MENORQUE        shift and go to state 166
-    MAYORQUE        shift and go to state 167
-    MENOROIGUAL     shift and go to state 168
-    MAYOROIGUAL     shift and go to state 169
+    IGUAL_IGUAL     shift and go to state 160
+    IDENTICO        shift and go to state 161
+    DISTINTO        shift and go to state 162
+    MENORQUE        shift and go to state 163
+    MAYORQUE        shift and go to state 164
+    MENOROIGUAL     shift and go to state 165
+    MAYOROIGUAL     shift and go to state 166
     RPAREN          reduce using rule 62 (term -> factor .)
     MAS             reduce using rule 62 (term -> factor .)
     MENOS           reduce using rule 62 (term -> factor .)
@@ -3454,16 +3393,16 @@ state 153
     EXPONENCIACION  reduce using rule 62 (term -> factor .)
 
 
-state 154
+state 151
 
     (26) if -> IF LPAREN comparaciones RPAREN . L_LLAVE sentencias R_LLAVE
     (27) if -> IF LPAREN comparaciones RPAREN . L_LLAVE sentencias R_LLAVE else
     (28) if -> IF LPAREN comparaciones RPAREN . L_LLAVE sentencias R_LLAVE elseif else
 
-    L_LLAVE         shift and go to state 215
+    L_LLAVE         shift and go to state 211
 
 
-state 155
+state 152
 
     (55) comparaciones -> comparaciones anado . comparacion
     (44) comparacion -> . condiciones
@@ -3493,11 +3432,11 @@ state 155
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
 
-    comparacion                    shift and go to state 216
+    comparacion                    shift and go to state 212
     condiciones                    shift and go to state 97
     factor                         shift and go to state 99
 
-state 156
+state 153
 
     (56) anado -> condicion .
 
@@ -3511,7 +3450,7 @@ state 156
     BOOLEAN         reduce using rule 56 (anado -> condicion .)
 
 
-state 157
+state 154
 
     (57) condicion -> XOR .
 
@@ -3525,7 +3464,7 @@ state 157
     BOOLEAN         reduce using rule 57 (condicion -> XOR .)
 
 
-state 158
+state 155
 
     (58) condicion -> ANDAND .
 
@@ -3539,7 +3478,7 @@ state 158
     BOOLEAN         reduce using rule 58 (condicion -> ANDAND .)
 
 
-state 159
+state 156
 
     (59) condicion -> AND .
 
@@ -3553,7 +3492,7 @@ state 159
     BOOLEAN         reduce using rule 59 (condicion -> AND .)
 
 
-state 160
+state 157
 
     (60) condicion -> OR .
 
@@ -3567,7 +3506,7 @@ state 160
     BOOLEAN         reduce using rule 60 (condicion -> OR .)
 
 
-state 161
+state 158
 
     (61) condicion -> OROR .
 
@@ -3581,7 +3520,7 @@ state 161
     BOOLEAN         reduce using rule 61 (condicion -> OROR .)
 
 
-state 162
+state 159
 
     (46) comparacion -> NO LPAREN . condiciones RPAREN
     (47) condiciones -> . factor IGUAL_IGUAL factor
@@ -3605,12 +3544,12 @@ state 162
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    condiciones                    shift and go to state 217
+    condiciones                    shift and go to state 213
     factor                         shift and go to state 99
 
-state 163
+state 160
 
     (47) condiciones -> factor IGUAL_IGUAL . factor
     (63) factor -> . NUMEROS
@@ -3627,11 +3566,11 @@ state 163
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    factor                         shift and go to state 218
+    factor                         shift and go to state 214
 
-state 164
+state 161
 
     (48) condiciones -> factor IDENTICO . factor
     (63) factor -> . NUMEROS
@@ -3648,11 +3587,11 @@ state 164
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    factor                         shift and go to state 219
+    factor                         shift and go to state 215
 
-state 165
+state 162
 
     (49) condiciones -> factor DISTINTO . factor
     (63) factor -> . NUMEROS
@@ -3669,11 +3608,11 @@ state 165
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    factor                         shift and go to state 220
+    factor                         shift and go to state 216
 
-state 166
+state 163
 
     (50) condiciones -> factor MENORQUE . factor
     (63) factor -> . NUMEROS
@@ -3690,11 +3629,11 @@ state 166
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    factor                         shift and go to state 221
+    factor                         shift and go to state 217
 
-state 167
+state 164
 
     (51) condiciones -> factor MAYORQUE . factor
     (63) factor -> . NUMEROS
@@ -3711,11 +3650,11 @@ state 167
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    factor                         shift and go to state 222
+    factor                         shift and go to state 218
 
-state 168
+state 165
 
     (52) condiciones -> factor MENOROIGUAL . factor
     (63) factor -> . NUMEROS
@@ -3732,11 +3671,11 @@ state 168
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    factor                         shift and go to state 223
+    factor                         shift and go to state 219
 
-state 169
+state 166
 
     (53) condiciones -> factor MAYOROIGUAL . factor
     (63) factor -> . NUMEROS
@@ -3753,11 +3692,11 @@ state 169
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
 
-    factor                         shift and go to state 224
+    factor                         shift and go to state 220
 
-state 170
+state 167
 
     (17) object -> LPAREN OBJECT RPAREN term .
 
@@ -3776,7 +3715,7 @@ state 170
     R_LLAVE         reduce using rule 17 (object -> LPAREN OBJECT RPAREN term .)
 
 
-state 171
+state 168
 
     (11) for -> FOR LPAREN asignacion comparaciones . PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE
     (55) comparaciones -> comparaciones . anado comparacion
@@ -3787,24 +3726,24 @@ state 171
     (60) condicion -> . OR
     (61) condicion -> . OROR
 
-    PUNTOCOMA       shift and go to state 225
-    XOR             shift and go to state 157
-    ANDAND          shift and go to state 158
-    AND             shift and go to state 159
-    OR              shift and go to state 160
-    OROR            shift and go to state 161
+    PUNTOCOMA       shift and go to state 221
+    XOR             shift and go to state 154
+    ANDAND          shift and go to state 155
+    AND             shift and go to state 156
+    OR              shift and go to state 157
+    OROR            shift and go to state 158
 
-    anado                          shift and go to state 155
-    condicion                      shift and go to state 156
+    anado                          shift and go to state 152
+    condicion                      shift and go to state 153
 
-state 172
+state 169
 
     (12) while -> WHILE LPAREN comparaciones RPAREN . L_LLAVE sentencias R_LLAVE
 
-    L_LLAVE         shift and go to state 226
+    L_LLAVE         shift and go to state 222
 
 
-state 173
+state 170
 
     (119) funciones -> VARIABLE IGUAL next .
 
@@ -3825,14 +3764,14 @@ state 173
     RPAREN          reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
 
 
-state 174
+state 171
 
     (146) next -> NEXT . LPAREN VARIABLE RPAREN
 
-    LPAREN          shift and go to state 227
+    LPAREN          shift and go to state 223
 
 
-state 175
+state 172
 
     (69) factor -> LPAREN expresion RPAREN .
 
@@ -3873,143 +3812,124 @@ state 175
     OROR            reduce using rule 69 (factor -> LPAREN expresion RPAREN .)
 
 
-state 176
-
-    (75) fgets -> LPAREN VARIABLE RPAREN .
-
-    PUNTOCOMA       reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    VARIABLE        reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    IF              reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    FOR             reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    WHILE           reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    PREINCREMENTO   reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    PREDECREMENTO   reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    ECHO            reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    PRINT           reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    LPAREN          reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    $end            reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    R_LLAVE         reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-    RPAREN          reduce using rule 75 (fgets -> LPAREN VARIABLE RPAREN .)
-
-
-state 177
+state 173
 
     (124) funciones -> POTENCIA LPAREN NUMEROS . COMA NUMEROS RPAREN
 
-    COMA            shift and go to state 228
+    COMA            shift and go to state 224
 
 
-state 178
+state 174
 
     (135) trim -> TRIM LPAREN VARIABLE . RPAREN
     (136) trim -> TRIM LPAREN VARIABLE . COMA CADENADOBLE RPAREN
     (137) trim -> TRIM LPAREN VARIABLE . COMA CADENASIMPLE RPAREN
 
-    RPAREN          shift and go to state 229
+    RPAREN          shift and go to state 225
+    COMA            shift and go to state 226
+
+
+state 175
+
+    (138) substr -> SUBSTR LPAREN VARIABLE . COMA NUMEROS COMA NUMEROS RPAREN
+    (140) substr -> SUBSTR LPAREN VARIABLE . COMA NUMEROS RPAREN
+
+    COMA            shift and go to state 227
+
+
+state 176
+
+    (139) substr -> SUBSTR LPAREN CADENADOBLE . COMA NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> SUBSTR LPAREN CADENADOBLE . COMA NUMEROS RPAREN
+
+    COMA            shift and go to state 228
+
+
+state 177
+
+    (142) wordwrap -> WORDWRAP LPAREN VARIABLE . COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+
+    COMA            shift and go to state 229
+
+
+state 178
+
+    (70) fopen -> FOPEN LPAREN CADENADOBLE . COMA CADENADOBLE RPAREN
+
     COMA            shift and go to state 230
 
 
 state 179
 
-    (138) substr -> SUBSTR LPAREN VARIABLE . COMA NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> SUBSTR LPAREN VARIABLE . COMA NUMEROS RPAREN
+    (71) fopen -> FOPEN LPAREN CADENASIMPLE . COMA CADENADOBLE RPAREN
 
     COMA            shift and go to state 231
 
 
 state 180
 
-    (139) substr -> SUBSTR LPAREN CADENADOBLE . COMA NUMEROS COMA NUMEROS RPAREN
-    (141) substr -> SUBSTR LPAREN CADENADOBLE . COMA NUMEROS RPAREN
+    (72) fpassthru -> FPASSTHRU LPAREN VARIABLE . RPAREN
 
-    COMA            shift and go to state 232
+    RPAREN          shift and go to state 232
 
 
 state 181
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE . COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (73) feof -> FEOF LPAREN VARIABLE . RPAREN
 
-    COMA            shift and go to state 233
+    RPAREN          shift and go to state 233
 
 
 state 182
 
-    (70) fopen -> FOPEN LPAREN CADENADOBLE . COMA CADENADOBLE RPAREN
+    (74) fgets -> FGETS LPAREN VARIABLE . COMA NUMEROS RPAREN
+    (75) fgets -> FGETS LPAREN VARIABLE . RPAREN
 
     COMA            shift and go to state 234
+    RPAREN          shift and go to state 235
 
 
 state 183
-
-    (71) fopen -> FOPEN LPAREN CADENASIMPLE . COMA CADENADOBLE RPAREN
-
-    COMA            shift and go to state 235
-
-
-state 184
-
-    (72) fpassthru -> FPASSTHRU LPAREN VARIABLE . RPAREN
-
-    RPAREN          shift and go to state 236
-
-
-state 185
-
-    (73) feof -> FEOF LPAREN VARIABLE . RPAREN
-
-    RPAREN          shift and go to state 237
-
-
-state 186
-
-    (74) fgets -> FGETS LPAREN VARIABLE . COMA NUMEROS RPAREN
-
-    COMA            shift and go to state 238
-
-
-state 187
 
     (76) nl2br -> NL2BR LPAREN CADENADOBLE . COMA VARIABLE RPAREN
     (77) nl2br -> NL2BR LPAREN CADENADOBLE . COMA BOOLEAN RPAREN
     (78) nl2br -> NL2BR LPAREN CADENADOBLE . RPAREN
 
-    COMA            shift and go to state 239
-    RPAREN          shift and go to state 240
+    COMA            shift and go to state 236
+    RPAREN          shift and go to state 237
 
 
-state 188
+state 184
 
     (79) nl2br -> NL2BR LPAREN VARIABLE . COMA BOOLEAN RPAREN
     (80) nl2br -> NL2BR LPAREN VARIABLE . COMA VARIABLE RPAREN
     (81) nl2br -> NL2BR LPAREN VARIABLE . RPAREN
 
-    COMA            shift and go to state 241
-    RPAREN          shift and go to state 242
+    COMA            shift and go to state 238
+    RPAREN          shift and go to state 239
 
 
-state 189
+state 185
 
     (97) lista -> LIST LPAREN elements . RPAREN
     (100) elements -> elements . COMA factor
     (101) elements -> elements . COMA element
 
-    RPAREN          shift and go to state 243
-    COMA            shift and go to state 192
+    RPAREN          shift and go to state 240
+    COMA            shift and go to state 188
 
 
-state 190
+state 186
 
     (105) arrays -> ARRAY LPAREN elements . RPAREN
     (100) elements -> elements . COMA factor
     (101) elements -> elements . COMA element
 
-    RPAREN          shift and go to state 244
-    COMA            shift and go to state 192
+    RPAREN          shift and go to state 241
+    COMA            shift and go to state 188
 
 
-state 191
+state 187
 
     (106) arrays -> LCORC elements RCORC .
 
@@ -4032,7 +3952,7 @@ state 191
     RPAREN          reduce using rule 106 (arrays -> LCORC elements RCORC .)
 
 
-state 192
+state 188
 
     (100) elements -> elements COMA . factor
     (101) elements -> elements COMA . element
@@ -4055,135 +3975,135 @@ state 192
     CADENADOBLE     shift and go to state 37
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
-    LPAREN          shift and go to state 107
+    LPAREN          shift and go to state 40
     ARRAY           shift and go to state 73
     LCORC           shift and go to state 74
     LIST            shift and go to state 72
 
-    factor                         shift and go to state 245
-    element                        shift and go to state 246
-    arrays                         shift and go to state 125
-    lista                          shift and go to state 126
+    factor                         shift and go to state 242
+    element                        shift and go to state 243
+    arrays                         shift and go to state 123
+    lista                          shift and go to state 124
 
-state 193
+state 189
 
     (104) max -> MAX LPAREN elements . RPAREN
     (100) elements -> elements . COMA factor
     (101) elements -> elements . COMA element
 
-    RPAREN          shift and go to state 247
-    COMA            shift and go to state 192
+    RPAREN          shift and go to state 244
+    COMA            shift and go to state 188
 
 
-state 194
+state 190
 
     (107) min -> MIN LPAREN elements . RPAREN
     (100) elements -> elements . COMA factor
     (101) elements -> elements . COMA element
 
-    RPAREN          shift and go to state 248
-    COMA            shift and go to state 192
+    RPAREN          shift and go to state 245
+    COMA            shift and go to state 188
 
 
-state 195
+state 191
 
     (143) sort -> SORT LPAREN VARIABLE . RPAREN
     (144) sort -> SORT LPAREN VARIABLE . COMA FLAG RPAREN
 
-    RPAREN          shift and go to state 249
-    COMA            shift and go to state 250
+    RPAREN          shift and go to state 246
+    COMA            shift and go to state 247
 
 
-state 196
+state 192
 
     (145) count -> COUNT LPAREN VARIABLE . RPAREN
 
-    RPAREN          shift and go to state 251
+    RPAREN          shift and go to state 248
 
 
-state 197
+state 193
 
     (108) number_format -> NUMBER_FORMAT LPAREN VARIABLE . RPAREN
     (109) number_format -> NUMBER_FORMAT LPAREN VARIABLE . COMA NUMEROS RPAREN
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE . COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
 
-    RPAREN          shift and go to state 252
-    COMA            shift and go to state 253
+    RPAREN          shift and go to state 249
+    COMA            shift and go to state 250
 
 
-state 198
+state 194
 
     (88) floor -> FLOOR LPAREN DECIMAL . RPAREN
     (90) floor -> FLOOR LPAREN DECIMAL . PRODUCTO NUMEROS RPAREN
 
-    RPAREN          shift and go to state 254
-    PRODUCTO        shift and go to state 255
+    RPAREN          shift and go to state 251
+    PRODUCTO        shift and go to state 252
 
 
-state 199
+state 195
 
     (89) floor -> FLOOR LPAREN MENOS . DECIMAL RPAREN
 
-    DECIMAL         shift and go to state 256
+    DECIMAL         shift and go to state 253
 
 
-state 200
+state 196
 
     (91) floor -> FLOOR LPAREN VARIABLE . RPAREN
 
-    RPAREN          shift and go to state 257
+    RPAREN          shift and go to state 254
 
 
-state 201
+state 197
 
     (82) round -> ROUND LPAREN DECIMAL . RPAREN
     (84) round -> ROUND LPAREN DECIMAL . COMA NUMEROS RPAREN
     (85) round -> ROUND LPAREN DECIMAL . COMA MENOS NUMEROS RPAREN
 
-    RPAREN          shift and go to state 258
-    COMA            shift and go to state 259
+    RPAREN          shift and go to state 255
+    COMA            shift and go to state 256
 
 
-state 202
+state 198
 
     (83) round -> ROUND LPAREN MENOS . DECIMAL RPAREN
     (86) round -> ROUND LPAREN MENOS . DECIMAL COMA MENOS NUMEROS RPAREN
     (87) round -> ROUND LPAREN MENOS . DECIMAL COMA NUMEROS RPAREN
 
-    DECIMAL         shift and go to state 260
+    DECIMAL         shift and go to state 257
 
 
-state 203
+state 199
 
     (92) ceil -> CEIL LPAREN MENOS . DECIMAL RPAREN
 
-    DECIMAL         shift and go to state 261
+    DECIMAL         shift and go to state 258
 
 
-state 204
+state 200
 
     (93) ceil -> CEIL LPAREN DECIMAL . RPAREN
 
-    RPAREN          shift and go to state 262
+    RPAREN          shift and go to state 259
 
 
-state 205
+state 201
 
     (94) ceil -> CEIL LPAREN VARIABLE . RPAREN
     (95) ceil -> CEIL LPAREN VARIABLE . PRODUCTO NUMEROS RPAREN
 
-    RPAREN          shift and go to state 263
-    PRODUCTO        shift and go to state 264
+    RPAREN          shift and go to state 260
+    PRODUCTO        shift and go to state 261
 
 
-state 206
+state 202
 
     (122) rand -> RAND LPAREN NUMEROS . COMA NUMEROS RPAREN
 
-    COMA            shift and go to state 265
+    COMA            shift and go to state 262
 
 
-state 207
+state 203
 
     (123) rand -> RAND LPAREN RPAREN .
 
@@ -4204,42 +4124,42 @@ state 207
     RPAREN          reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
 
 
-state 208
+state 204
 
     (96) fmod -> FMOD LPAREN VARIABLE . COMA VARIABLE RPAREN
 
-    COMA            shift and go to state 266
+    COMA            shift and go to state 263
 
 
-state 209
+state 205
 
     (149) getclass -> GETCLASS LPAREN VARIABLE . RPAREN
 
-    RPAREN          shift and go to state 267
+    RPAREN          shift and go to state 264
 
 
-state 210
+state 206
 
     (150) is_a -> IS_A LPAREN VARIABLE . COMA CADENADOBLE RPAREN
 
-    COMA            shift and go to state 268
+    COMA            shift and go to state 265
 
 
-state 211
+state 207
 
     (22) imprimir -> PRINT LPAREN factor RPAREN . PUNTOCOMA
 
-    PUNTOCOMA       shift and go to state 269
+    PUNTOCOMA       shift and go to state 266
 
 
-state 212
+state 208
 
     (23) imprimir -> PRINT LPAREN funciones RPAREN . PUNTOCOMA
 
-    PUNTOCOMA       shift and go to state 270
+    PUNTOCOMA       shift and go to state 267
 
 
-state 213
+state 209
 
     (36) expresion -> expresion operadores term .
 
@@ -4253,7 +4173,7 @@ state 213
     RPAREN          reduce using rule 36 (expresion -> expresion operadores term .)
 
 
-state 214
+state 210
 
     (45) comparacion -> LPAREN condiciones RPAREN .
 
@@ -4266,11 +4186,195 @@ state 214
     PUNTOCOMA       reduce using rule 45 (comparacion -> LPAREN condiciones RPAREN .)
 
 
-state 215
+state 211
 
     (26) if -> IF LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE
     (27) if -> IF LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE else
     (28) if -> IF LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE elseif else
+    (1) sentencias -> . sentencias asignacion
+    (2) sentencias -> . sentencias metodos
+    (3) sentencias -> . sentencias if
+    (4) sentencias -> . sentencias for
+    (5) sentencias -> . sentencias while
+    (6) sentencias -> . asignacion
+    (7) sentencias -> . metodos
+    (8) sentencias -> . if
+    (9) sentencias -> . for
+    (10) sentencias -> . while
+    (32) asignacion -> . VARIABLE IGUAL expresion PUNTOCOMA
+    (33) asignacion -> . VARIABLE IGUAL factor PUNTOCOMA
+    (34) asignacion -> . incremento_decremento PUNTOCOMA
+    (35) asignacion -> . VARIABLE IGUAL funciones PUNTOCOMA
+    (18) metodos -> . imprimir
+    (19) metodos -> . object
+    (26) if -> . IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
+    (27) if -> . IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE else
+    (28) if -> . IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif else
+    (11) for -> . FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE
+    (12) while -> . WHILE LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
+    (13) incremento_decremento -> . PREINCREMENTO
+    (14) incremento_decremento -> . POSTINCREMENTO
+    (15) incremento_decremento -> . PREDECREMENTO
+    (16) incremento_decremento -> . POSTDECREMENTO
+    (20) imprimir -> . ECHO factor PUNTOCOMA
+    (21) imprimir -> . ECHO funciones PUNTOCOMA
+    (22) imprimir -> . PRINT LPAREN factor RPAREN PUNTOCOMA
+    (23) imprimir -> . PRINT LPAREN funciones RPAREN PUNTOCOMA
+    (24) imprimir -> . PRINT factor
+    (25) imprimir -> . PRINT funciones
+    (17) object -> . LPAREN OBJECT RPAREN term
+
+    VARIABLE        shift and go to state 7
+    IF              shift and go to state 11
+    FOR             shift and go to state 13
+    WHILE           shift and go to state 14
+    PREINCREMENTO   shift and go to state 15
+    POSTINCREMENTO  shift and go to state 16
+    PREDECREMENTO   shift and go to state 17
+    POSTDECREMENTO  shift and go to state 18
+    ECHO            shift and go to state 19
+    PRINT           shift and go to state 20
+    LPAREN          shift and go to state 12
+
+    sentencias                     shift and go to state 268
+    asignacion                     shift and go to state 2
+    metodos                        shift and go to state 3
+    if                             shift and go to state 4
+    for                            shift and go to state 5
+    while                          shift and go to state 6
+    incremento_decremento          shift and go to state 8
+    imprimir                       shift and go to state 9
+    object                         shift and go to state 10
+
+state 212
+
+    (55) comparaciones -> comparaciones anado comparacion .
+
+    RPAREN          reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
+    XOR             reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
+    ANDAND          reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
+    AND             reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
+    OR              reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
+    OROR            reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
+    PUNTOCOMA       reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
+
+
+state 213
+
+    (46) comparacion -> NO LPAREN condiciones . RPAREN
+
+    RPAREN          shift and go to state 269
+
+
+state 214
+
+    (47) condiciones -> factor IGUAL_IGUAL factor .
+
+    RPAREN          reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
+    XOR             reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
+    ANDAND          reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
+    AND             reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
+    OR              reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
+    OROR            reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
+    PUNTOCOMA       reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
+
+
+state 215
+
+    (48) condiciones -> factor IDENTICO factor .
+
+    RPAREN          reduce using rule 48 (condiciones -> factor IDENTICO factor .)
+    XOR             reduce using rule 48 (condiciones -> factor IDENTICO factor .)
+    ANDAND          reduce using rule 48 (condiciones -> factor IDENTICO factor .)
+    AND             reduce using rule 48 (condiciones -> factor IDENTICO factor .)
+    OR              reduce using rule 48 (condiciones -> factor IDENTICO factor .)
+    OROR            reduce using rule 48 (condiciones -> factor IDENTICO factor .)
+    PUNTOCOMA       reduce using rule 48 (condiciones -> factor IDENTICO factor .)
+
+
+state 216
+
+    (49) condiciones -> factor DISTINTO factor .
+
+    RPAREN          reduce using rule 49 (condiciones -> factor DISTINTO factor .)
+    XOR             reduce using rule 49 (condiciones -> factor DISTINTO factor .)
+    ANDAND          reduce using rule 49 (condiciones -> factor DISTINTO factor .)
+    AND             reduce using rule 49 (condiciones -> factor DISTINTO factor .)
+    OR              reduce using rule 49 (condiciones -> factor DISTINTO factor .)
+    OROR            reduce using rule 49 (condiciones -> factor DISTINTO factor .)
+    PUNTOCOMA       reduce using rule 49 (condiciones -> factor DISTINTO factor .)
+
+
+state 217
+
+    (50) condiciones -> factor MENORQUE factor .
+
+    RPAREN          reduce using rule 50 (condiciones -> factor MENORQUE factor .)
+    XOR             reduce using rule 50 (condiciones -> factor MENORQUE factor .)
+    ANDAND          reduce using rule 50 (condiciones -> factor MENORQUE factor .)
+    AND             reduce using rule 50 (condiciones -> factor MENORQUE factor .)
+    OR              reduce using rule 50 (condiciones -> factor MENORQUE factor .)
+    OROR            reduce using rule 50 (condiciones -> factor MENORQUE factor .)
+    PUNTOCOMA       reduce using rule 50 (condiciones -> factor MENORQUE factor .)
+
+
+state 218
+
+    (51) condiciones -> factor MAYORQUE factor .
+
+    RPAREN          reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
+    XOR             reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
+    ANDAND          reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
+    AND             reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
+    OR              reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
+    OROR            reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
+    PUNTOCOMA       reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
+
+
+state 219
+
+    (52) condiciones -> factor MENOROIGUAL factor .
+
+    RPAREN          reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
+    XOR             reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
+    ANDAND          reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
+    AND             reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
+    OR              reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
+    OROR            reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
+    PUNTOCOMA       reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
+
+
+state 220
+
+    (53) condiciones -> factor MAYOROIGUAL factor .
+
+    RPAREN          reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
+    XOR             reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
+    ANDAND          reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
+    AND             reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
+    OR              reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
+    OROR            reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
+    PUNTOCOMA       reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
+
+
+state 221
+
+    (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA . incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE
+    (13) incremento_decremento -> . PREINCREMENTO
+    (14) incremento_decremento -> . POSTINCREMENTO
+    (15) incremento_decremento -> . PREDECREMENTO
+    (16) incremento_decremento -> . POSTDECREMENTO
+
+    PREINCREMENTO   shift and go to state 15
+    POSTINCREMENTO  shift and go to state 16
+    PREDECREMENTO   shift and go to state 17
+    POSTDECREMENTO  shift and go to state 18
+
+    incremento_decremento          shift and go to state 270
+
+state 222
+
+    (12) while -> WHILE LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE
     (1) sentencias -> . sentencias asignacion
     (2) sentencias -> . sentencias metodos
     (3) sentencias -> . sentencias if
@@ -4326,205 +4430,21 @@ state 215
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 216
-
-    (55) comparaciones -> comparaciones anado comparacion .
-
-    RPAREN          reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
-    XOR             reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
-    ANDAND          reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
-    AND             reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
-    OR              reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
-    OROR            reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
-    PUNTOCOMA       reduce using rule 55 (comparaciones -> comparaciones anado comparacion .)
-
-
-state 217
-
-    (46) comparacion -> NO LPAREN condiciones . RPAREN
-
-    RPAREN          shift and go to state 272
-
-
-state 218
-
-    (47) condiciones -> factor IGUAL_IGUAL factor .
-
-    RPAREN          reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
-    XOR             reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
-    ANDAND          reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
-    AND             reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
-    OR              reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
-    OROR            reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
-    PUNTOCOMA       reduce using rule 47 (condiciones -> factor IGUAL_IGUAL factor .)
-
-
-state 219
-
-    (48) condiciones -> factor IDENTICO factor .
-
-    RPAREN          reduce using rule 48 (condiciones -> factor IDENTICO factor .)
-    XOR             reduce using rule 48 (condiciones -> factor IDENTICO factor .)
-    ANDAND          reduce using rule 48 (condiciones -> factor IDENTICO factor .)
-    AND             reduce using rule 48 (condiciones -> factor IDENTICO factor .)
-    OR              reduce using rule 48 (condiciones -> factor IDENTICO factor .)
-    OROR            reduce using rule 48 (condiciones -> factor IDENTICO factor .)
-    PUNTOCOMA       reduce using rule 48 (condiciones -> factor IDENTICO factor .)
-
-
-state 220
-
-    (49) condiciones -> factor DISTINTO factor .
-
-    RPAREN          reduce using rule 49 (condiciones -> factor DISTINTO factor .)
-    XOR             reduce using rule 49 (condiciones -> factor DISTINTO factor .)
-    ANDAND          reduce using rule 49 (condiciones -> factor DISTINTO factor .)
-    AND             reduce using rule 49 (condiciones -> factor DISTINTO factor .)
-    OR              reduce using rule 49 (condiciones -> factor DISTINTO factor .)
-    OROR            reduce using rule 49 (condiciones -> factor DISTINTO factor .)
-    PUNTOCOMA       reduce using rule 49 (condiciones -> factor DISTINTO factor .)
-
-
-state 221
-
-    (50) condiciones -> factor MENORQUE factor .
-
-    RPAREN          reduce using rule 50 (condiciones -> factor MENORQUE factor .)
-    XOR             reduce using rule 50 (condiciones -> factor MENORQUE factor .)
-    ANDAND          reduce using rule 50 (condiciones -> factor MENORQUE factor .)
-    AND             reduce using rule 50 (condiciones -> factor MENORQUE factor .)
-    OR              reduce using rule 50 (condiciones -> factor MENORQUE factor .)
-    OROR            reduce using rule 50 (condiciones -> factor MENORQUE factor .)
-    PUNTOCOMA       reduce using rule 50 (condiciones -> factor MENORQUE factor .)
-
-
-state 222
-
-    (51) condiciones -> factor MAYORQUE factor .
-
-    RPAREN          reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
-    XOR             reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
-    ANDAND          reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
-    AND             reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
-    OR              reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
-    OROR            reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
-    PUNTOCOMA       reduce using rule 51 (condiciones -> factor MAYORQUE factor .)
-
-
 state 223
 
-    (52) condiciones -> factor MENOROIGUAL factor .
+    (146) next -> NEXT LPAREN . VARIABLE RPAREN
 
-    RPAREN          reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
-    XOR             reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
-    ANDAND          reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
-    AND             reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
-    OR              reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
-    OROR            reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
-    PUNTOCOMA       reduce using rule 52 (condiciones -> factor MENOROIGUAL factor .)
+    VARIABLE        shift and go to state 272
 
 
 state 224
 
-    (53) condiciones -> factor MAYOROIGUAL factor .
+    (124) funciones -> POTENCIA LPAREN NUMEROS COMA . NUMEROS RPAREN
 
-    RPAREN          reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
-    XOR             reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
-    ANDAND          reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
-    AND             reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
-    OR              reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
-    OROR            reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
-    PUNTOCOMA       reduce using rule 53 (condiciones -> factor MAYOROIGUAL factor .)
+    NUMEROS         shift and go to state 273
 
 
 state 225
-
-    (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA . incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE
-    (13) incremento_decremento -> . PREINCREMENTO
-    (14) incremento_decremento -> . POSTINCREMENTO
-    (15) incremento_decremento -> . PREDECREMENTO
-    (16) incremento_decremento -> . POSTDECREMENTO
-
-    PREINCREMENTO   shift and go to state 15
-    POSTINCREMENTO  shift and go to state 16
-    PREDECREMENTO   shift and go to state 17
-    POSTDECREMENTO  shift and go to state 18
-
-    incremento_decremento          shift and go to state 273
-
-state 226
-
-    (12) while -> WHILE LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE
-    (1) sentencias -> . sentencias asignacion
-    (2) sentencias -> . sentencias metodos
-    (3) sentencias -> . sentencias if
-    (4) sentencias -> . sentencias for
-    (5) sentencias -> . sentencias while
-    (6) sentencias -> . asignacion
-    (7) sentencias -> . metodos
-    (8) sentencias -> . if
-    (9) sentencias -> . for
-    (10) sentencias -> . while
-    (32) asignacion -> . VARIABLE IGUAL expresion PUNTOCOMA
-    (33) asignacion -> . VARIABLE IGUAL factor PUNTOCOMA
-    (34) asignacion -> . incremento_decremento PUNTOCOMA
-    (35) asignacion -> . VARIABLE IGUAL funciones PUNTOCOMA
-    (18) metodos -> . imprimir
-    (19) metodos -> . object
-    (26) if -> . IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
-    (27) if -> . IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE else
-    (28) if -> . IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif else
-    (11) for -> . FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE
-    (12) while -> . WHILE LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
-    (13) incremento_decremento -> . PREINCREMENTO
-    (14) incremento_decremento -> . POSTINCREMENTO
-    (15) incremento_decremento -> . PREDECREMENTO
-    (16) incremento_decremento -> . POSTDECREMENTO
-    (20) imprimir -> . ECHO factor PUNTOCOMA
-    (21) imprimir -> . ECHO funciones PUNTOCOMA
-    (22) imprimir -> . PRINT LPAREN factor RPAREN PUNTOCOMA
-    (23) imprimir -> . PRINT LPAREN funciones RPAREN PUNTOCOMA
-    (24) imprimir -> . PRINT factor
-    (25) imprimir -> . PRINT funciones
-    (17) object -> . LPAREN OBJECT RPAREN term
-
-    VARIABLE        shift and go to state 7
-    IF              shift and go to state 11
-    FOR             shift and go to state 13
-    WHILE           shift and go to state 14
-    PREINCREMENTO   shift and go to state 15
-    POSTINCREMENTO  shift and go to state 16
-    PREDECREMENTO   shift and go to state 17
-    POSTDECREMENTO  shift and go to state 18
-    ECHO            shift and go to state 19
-    PRINT           shift and go to state 20
-    LPAREN          shift and go to state 12
-
-    sentencias                     shift and go to state 274
-    asignacion                     shift and go to state 2
-    metodos                        shift and go to state 3
-    if                             shift and go to state 4
-    for                            shift and go to state 5
-    while                          shift and go to state 6
-    incremento_decremento          shift and go to state 8
-    imprimir                       shift and go to state 9
-    object                         shift and go to state 10
-
-state 227
-
-    (146) next -> NEXT LPAREN . VARIABLE RPAREN
-
-    VARIABLE        shift and go to state 275
-
-
-state 228
-
-    (124) funciones -> POTENCIA LPAREN NUMEROS COMA . NUMEROS RPAREN
-
-    NUMEROS         shift and go to state 276
-
-
-state 229
 
     (135) trim -> TRIM LPAREN VARIABLE RPAREN .
 
@@ -4545,53 +4465,53 @@ state 229
     RPAREN          reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
 
 
-state 230
+state 226
 
     (136) trim -> TRIM LPAREN VARIABLE COMA . CADENADOBLE RPAREN
     (137) trim -> TRIM LPAREN VARIABLE COMA . CADENASIMPLE RPAREN
 
-    CADENADOBLE     shift and go to state 277
-    CADENASIMPLE    shift and go to state 278
+    CADENADOBLE     shift and go to state 274
+    CADENASIMPLE    shift and go to state 275
 
 
-state 231
+state 227
 
     (138) substr -> SUBSTR LPAREN VARIABLE COMA . NUMEROS COMA NUMEROS RPAREN
     (140) substr -> SUBSTR LPAREN VARIABLE COMA . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 279
+    NUMEROS         shift and go to state 276
 
 
-state 232
+state 228
 
     (139) substr -> SUBSTR LPAREN CADENADOBLE COMA . NUMEROS COMA NUMEROS RPAREN
     (141) substr -> SUBSTR LPAREN CADENADOBLE COMA . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 280
+    NUMEROS         shift and go to state 277
 
 
-state 233
+state 229
 
     (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA . NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
 
-    NUMEROS         shift and go to state 281
+    NUMEROS         shift and go to state 278
 
 
-state 234
+state 230
 
     (70) fopen -> FOPEN LPAREN CADENADOBLE COMA . CADENADOBLE RPAREN
 
-    CADENADOBLE     shift and go to state 282
+    CADENADOBLE     shift and go to state 279
 
 
-state 235
+state 231
 
     (71) fopen -> FOPEN LPAREN CADENASIMPLE COMA . CADENADOBLE RPAREN
 
-    CADENADOBLE     shift and go to state 283
+    CADENADOBLE     shift and go to state 280
 
 
-state 236
+state 232
 
     (72) fpassthru -> FPASSTHRU LPAREN VARIABLE RPAREN .
 
@@ -4612,7 +4532,7 @@ state 236
     RPAREN          reduce using rule 72 (fpassthru -> FPASSTHRU LPAREN VARIABLE RPAREN .)
 
 
-state 237
+state 233
 
     (73) feof -> FEOF LPAREN VARIABLE RPAREN .
 
@@ -4633,23 +4553,44 @@ state 237
     RPAREN          reduce using rule 73 (feof -> FEOF LPAREN VARIABLE RPAREN .)
 
 
-state 238
+state 234
 
     (74) fgets -> FGETS LPAREN VARIABLE COMA . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 284
+    NUMEROS         shift and go to state 281
 
 
-state 239
+state 235
+
+    (75) fgets -> FGETS LPAREN VARIABLE RPAREN .
+
+    PUNTOCOMA       reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    VARIABLE        reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    IF              reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    FOR             reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    WHILE           reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    PREINCREMENTO   reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    PREDECREMENTO   reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    ECHO            reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    PRINT           reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    LPAREN          reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    $end            reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    R_LLAVE         reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+    RPAREN          reduce using rule 75 (fgets -> FGETS LPAREN VARIABLE RPAREN .)
+
+
+state 236
 
     (76) nl2br -> NL2BR LPAREN CADENADOBLE COMA . VARIABLE RPAREN
     (77) nl2br -> NL2BR LPAREN CADENADOBLE COMA . BOOLEAN RPAREN
 
-    VARIABLE        shift and go to state 285
-    BOOLEAN         shift and go to state 286
+    VARIABLE        shift and go to state 282
+    BOOLEAN         shift and go to state 283
 
 
-state 240
+state 237
 
     (78) nl2br -> NL2BR LPAREN CADENADOBLE RPAREN .
 
@@ -4670,16 +4611,16 @@ state 240
     RPAREN          reduce using rule 78 (nl2br -> NL2BR LPAREN CADENADOBLE RPAREN .)
 
 
-state 241
+state 238
 
     (79) nl2br -> NL2BR LPAREN VARIABLE COMA . BOOLEAN RPAREN
     (80) nl2br -> NL2BR LPAREN VARIABLE COMA . VARIABLE RPAREN
 
-    BOOLEAN         shift and go to state 288
-    VARIABLE        shift and go to state 287
+    BOOLEAN         shift and go to state 285
+    VARIABLE        shift and go to state 284
 
 
-state 242
+state 239
 
     (81) nl2br -> NL2BR LPAREN VARIABLE RPAREN .
 
@@ -4700,7 +4641,7 @@ state 242
     RPAREN          reduce using rule 81 (nl2br -> NL2BR LPAREN VARIABLE RPAREN .)
 
 
-state 243
+state 240
 
     (97) lista -> LIST LPAREN elements RPAREN .
 
@@ -4723,7 +4664,7 @@ state 243
     RPAREN          reduce using rule 97 (lista -> LIST LPAREN elements RPAREN .)
 
 
-state 244
+state 241
 
     (105) arrays -> ARRAY LPAREN elements RPAREN .
 
@@ -4746,7 +4687,7 @@ state 244
     RPAREN          reduce using rule 105 (arrays -> ARRAY LPAREN elements RPAREN .)
 
 
-state 245
+state 242
 
     (100) elements -> elements COMA factor .
 
@@ -4755,7 +4696,7 @@ state 245
     RPAREN          reduce using rule 100 (elements -> elements COMA factor .)
 
 
-state 246
+state 243
 
     (101) elements -> elements COMA element .
 
@@ -4764,7 +4705,7 @@ state 246
     RPAREN          reduce using rule 101 (elements -> elements COMA element .)
 
 
-state 247
+state 244
 
     (104) max -> MAX LPAREN elements RPAREN .
 
@@ -4785,7 +4726,7 @@ state 247
     RPAREN          reduce using rule 104 (max -> MAX LPAREN elements RPAREN .)
 
 
-state 248
+state 245
 
     (107) min -> MIN LPAREN elements RPAREN .
 
@@ -4806,7 +4747,7 @@ state 248
     RPAREN          reduce using rule 107 (min -> MIN LPAREN elements RPAREN .)
 
 
-state 249
+state 246
 
     (143) sort -> SORT LPAREN VARIABLE RPAREN .
 
@@ -4827,14 +4768,14 @@ state 249
     RPAREN          reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
 
 
-state 250
+state 247
 
     (144) sort -> SORT LPAREN VARIABLE COMA . FLAG RPAREN
 
-    FLAG            shift and go to state 289
+    FLAG            shift and go to state 286
 
 
-state 251
+state 248
 
     (145) count -> COUNT LPAREN VARIABLE RPAREN .
 
@@ -4855,7 +4796,7 @@ state 251
     RPAREN          reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
 
 
-state 252
+state 249
 
     (108) number_format -> NUMBER_FORMAT LPAREN VARIABLE RPAREN .
 
@@ -4876,15 +4817,15 @@ state 252
     RPAREN          reduce using rule 108 (number_format -> NUMBER_FORMAT LPAREN VARIABLE RPAREN .)
 
 
-state 253
+state 250
 
     (109) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA . NUMEROS RPAREN
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA . NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
 
-    NUMEROS         shift and go to state 290
+    NUMEROS         shift and go to state 287
 
 
-state 254
+state 251
 
     (88) floor -> FLOOR LPAREN DECIMAL RPAREN .
 
@@ -4905,21 +4846,21 @@ state 254
     RPAREN          reduce using rule 88 (floor -> FLOOR LPAREN DECIMAL RPAREN .)
 
 
-state 255
+state 252
 
     (90) floor -> FLOOR LPAREN DECIMAL PRODUCTO . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 291
+    NUMEROS         shift and go to state 288
 
 
-state 256
+state 253
 
     (89) floor -> FLOOR LPAREN MENOS DECIMAL . RPAREN
 
-    RPAREN          shift and go to state 292
+    RPAREN          shift and go to state 289
 
 
-state 257
+state 254
 
     (91) floor -> FLOOR LPAREN VARIABLE RPAREN .
 
@@ -4940,7 +4881,7 @@ state 257
     RPAREN          reduce using rule 91 (floor -> FLOOR LPAREN VARIABLE RPAREN .)
 
 
-state 258
+state 255
 
     (82) round -> ROUND LPAREN DECIMAL RPAREN .
 
@@ -4961,33 +4902,33 @@ state 258
     RPAREN          reduce using rule 82 (round -> ROUND LPAREN DECIMAL RPAREN .)
 
 
-state 259
+state 256
 
     (84) round -> ROUND LPAREN DECIMAL COMA . NUMEROS RPAREN
     (85) round -> ROUND LPAREN DECIMAL COMA . MENOS NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 293
-    MENOS           shift and go to state 294
+    NUMEROS         shift and go to state 290
+    MENOS           shift and go to state 291
 
 
-state 260
+state 257
 
     (83) round -> ROUND LPAREN MENOS DECIMAL . RPAREN
     (86) round -> ROUND LPAREN MENOS DECIMAL . COMA MENOS NUMEROS RPAREN
     (87) round -> ROUND LPAREN MENOS DECIMAL . COMA NUMEROS RPAREN
 
-    RPAREN          shift and go to state 295
-    COMA            shift and go to state 296
+    RPAREN          shift and go to state 292
+    COMA            shift and go to state 293
 
 
-state 261
+state 258
 
     (92) ceil -> CEIL LPAREN MENOS DECIMAL . RPAREN
 
-    RPAREN          shift and go to state 297
+    RPAREN          shift and go to state 294
 
 
-state 262
+state 259
 
     (93) ceil -> CEIL LPAREN DECIMAL RPAREN .
 
@@ -5008,7 +4949,7 @@ state 262
     RPAREN          reduce using rule 93 (ceil -> CEIL LPAREN DECIMAL RPAREN .)
 
 
-state 263
+state 260
 
     (94) ceil -> CEIL LPAREN VARIABLE RPAREN .
 
@@ -5029,28 +4970,28 @@ state 263
     RPAREN          reduce using rule 94 (ceil -> CEIL LPAREN VARIABLE RPAREN .)
 
 
-state 264
+state 261
 
     (95) ceil -> CEIL LPAREN VARIABLE PRODUCTO . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 298
+    NUMEROS         shift and go to state 295
 
 
-state 265
+state 262
 
     (122) rand -> RAND LPAREN NUMEROS COMA . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 299
+    NUMEROS         shift and go to state 296
 
 
-state 266
+state 263
 
     (96) fmod -> FMOD LPAREN VARIABLE COMA . VARIABLE RPAREN
 
-    VARIABLE        shift and go to state 300
+    VARIABLE        shift and go to state 297
 
 
-state 267
+state 264
 
     (149) getclass -> GETCLASS LPAREN VARIABLE RPAREN .
 
@@ -5071,14 +5012,14 @@ state 267
     RPAREN          reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
 
 
-state 268
+state 265
 
     (150) is_a -> IS_A LPAREN VARIABLE COMA . CADENADOBLE RPAREN
 
-    CADENADOBLE     shift and go to state 301
+    CADENADOBLE     shift and go to state 298
 
 
-state 269
+state 266
 
     (22) imprimir -> PRINT LPAREN factor RPAREN PUNTOCOMA .
 
@@ -5097,7 +5038,7 @@ state 269
     R_LLAVE         reduce using rule 22 (imprimir -> PRINT LPAREN factor RPAREN PUNTOCOMA .)
 
 
-state 270
+state 267
 
     (23) imprimir -> PRINT LPAREN funciones RPAREN PUNTOCOMA .
 
@@ -5116,7 +5057,7 @@ state 270
     R_LLAVE         reduce using rule 23 (imprimir -> PRINT LPAREN funciones RPAREN PUNTOCOMA .)
 
 
-state 271
+state 268
 
     (26) if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias . R_LLAVE
     (27) if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias . R_LLAVE else
@@ -5149,7 +5090,7 @@ state 271
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 302
+    R_LLAVE         shift and go to state 299
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -5171,7 +5112,7 @@ state 271
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 272
+state 269
 
     (46) comparacion -> NO LPAREN condiciones RPAREN .
 
@@ -5184,14 +5125,14 @@ state 272
     PUNTOCOMA       reduce using rule 46 (comparacion -> NO LPAREN condiciones RPAREN .)
 
 
-state 273
+state 270
 
     (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento . RPAREN L_LLAVE sentencias R_LLAVE
 
-    RPAREN          shift and go to state 303
+    RPAREN          shift and go to state 300
 
 
-state 274
+state 271
 
     (12) while -> WHILE LPAREN comparaciones RPAREN L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -5222,7 +5163,7 @@ state 274
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 304
+    R_LLAVE         shift and go to state 301
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -5244,132 +5185,132 @@ state 274
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 275
+state 272
 
     (146) next -> NEXT LPAREN VARIABLE . RPAREN
+
+    RPAREN          shift and go to state 302
+
+
+state 273
+
+    (124) funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS . RPAREN
+
+    RPAREN          shift and go to state 303
+
+
+state 274
+
+    (136) trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE . RPAREN
+
+    RPAREN          shift and go to state 304
+
+
+state 275
+
+    (137) trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE . RPAREN
 
     RPAREN          shift and go to state 305
 
 
 state 276
 
-    (124) funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS . RPAREN
+    (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS . COMA NUMEROS RPAREN
+    (140) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 306
+    COMA            shift and go to state 306
+    RPAREN          shift and go to state 307
 
 
 state 277
 
-    (136) trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE . RPAREN
+    (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS . COMA NUMEROS RPAREN
+    (141) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 307
+    COMA            shift and go to state 308
+    RPAREN          shift and go to state 309
 
 
 state 278
 
-    (137) trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE . RPAREN
+    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS . COMA CADENADOBLE COMA BOOLEAN RPAREN
 
-    RPAREN          shift and go to state 308
+    COMA            shift and go to state 310
 
 
 state 279
 
-    (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS . COMA NUMEROS RPAREN
-    (140) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS . RPAREN
+    (70) fopen -> FOPEN LPAREN CADENADOBLE COMA CADENADOBLE . RPAREN
 
-    COMA            shift and go to state 309
-    RPAREN          shift and go to state 310
+    RPAREN          shift and go to state 311
 
 
 state 280
 
-    (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS . COMA NUMEROS RPAREN
-    (141) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS . RPAREN
+    (71) fopen -> FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE . RPAREN
 
-    COMA            shift and go to state 311
     RPAREN          shift and go to state 312
 
 
 state 281
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS . COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (74) fgets -> FGETS LPAREN VARIABLE COMA NUMEROS . RPAREN
 
-    COMA            shift and go to state 313
+    RPAREN          shift and go to state 313
 
 
 state 282
 
-    (70) fopen -> FOPEN LPAREN CADENADOBLE COMA CADENADOBLE . RPAREN
+    (76) nl2br -> NL2BR LPAREN CADENADOBLE COMA VARIABLE . RPAREN
 
     RPAREN          shift and go to state 314
 
 
 state 283
 
-    (71) fopen -> FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE . RPAREN
+    (77) nl2br -> NL2BR LPAREN CADENADOBLE COMA BOOLEAN . RPAREN
 
     RPAREN          shift and go to state 315
 
 
 state 284
 
-    (74) fgets -> FGETS LPAREN VARIABLE COMA NUMEROS . RPAREN
+    (80) nl2br -> NL2BR LPAREN VARIABLE COMA VARIABLE . RPAREN
 
     RPAREN          shift and go to state 316
 
 
 state 285
 
-    (76) nl2br -> NL2BR LPAREN CADENADOBLE COMA VARIABLE . RPAREN
+    (79) nl2br -> NL2BR LPAREN VARIABLE COMA BOOLEAN . RPAREN
 
     RPAREN          shift and go to state 317
 
 
 state 286
 
-    (77) nl2br -> NL2BR LPAREN CADENADOBLE COMA BOOLEAN . RPAREN
+    (144) sort -> SORT LPAREN VARIABLE COMA FLAG . RPAREN
 
     RPAREN          shift and go to state 318
 
 
 state 287
 
-    (80) nl2br -> NL2BR LPAREN VARIABLE COMA VARIABLE . RPAREN
+    (109) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS . RPAREN
+    (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS . COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
 
-    RPAREN          shift and go to state 319
+    RPAREN          shift and go to state 320
+    COMA            shift and go to state 319
 
 
 state 288
 
-    (79) nl2br -> NL2BR LPAREN VARIABLE COMA BOOLEAN . RPAREN
-
-    RPAREN          shift and go to state 320
-
-
-state 289
-
-    (144) sort -> SORT LPAREN VARIABLE COMA FLAG . RPAREN
+    (90) floor -> FLOOR LPAREN DECIMAL PRODUCTO NUMEROS . RPAREN
 
     RPAREN          shift and go to state 321
 
 
-state 290
-
-    (109) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS . RPAREN
-    (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS . COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
-
-    RPAREN          shift and go to state 323
-    COMA            shift and go to state 322
-
-
-state 291
-
-    (90) floor -> FLOOR LPAREN DECIMAL PRODUCTO NUMEROS . RPAREN
-
-    RPAREN          shift and go to state 324
-
-
-state 292
+state 289
 
     (89) floor -> FLOOR LPAREN MENOS DECIMAL RPAREN .
 
@@ -5390,21 +5331,21 @@ state 292
     RPAREN          reduce using rule 89 (floor -> FLOOR LPAREN MENOS DECIMAL RPAREN .)
 
 
-state 293
+state 290
 
     (84) round -> ROUND LPAREN DECIMAL COMA NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 325
+    RPAREN          shift and go to state 322
 
 
-state 294
+state 291
 
     (85) round -> ROUND LPAREN DECIMAL COMA MENOS . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 326
+    NUMEROS         shift and go to state 323
 
 
-state 295
+state 292
 
     (83) round -> ROUND LPAREN MENOS DECIMAL RPAREN .
 
@@ -5425,16 +5366,16 @@ state 295
     RPAREN          reduce using rule 83 (round -> ROUND LPAREN MENOS DECIMAL RPAREN .)
 
 
-state 296
+state 293
 
     (86) round -> ROUND LPAREN MENOS DECIMAL COMA . MENOS NUMEROS RPAREN
     (87) round -> ROUND LPAREN MENOS DECIMAL COMA . NUMEROS RPAREN
 
-    MENOS           shift and go to state 327
-    NUMEROS         shift and go to state 328
+    MENOS           shift and go to state 324
+    NUMEROS         shift and go to state 325
 
 
-state 297
+state 294
 
     (92) ceil -> CEIL LPAREN MENOS DECIMAL RPAREN .
 
@@ -5455,35 +5396,35 @@ state 297
     RPAREN          reduce using rule 92 (ceil -> CEIL LPAREN MENOS DECIMAL RPAREN .)
 
 
-state 298
+state 295
 
     (95) ceil -> CEIL LPAREN VARIABLE PRODUCTO NUMEROS . RPAREN
+
+    RPAREN          shift and go to state 326
+
+
+state 296
+
+    (122) rand -> RAND LPAREN NUMEROS COMA NUMEROS . RPAREN
+
+    RPAREN          shift and go to state 327
+
+
+state 297
+
+    (96) fmod -> FMOD LPAREN VARIABLE COMA VARIABLE . RPAREN
+
+    RPAREN          shift and go to state 328
+
+
+state 298
+
+    (150) is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE . RPAREN
 
     RPAREN          shift and go to state 329
 
 
 state 299
-
-    (122) rand -> RAND LPAREN NUMEROS COMA NUMEROS . RPAREN
-
-    RPAREN          shift and go to state 330
-
-
-state 300
-
-    (96) fmod -> FMOD LPAREN VARIABLE COMA VARIABLE . RPAREN
-
-    RPAREN          shift and go to state 331
-
-
-state 301
-
-    (150) is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE . RPAREN
-
-    RPAREN          shift and go to state 332
-
-
-state 302
 
     (26) if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .
     (27) if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE . else
@@ -5505,20 +5446,20 @@ state 302
     LPAREN          reduce using rule 26 (if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .)
     $end            reduce using rule 26 (if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .)
     R_LLAVE         reduce using rule 26 (if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .)
-    ELSE            shift and go to state 335
-    ELSEIF          shift and go to state 336
+    ELSE            shift and go to state 332
+    ELSEIF          shift and go to state 333
 
-    else                           shift and go to state 333
-    elseif                         shift and go to state 334
+    else                           shift and go to state 330
+    elseif                         shift and go to state 331
 
-state 303
+state 300
 
     (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN . L_LLAVE sentencias R_LLAVE
 
-    L_LLAVE         shift and go to state 337
+    L_LLAVE         shift and go to state 334
 
 
-state 304
+state 301
 
     (12) while -> WHILE LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .
 
@@ -5537,7 +5478,7 @@ state 304
     R_LLAVE         reduce using rule 12 (while -> WHILE LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .)
 
 
-state 305
+state 302
 
     (146) next -> NEXT LPAREN VARIABLE RPAREN .
 
@@ -5558,7 +5499,7 @@ state 305
     RPAREN          reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
 
 
-state 306
+state 303
 
     (124) funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .
 
@@ -5579,7 +5520,7 @@ state 306
     RPAREN          reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
 
 
-state 307
+state 304
 
     (136) trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .
 
@@ -5600,7 +5541,7 @@ state 307
     RPAREN          reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
 
 
-state 308
+state 305
 
     (137) trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .
 
@@ -5621,14 +5562,14 @@ state 308
     RPAREN          reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
 
 
-state 309
+state 306
 
     (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 338
+    NUMEROS         shift and go to state 335
 
 
-state 310
+state 307
 
     (140) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .
 
@@ -5649,14 +5590,14 @@ state 310
     RPAREN          reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
 
 
-state 311
+state 308
 
     (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 339
+    NUMEROS         shift and go to state 336
 
 
-state 312
+state 309
 
     (141) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .
 
@@ -5677,14 +5618,14 @@ state 312
     RPAREN          reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
 
 
-state 313
+state 310
 
     (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA . CADENADOBLE COMA BOOLEAN RPAREN
 
-    CADENADOBLE     shift and go to state 340
+    CADENADOBLE     shift and go to state 337
 
 
-state 314
+state 311
 
     (70) fopen -> FOPEN LPAREN CADENADOBLE COMA CADENADOBLE RPAREN .
 
@@ -5705,7 +5646,7 @@ state 314
     RPAREN          reduce using rule 70 (fopen -> FOPEN LPAREN CADENADOBLE COMA CADENADOBLE RPAREN .)
 
 
-state 315
+state 312
 
     (71) fopen -> FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN .
 
@@ -5726,7 +5667,7 @@ state 315
     RPAREN          reduce using rule 71 (fopen -> FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN .)
 
 
-state 316
+state 313
 
     (74) fgets -> FGETS LPAREN VARIABLE COMA NUMEROS RPAREN .
 
@@ -5747,7 +5688,7 @@ state 316
     RPAREN          reduce using rule 74 (fgets -> FGETS LPAREN VARIABLE COMA NUMEROS RPAREN .)
 
 
-state 317
+state 314
 
     (76) nl2br -> NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN .
 
@@ -5768,7 +5709,7 @@ state 317
     RPAREN          reduce using rule 76 (nl2br -> NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN .)
 
 
-state 318
+state 315
 
     (77) nl2br -> NL2BR LPAREN CADENADOBLE COMA BOOLEAN RPAREN .
 
@@ -5789,7 +5730,7 @@ state 318
     RPAREN          reduce using rule 77 (nl2br -> NL2BR LPAREN CADENADOBLE COMA BOOLEAN RPAREN .)
 
 
-state 319
+state 316
 
     (80) nl2br -> NL2BR LPAREN VARIABLE COMA VARIABLE RPAREN .
 
@@ -5810,7 +5751,7 @@ state 319
     RPAREN          reduce using rule 80 (nl2br -> NL2BR LPAREN VARIABLE COMA VARIABLE RPAREN .)
 
 
-state 320
+state 317
 
     (79) nl2br -> NL2BR LPAREN VARIABLE COMA BOOLEAN RPAREN .
 
@@ -5831,7 +5772,7 @@ state 320
     RPAREN          reduce using rule 79 (nl2br -> NL2BR LPAREN VARIABLE COMA BOOLEAN RPAREN .)
 
 
-state 321
+state 318
 
     (144) sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .
 
@@ -5852,14 +5793,14 @@ state 321
     RPAREN          reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
 
 
-state 322
+state 319
 
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA . CADENASIMPLE COMA CADENASIMPLE RPAREN
 
-    CADENASIMPLE    shift and go to state 341
+    CADENASIMPLE    shift and go to state 338
 
 
-state 323
+state 320
 
     (109) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN .
 
@@ -5880,7 +5821,7 @@ state 323
     RPAREN          reduce using rule 109 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN .)
 
 
-state 324
+state 321
 
     (90) floor -> FLOOR LPAREN DECIMAL PRODUCTO NUMEROS RPAREN .
 
@@ -5901,7 +5842,7 @@ state 324
     RPAREN          reduce using rule 90 (floor -> FLOOR LPAREN DECIMAL PRODUCTO NUMEROS RPAREN .)
 
 
-state 325
+state 322
 
     (84) round -> ROUND LPAREN DECIMAL COMA NUMEROS RPAREN .
 
@@ -5922,28 +5863,28 @@ state 325
     RPAREN          reduce using rule 84 (round -> ROUND LPAREN DECIMAL COMA NUMEROS RPAREN .)
 
 
-state 326
+state 323
 
     (85) round -> ROUND LPAREN DECIMAL COMA MENOS NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 342
+    RPAREN          shift and go to state 339
 
 
-state 327
+state 324
 
     (86) round -> ROUND LPAREN MENOS DECIMAL COMA MENOS . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 343
+    NUMEROS         shift and go to state 340
 
 
-state 328
+state 325
 
     (87) round -> ROUND LPAREN MENOS DECIMAL COMA NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 344
+    RPAREN          shift and go to state 341
 
 
-state 329
+state 326
 
     (95) ceil -> CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN .
 
@@ -5964,7 +5905,7 @@ state 329
     RPAREN          reduce using rule 95 (ceil -> CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN .)
 
 
-state 330
+state 327
 
     (122) rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .
 
@@ -5985,7 +5926,7 @@ state 330
     RPAREN          reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
 
 
-state 331
+state 328
 
     (96) fmod -> FMOD LPAREN VARIABLE COMA VARIABLE RPAREN .
 
@@ -6006,7 +5947,7 @@ state 331
     RPAREN          reduce using rule 96 (fmod -> FMOD LPAREN VARIABLE COMA VARIABLE RPAREN .)
 
 
-state 332
+state 329
 
     (150) is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .
 
@@ -6027,7 +5968,7 @@ state 332
     RPAREN          reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
 
 
-state 333
+state 330
 
     (27) if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE else .
 
@@ -6046,32 +5987,32 @@ state 333
     R_LLAVE         reduce using rule 27 (if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE else .)
 
 
-state 334
+state 331
 
     (28) if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif . else
     (30) elseif -> elseif . ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
     (31) else -> . ELSE L_LLAVE sentencias R_LLAVE
 
-    ELSEIF          shift and go to state 346
-    ELSE            shift and go to state 335
+    ELSEIF          shift and go to state 343
+    ELSE            shift and go to state 332
 
-    else                           shift and go to state 345
+    else                           shift and go to state 342
 
-state 335
+state 332
 
     (31) else -> ELSE . L_LLAVE sentencias R_LLAVE
 
-    L_LLAVE         shift and go to state 347
+    L_LLAVE         shift and go to state 344
 
 
-state 336
+state 333
 
     (29) elseif -> ELSEIF . LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
 
-    LPAREN          shift and go to state 348
+    LPAREN          shift and go to state 345
 
 
-state 337
+state 334
 
     (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE . sentencias R_LLAVE
     (1) sentencias -> . sentencias asignacion
@@ -6121,7 +6062,7 @@ state 337
 
     asignacion                     shift and go to state 2
     incremento_decremento          shift and go to state 8
-    sentencias                     shift and go to state 349
+    sentencias                     shift and go to state 346
     metodos                        shift and go to state 3
     if                             shift and go to state 4
     for                            shift and go to state 5
@@ -6129,35 +6070,35 @@ state 337
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 338
+state 335
 
     (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 350
+    RPAREN          shift and go to state 347
 
 
-state 339
+state 336
 
     (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 351
+    RPAREN          shift and go to state 348
 
 
-state 340
+state 337
 
     (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE . COMA BOOLEAN RPAREN
 
-    COMA            shift and go to state 352
+    COMA            shift and go to state 349
 
 
-state 341
+state 338
 
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE . COMA CADENASIMPLE RPAREN
 
-    COMA            shift and go to state 353
+    COMA            shift and go to state 350
 
 
-state 342
+state 339
 
     (85) round -> ROUND LPAREN DECIMAL COMA MENOS NUMEROS RPAREN .
 
@@ -6178,14 +6119,14 @@ state 342
     RPAREN          reduce using rule 85 (round -> ROUND LPAREN DECIMAL COMA MENOS NUMEROS RPAREN .)
 
 
-state 343
+state 340
 
     (86) round -> ROUND LPAREN MENOS DECIMAL COMA MENOS NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 354
+    RPAREN          shift and go to state 351
 
 
-state 344
+state 341
 
     (87) round -> ROUND LPAREN MENOS DECIMAL COMA NUMEROS RPAREN .
 
@@ -6206,7 +6147,7 @@ state 344
     RPAREN          reduce using rule 87 (round -> ROUND LPAREN MENOS DECIMAL COMA NUMEROS RPAREN .)
 
 
-state 345
+state 342
 
     (28) if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif else .
 
@@ -6225,14 +6166,14 @@ state 345
     R_LLAVE         reduce using rule 28 (if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif else .)
 
 
-state 346
+state 343
 
     (30) elseif -> elseif ELSEIF . LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
 
-    LPAREN          shift and go to state 355
+    LPAREN          shift and go to state 352
 
 
-state 347
+state 344
 
     (31) else -> ELSE L_LLAVE . sentencias R_LLAVE
     (1) sentencias -> . sentencias asignacion
@@ -6280,7 +6221,7 @@ state 347
     PRINT           shift and go to state 20
     LPAREN          shift and go to state 12
 
-    sentencias                     shift and go to state 356
+    sentencias                     shift and go to state 353
     asignacion                     shift and go to state 2
     metodos                        shift and go to state 3
     if                             shift and go to state 4
@@ -6290,7 +6231,7 @@ state 347
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 348
+state 345
 
     (29) elseif -> ELSEIF LPAREN . comparaciones RPAREN L_LLAVE sentencias R_LLAVE
     (54) comparaciones -> . comparacion
@@ -6322,12 +6263,12 @@ state 348
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
 
-    comparaciones                  shift and go to state 357
+    comparaciones                  shift and go to state 354
     comparacion                    shift and go to state 96
     condiciones                    shift and go to state 97
     factor                         shift and go to state 99
 
-state 349
+state 346
 
     (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -6358,7 +6299,7 @@ state 349
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 358
+    R_LLAVE         shift and go to state 355
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -6380,7 +6321,7 @@ state 349
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 350
+state 347
 
     (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .
 
@@ -6401,7 +6342,7 @@ state 350
     RPAREN          reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
 
 
-state 351
+state 348
 
     (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .
 
@@ -6422,21 +6363,21 @@ state 351
     RPAREN          reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
 
 
-state 352
+state 349
 
     (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA . BOOLEAN RPAREN
 
-    BOOLEAN         shift and go to state 359
+    BOOLEAN         shift and go to state 356
 
 
-state 353
+state 350
 
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA . CADENASIMPLE RPAREN
 
-    CADENASIMPLE    shift and go to state 360
+    CADENASIMPLE    shift and go to state 357
 
 
-state 354
+state 351
 
     (86) round -> ROUND LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN .
 
@@ -6457,7 +6398,7 @@ state 354
     RPAREN          reduce using rule 86 (round -> ROUND LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN .)
 
 
-state 355
+state 352
 
     (30) elseif -> elseif ELSEIF LPAREN . comparaciones RPAREN L_LLAVE sentencias R_LLAVE
     (54) comparaciones -> . comparacion
@@ -6489,12 +6430,12 @@ state 355
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
 
-    comparaciones                  shift and go to state 361
+    comparaciones                  shift and go to state 358
     comparacion                    shift and go to state 96
     condiciones                    shift and go to state 97
     factor                         shift and go to state 99
 
-state 356
+state 353
 
     (31) else -> ELSE L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -6525,7 +6466,7 @@ state 356
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 362
+    R_LLAVE         shift and go to state 359
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -6547,7 +6488,7 @@ state 356
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 357
+state 354
 
     (29) elseif -> ELSEIF LPAREN comparaciones . RPAREN L_LLAVE sentencias R_LLAVE
     (55) comparaciones -> comparaciones . anado comparacion
@@ -6558,17 +6499,17 @@ state 357
     (60) condicion -> . OR
     (61) condicion -> . OROR
 
-    RPAREN          shift and go to state 363
-    XOR             shift and go to state 157
-    ANDAND          shift and go to state 158
-    AND             shift and go to state 159
-    OR              shift and go to state 160
-    OROR            shift and go to state 161
+    RPAREN          shift and go to state 360
+    XOR             shift and go to state 154
+    ANDAND          shift and go to state 155
+    AND             shift and go to state 156
+    OR              shift and go to state 157
+    OROR            shift and go to state 158
 
-    anado                          shift and go to state 155
-    condicion                      shift and go to state 156
+    anado                          shift and go to state 152
+    condicion                      shift and go to state 153
 
-state 358
+state 355
 
     (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .
 
@@ -6587,21 +6528,21 @@ state 358
     R_LLAVE         reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
 
 
-state 359
+state 356
 
     (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN . RPAREN
 
-    RPAREN          shift and go to state 364
+    RPAREN          shift and go to state 361
 
 
-state 360
+state 357
 
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE . RPAREN
 
-    RPAREN          shift and go to state 365
+    RPAREN          shift and go to state 362
 
 
-state 361
+state 358
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones . RPAREN L_LLAVE sentencias R_LLAVE
     (55) comparaciones -> comparaciones . anado comparacion
@@ -6612,17 +6553,17 @@ state 361
     (60) condicion -> . OR
     (61) condicion -> . OROR
 
-    RPAREN          shift and go to state 366
-    XOR             shift and go to state 157
-    ANDAND          shift and go to state 158
-    AND             shift and go to state 159
-    OR              shift and go to state 160
-    OROR            shift and go to state 161
+    RPAREN          shift and go to state 363
+    XOR             shift and go to state 154
+    ANDAND          shift and go to state 155
+    AND             shift and go to state 156
+    OR              shift and go to state 157
+    OROR            shift and go to state 158
 
-    anado                          shift and go to state 155
-    condicion                      shift and go to state 156
+    anado                          shift and go to state 152
+    condicion                      shift and go to state 153
 
-state 362
+state 359
 
     (31) else -> ELSE L_LLAVE sentencias R_LLAVE .
 
@@ -6641,14 +6582,14 @@ state 362
     R_LLAVE         reduce using rule 31 (else -> ELSE L_LLAVE sentencias R_LLAVE .)
 
 
-state 363
+state 360
 
     (29) elseif -> ELSEIF LPAREN comparaciones RPAREN . L_LLAVE sentencias R_LLAVE
 
-    L_LLAVE         shift and go to state 367
+    L_LLAVE         shift and go to state 364
 
 
-state 364
+state 361
 
     (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .
 
@@ -6669,7 +6610,7 @@ state 364
     RPAREN          reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
 
 
-state 365
+state 362
 
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN .
 
@@ -6690,14 +6631,14 @@ state 365
     RPAREN          reduce using rule 110 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN .)
 
 
-state 366
+state 363
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones RPAREN . L_LLAVE sentencias R_LLAVE
 
-    L_LLAVE         shift and go to state 368
+    L_LLAVE         shift and go to state 365
 
 
-state 367
+state 364
 
     (29) elseif -> ELSEIF LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE
     (1) sentencias -> . sentencias asignacion
@@ -6745,7 +6686,7 @@ state 367
     PRINT           shift and go to state 20
     LPAREN          shift and go to state 12
 
-    sentencias                     shift and go to state 369
+    sentencias                     shift and go to state 366
     asignacion                     shift and go to state 2
     metodos                        shift and go to state 3
     if                             shift and go to state 4
@@ -6755,7 +6696,7 @@ state 367
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 368
+state 365
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE
     (1) sentencias -> . sentencias asignacion
@@ -6803,7 +6744,7 @@ state 368
     PRINT           shift and go to state 20
     LPAREN          shift and go to state 12
 
-    sentencias                     shift and go to state 370
+    sentencias                     shift and go to state 367
     asignacion                     shift and go to state 2
     metodos                        shift and go to state 3
     if                             shift and go to state 4
@@ -6813,7 +6754,7 @@ state 368
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 369
+state 366
 
     (29) elseif -> ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -6844,7 +6785,7 @@ state 369
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 371
+    R_LLAVE         shift and go to state 368
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -6866,7 +6807,7 @@ state 369
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 370
+state 367
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -6897,7 +6838,7 @@ state 370
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 372
+    R_LLAVE         shift and go to state 369
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -6919,7 +6860,7 @@ state 370
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 371
+state 368
 
     (29) elseif -> ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .
 
@@ -6927,7 +6868,7 @@ state 371
     ELSE            reduce using rule 29 (elseif -> ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .)
 
 
-state 372
+state 369
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .
 
@@ -6938,6 +6879,4 @@ WARNING:
 WARNING: Conflicts:
 WARNING: 
 WARNING: shift/reduce conflict for PUNTOCOMA in state 91 resolved as shift
-WARNING: shift/reduce conflict for RPAREN in state 109 resolved as shift
-WARNING: shift/reduce conflict for RPAREN in state 139 resolved as shift
-WARNING: shift/reduce conflict for RPAREN in state 141 resolved as shift
+WARNING: shift/reduce conflict for RPAREN in state 137 resolved as shift
