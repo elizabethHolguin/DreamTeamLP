@@ -31,21 +31,25 @@ reserved = {'or': 'OR',
             'sort': 'SORT',
             'count': 'COUNT',
             'next': 'NEXT',
-            'object': 'OBJECT'}
+            'object': 'OBJECT',
+            'fmod': 'FMOD',
+            'rand': 'RAND',
+            'is_a': 'IS_A',
+            'getclass': 'GETCLASS'}
 
 
 
 tokens = ["MENOS", "MAS", "PRODUCTO", "DIVISION", "MODULO", "LCORC", "RCORC", "NUMEROS", "DECIMAL", "FLAG", "LPAREN", "RPAREN", "IGUAL_IGUAL", "IDENTICO", "DISTINTO",
           "MENORQUE","MAYORQUE", "MENOROIGUAL", "MAYOROIGUAL", "ANDAND", "OROR", "NO", "PUNTOCOMA",
           "VARIABLE", "CADENASIMPLE", "CADENADOBLE","POSTDECREMENTO", "PREINCREMENTO","POSTINCREMENTO", "PREDECREMENTO", "R_LLAVE", "L_LLAVE", "COMA",
-          "IGUAL", "PUNTO", "EXPONENCIACION", "MODOESCRITURA", "URL"]+list (reserved.values())
+          "IGUAL", "EXPONENCIACION"]+list (reserved.values())
 
 t_MENOS = r'-';t_MAS = r'\+';t_PRODUCTO = r'\*';t_DIVISION=r'/';t_MODULO=r'%';t_COMA = r','; t_EXPONENCIACION = r'\*\*'
 t_NUMEROS = r'[0-9]+';t_DECIMAL=r'\d+\.+\d+';t_LPAREN = r'\(';t_RPAREN = r'\)';t_R_LLAVE = r"}";t_L_LLAVE= r'{';t_IGUAL = r"="
-t_FLAG = r'[SORT_REGULAR | SORT_NUMERIC | SORT_STRING | SORT_LOCALE_STRING | SORT_NATURAL | SORT_FLAG_CASE ]'
+t_FLAG = r'SORT_REGULAR|SORT_NUMERIC|SORT_STRING|SORT_LOCALE_STRING|SORT_NATURAL|SORT_FLAG_CASE'
 t_IGUAL_IGUAL = r'==';t_IDENTICO=r'===';t_DISTINTO=r'!=|<>';t_LCORC = r'\['; t_RCORC = r'\]';
 t_MENORQUE=r'<';t_MAYORQUE=r'>';t_MENOROIGUAL=r'<=';t_MAYOROIGUAL=r'>='
-t_ANDAND=r' \&\&';t_OROR=r' \|\|';t_NO=r'!'
+t_ANDAND=r' \&\&';t_OROR=r' \|\|';t_NO=r'!'; t_FMOD = r'fmod'
 t_PUNTOCOMA=r';';t_VARIABLE=r'\$\w+'; t_OBJECT = r'object'
 t_PREINCREMENTO=r'\+\+\$\w+';t_POSTINCREMENTO=r'\$\w+\+\+';t_PREDECREMENTO=r'--\$\w+'; t_POSTDECREMENTO=r'\$\w+--'
 t_IF = r'if';t_FOR = r'for';t_WHILE = r'while';t_ELSE = r'else'
@@ -53,11 +57,10 @@ t_ECHO=r'echo'
 t_PRINT=r'print'
 t_CADENASIMPLE = r'\'[\w\s\~\!\@\#\$\%\^\&\*\(\)\_\+\{\}\|\:\<\>\?\/\-\+\.\`\=-\[\]\"\;\,\\]*\''
 t_CADENADOBLE = r'\"[\w\s\~\!\@\#\$\%\^\&\*\(\)\_\+\{\}\|\:\<\>\?\/\-\+\.\`\=-\[\]\'\;\,\\]*\"'
-t_PUNTO=r'\.'
 t_ignore = ' \t'
 t_OR= r'or';t_AND= r'and'
 t_ELSE= r'else'
-t_ARRAY= r'array' ; t_LIST = r'list'
+t_ARRAY= r'array' ; t_LIST = r'list'; t_IS_A = r'is_a'; t_GETCLASS = r'getclass'
 t_ELSEIF = r'elseif'
 t_XOR = r'xor'
 t_BOOLEAN = r'True|False'
@@ -79,9 +82,7 @@ t_WORDWRAP = r'wordwrap'
 t_SORT = r'sort'
 t_COUNT = r'count'
 t_NEXT = r'next'
-t_URL=r'[\"][[a-zA-Z]*\:*\\\\*|\/*[a-z]+\\*\\*|\/*[a-z]*\/*[a-z]+\.txt\"|\.gif]+\"'
-t_MODOESCRITURA=r'[\"r\"|\"w\"|\"wb\"|\"r\+\"|\"w\+\"|\"a\"|\"a\+\"|\"x\"|\"x\+\"|\"c\"|\"c\+\""|\"e\"]'
-
+t_RAND = r'rand|mt_rand'
 
 def t_error(t):
     print ("No definido'%s'" % t.value[0])
