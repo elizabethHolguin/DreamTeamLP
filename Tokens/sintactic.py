@@ -3,7 +3,12 @@ import practica
 tokens = practica.tokens
 
 def p_sentencias(p):
-    '''sentencias : asignacion
+    '''sentencias : sentencias asignacion
+    | sentencias metodos
+    | sentencias if
+    | sentencias for
+    | sentencias while
+    | asignacion
     | metodos
     | if
     | for
@@ -28,16 +33,20 @@ def p_conver_object(p):
 
 def p_metodos(p):
     '''metodos : imprimir
-    | object
-    | potencia'''
+    | object'''
 def p_imprimir_uno(p):
     'imprimir : ECHO factor PUNTOCOMA'
+def p_imprimir_unoA(p):
+    'imprimir : ECHO funciones PUNTOCOMA'
 def p_imprimir_dos(p):
     'imprimir : PRINT LPAREN factor RPAREN PUNTOCOMA'
+def p_imprimir_dosA(p):
+    'imprimir : PRINT LPAREN funciones RPAREN PUNTOCOMA'
 def p_imprimir_tres(p):
     'imprimir : PRINT factor'
-def p_potencia(p):
-    'potencia : POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN'
+def p_imprimir_tresA(p):
+    'imprimir : PRINT funciones'
+
 
 def p_if(p):
     'if : IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE'
@@ -49,7 +58,7 @@ def p_if_elseif(p):
 def p_elseif(p):
     'elseif : ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE'
 def p_elseif_dos(p):
-    'elseif : ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif'
+    'elseif : elseif ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE'
 
 def p_else(p):
     'else : ELSE L_LLAVE sentencias R_LLAVE'
@@ -61,11 +70,12 @@ def p_asignacion_dos(p):
 def p_asignacion_incredecre(p):
     'asignacion : incremento_decremento PUNTOCOMA'
 def p_asignacion_funcion(p):
-    'asignacion : funciones'
+    'asignacion : VARIABLE IGUAL funciones PUNTOCOMA'
+
 def p_expresion_uno(p):
-    'expresion : term operadores term'
+    'expresion : expresion operadores term'
 def p_expresion_dos(p):
-    'expresion : expresion term operadores term'
+    'expresion : term'
 
 def p_operadores_mas(p):
     'operadores : MAS'
@@ -105,7 +115,7 @@ def p_mayoroigual_compare(p):
 def p_comparaciones(p):
     'comparaciones : comparacion'
 def p_comparaciones_uno(p):
-    'comparaciones : comparacion anado comparaciones'
+    'comparaciones : comparaciones anado comparacion'
 
 def p_condicion_extra(p):
     'anado : condicion'
@@ -126,7 +136,7 @@ def p_term_factor(p):
 def p_factor_num(p):
     'factor : NUMEROS'
 def p_factor_float(p):
-    'factor : NUMEROS PUNTO NUMEROS'
+    'factor : DECIMAL'
 def p_factor_strsimple(p):
     'factor : CADENASIMPLE'
 def p_factor_strdoble(p):
@@ -141,73 +151,79 @@ def p_factor_expr(p):
 
 
 def p_fopen(p):
-    'fopen : FOPEN LPAREN URL COMA MODOESCRITURA RPAREN PUNTOCOMA'
+    '''fopen : FOPEN LPAREN CADENADOBLE COMA CADENADOBLE RPAREN
+    | FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN'''
 
 def p_fpassthru(p):
     'fpassthru : FPASSTHRU LPAREN VARIABLE RPAREN'
 
 def p_feof(p):
-    'feof : FEOF LPAREN VARIABLE RPAREN PUNTOCOMA'
+    'feof : FEOF LPAREN VARIABLE RPAREN '
 
 def p_fgets(p):
     '''fgets : FGETS LPAREN VARIABLE COMA NUMEROS RPAREN
     | LPAREN VARIABLE RPAREN'''
 
 def p_nl2br(p):
-    '''nl2br : NL2BR LPAREN CADENADOBLE
-    | CADENADOBLE COMA BOOLEAN
-    | VARIABLE
-    | CADENASIMPLE RPAREN PUNTOCOMA'''
+    '''nl2br : NL2BR LPAREN CADENADOBLE COMA VARIABLE RPAREN
+    | NL2BR LPAREN CADENADOBLE COMA BOOLEAN RPAREN
+    | NL2BR LPAREN CADENADOBLE RPAREN
+    | NL2BR LPAREN VARIABLE COMA BOOLEAN RPAREN
+    | NL2BR LPAREN VARIABLE COMA VARIABLE RPAREN
+    | NL2BR LPAREN VARIABLE RPAREN'''
 
 def p_round(p):
-    '''round : ROUND LPAREN DECIMAL RPAREN PUNTOCOMA
-    | LPAREN MENOS DECIMAL RPAREN PUNTOCOMA
-    | LPAREN DECIMAL COMA NUMEROS RPAREN PUNTOCOMA
-    | LPAREN DECIMAL COMA MENOS NUMEROS RPAREN PUNTOCOMA
-    | LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN PUNTOCOMA
-    | LPAREN MENOS DECIMAL COMA NUMEROS RPAREN PUNTOCOMA'''
+    '''round : ROUND LPAREN DECIMAL RPAREN
+    | LPAREN MENOS DECIMAL RPAREN
+    | LPAREN DECIMAL COMA NUMEROS RPAREN
+    | LPAREN DECIMAL COMA MENOS NUMEROS RPAREN
+    | LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN
+    | LPAREN MENOS DECIMAL COMA NUMEROS RPAREN'''
 
 def p_floor(p):
-    '''floor : FLOOR LPAREN DECIMAL
-    | MENOS DECIMAL
-    | DECIMAL PRODUCTO NUMEROS
-    | LPAREN VARIABLE RPAREN PUNTOCOMA'''
+    '''floor : FLOOR LPAREN DECIMAL RPAREN
+    | FLOOR LPAREN MENOS DECIMAL RPAREN
+    | FLOOR LPAREN DECIMAL PRODUCTO NUMEROS RPAREN
+    | FLOOR LPAREN VARIABLE RPAREN'''
 
 def p_ceil_1(p):
-    'ceil : CEIL LPAREN MENOS DECIMAL'
+    'ceil : CEIL LPAREN MENOS DECIMAL RPAREN'
 def p_ceil_2(p):
-    'ceil : CEIL LPAREN DECIMAL RPAREN PUNTOCOMA'
+    'ceil : CEIL LPAREN DECIMAL RPAREN'
 def p_ceil_3(p):
-    'ceil : CEIL LPAREN VARIABLE RPAREN PUNTOCOMA'
+    'ceil : CEIL LPAREN VARIABLE RPAREN'
 def p_ceil_4(p):
-    'ceil : CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN PUNTOCOMA'
+    'ceil : CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN'
+
+def p_fmod(p):
+    'fmod : FMOD LPAREN VARIABLE COMA VARIABLE RPAREN'
 
 
-def p_list(p):
-    'list : LIST LPAREN VARIABLE COMA VARIABLE COMA VARIABLE RPAREN IGUAL VARIABLE PUNTOCOMA'
-
-def p_max_funcion(p):
-    '''max : MAX LPAREN ARRAY
-    | LIST RPAREN'''
+#RESOLVER
+def p_lista(p):
+    'lista : LIST LPAREN elements RPAREN'
+def p_parte_lista_uno(p):
+    'elements : factor'
+def p_parte_lista_dos(p):
+    'elements : element'
+def p_parte_lista_tres(p):
+    'elements : elements COMA factor'
+def p_parte_lista_cuatro(p):
+    'elements : elements COMA element'
 
 def p_element(p):
-    '''element : elemento
-    | CADENADOBLE
-    | CADENASIMPLE MENOROIGUAL
-    | CADENASIMPLE
-    | CADENADOBLE COMA'''
+    '''element : arrays
+    | lista'''
 
-def p_elemento(p):
-    '''elemento : CADENADOBLE MENOROIGUAL CADENADOBLE COMA
-    | CADENASIMPLE MENOROIGUAL CADENASIMPLE COMA
-    | element'''
+def p_max_funcion(p):
+    'max : MAX LPAREN elements RPAREN'
 
-def p_array(p):
-    '''array : VARIABLE IGUAL LCORC element RCORC'''
+def p_arrays(p):
+    '''arrays : ARRAY LPAREN elements RPAREN
+    | LCORC elements RCORC'''
 
 def p_min_funcion(p):
-    '''min : MIN LPAREN ARRAY
-    | LIST RPAREN'''
+    'min : MIN LPAREN elements RPAREN'
 
 def p_number_format_1(p):
     'number_format : NUMBER_FORMAT LPAREN VARIABLE RPAREN'
@@ -216,12 +232,10 @@ def p_number_format_2(p):
     'number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN'
 
 def p_number_format_4(p):
-    '''number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE
-    | CADENADOBLE COMA CADENASIMPLE
-    | CADENADOBLE RPAREN'''
+    'number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN'
 
 def p_funciones_s(p):
-    '''funciones : VARIABLE IGUAL trim
+    '''funciones : trim
     | substr
     | wordwrap
     | fopen
@@ -232,32 +246,45 @@ def p_funciones_s(p):
 
 def p_funciones_a(p):
     '''funciones : VARIABLE IGUAL next
-    | list
-    | array'''
+    | lista
+    | arrays'''
+def p_rand_uno(p):
+    'rand : RAND LPAREN NUMEROS COMA NUMEROS RPAREN'
+def p_rand_dos(p):
+    'rand : RAND LPAREN RPAREN'
+def p_potencia(p):
+    'funciones : POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN'
 
 def p_funciones_i(p):
-    '''funciones : VARIABLE IGUAL max
+    '''funciones : max
     | min
     | sort
     | count
     | number_format
     | floor
     | round
-    | ceil'''
+    | ceil
+    | rand
+    | fmod'''
 
 def p_trim_1(p):
     'trim : TRIM LPAREN VARIABLE RPAREN'
 
 def p_trim_2(p):
-    '''trim : TRIM LPAREN VARIABLE COMA CADENADOBLE
-    | CADENASIMPLE RPAREN'''
+    '''trim : TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    | TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN'''
 
-def p_substr(p):
+def p_substr_uno(p):
     'substr : SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN'
+def p_substr_dos(p):
+    'substr : SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN'
+def p_substr_tres(p):
+    'substr : SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN'
+def p_substr_cuatro(p):
+    'substr : SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN'
 
 def p_wordwrap(p):
-    '''wordwrap : WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE
-    | CADENASIMPLE COMA BOOLEAN RPAREN'''
+    'wordwrap : WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN'
 
 def p_sort(p):
     'sort : SORT LPAREN VARIABLE RPAREN'
@@ -271,6 +298,13 @@ def p_count(p):
 def p_next(p):
     'next : NEXT LPAREN VARIABLE RPAREN'
 
+def p_funciones_obj(p):
+    '''funciones : getclass
+    | is_a'''
+def p_getclass(p):
+    'getclass : GETCLASS LPAREN VARIABLE RPAREN'
+def p_is_a(p):
+    'is_a : IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN'
 
 # Error generado
 def p_error(p):
@@ -305,16 +339,14 @@ while True:
 #if($a<$b){print(5);}elseif($a>4 || $b<4){$a="hola mundo1";}else{$a= 5+5;}
 
 #EJEMPLOS DAVID
-# $VAR = ["foo" => "bar",
-#         "bar" => "foo",]
-# $VAR1 = sort($VAR)
-# $VAR2 = trim(TELEFONO)
+# $VAR = ["foo", "bar", "bar", "foo"];
+# $VAR1 = sort($VAR);
+# $VAR2 = trim($TELEFONO);
 # $VAR3 = count($VAR1);
 
 #EJEMPLOS JOSELYN
-#floor(-5.46);
-#nl2br("foo no es bar");
-#round(5.6);
-#fopen=("c:\\folder\\resource.txt", "r");
-
+#echo floor(-5.46);
+#print nl2br("foo no es bar");
+#$x = round(5.6);
+#$variable = fopen("c:\\folder\\resource.txt", "r");
 
