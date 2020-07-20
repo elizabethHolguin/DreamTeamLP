@@ -350,3 +350,5 @@ while True:
 #$x = round(5.6);
 #$variable = fopen("c:\\folder\\resource.txt", "r");
 
+#Algoritmo completo
+#print("hola mundo");while($a<4 && $b>5){echo floor(-5.46);if($a<$b){$VAR = ["foo", "bar", "bar", "foo"]; echo "hola";}elseif($a>4 || $b<4){$a="hola mundo1"; echo $a;}else{for($a=3;$a<4;$a++){$a=4;$a++;}}}
