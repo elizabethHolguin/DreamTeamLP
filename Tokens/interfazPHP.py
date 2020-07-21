@@ -1,6 +1,7 @@
 import sys
-#import practica as lexico
-#import sintactic as sintactico
+import ply.lex as lex
+from practica import *
+#from sintactic import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -36,7 +37,7 @@ btnlimpiar.setStyleSheet('QPushButton {background-color: #A3C1DA}')
 lblFuente = QLabel()
 lblFuente.setText("PROPORCIONE SU CÓDIGO FUENTE EN ESTE APARTADO:")
 
-cod = QPlainTextEdit()
+cod = QPlainTextEdit(parent=window)
 texto = cod.sizePolicy()
 texto.setHorizontalPolicy(QSizePolicy.Expanding)
 cod.setSizePolicy(texto)
@@ -48,9 +49,9 @@ lblAnalizador.setAlignment(Qt.AlignLeft)
 lblLexico = QLabel()
 lblLexico.setText("LÉXICO: ")
 lexico = QPlainTextEdit()
-lex = lexico.sizePolicy()
-lex.setHorizontalPolicy(QSizePolicy.Expanding)
-lexico.setSizePolicy(lex)
+lexic = lexico.sizePolicy()
+lexic.setHorizontalPolicy(QSizePolicy.Expanding)
+lexico.setSizePolicy(lexic)
 
 lblSintactico = QLabel()
 lblSintactico.setText("SINTÁCTICO: ")
@@ -59,12 +60,6 @@ sintac = sintactico.sizePolicy()
 sintac.setHorizontalPolicy(QSizePolicy.Expanding)
 sintactico.setSizePolicy(sintac)
 
-lblErrorSintac = QLabel()
-lblErrorSintac.setText("ERRORES: ")
-errorSintac = QPlainTextEdit()
-errSintax = errorSintac.sizePolicy()
-errSintax.setHorizontalPolicy(QSizePolicy.Expanding)
-errorSintac.setSizePolicy(errSintax)
 
 layoutContenedor = QHBoxLayout()
 layoutCodFuente = QVBoxLayout()
@@ -92,8 +87,7 @@ layoutLexico.addWidget(lblLexico)
 layoutLexico.addWidget(lexico)
 layoutSintactico.addWidget(lblSintactico)
 layoutSintactico.addWidget(sintactico)
-#layoutSint.addWidget(lblSintErr)
-#layoutSint.addWidget(errorSint)
+
 layoutLexSin.addLayout(layoutLexico)
 layoutLexSin.addLayout(layoutSintactico)
 layoutAnalisis.addWidget(lblAnalizador)
@@ -111,6 +105,30 @@ def limpiar():
     lexico.clear()
     sintactico.clear()
 btnlimpiar.clicked.connect(limpiar)
+
+
+
+
+def analisisLexSint():
+    tex = cod.toPlainText()
+    lexico.clear()
+    sintactico.clear()
+    analizadorLexico = lex.lex()
+    analizadorLexico.input(tex)
+
+    while True:
+        tokenRec = analizadorLexico.token()
+        if tokenRec != None:
+            lexico.appendPlainText(str(tokenRec))
+            print(tokenRec)
+        else:
+            break
+
+    #lexSintactico=lex.sintactic(tex)
+    #sintactic.appendPlaintText(lexSintactico)
+
+btnvalidar.clicked.connect(analisisLexSint)
+
 
 
 #Mostrando interfaz
