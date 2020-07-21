@@ -94,66 +94,66 @@ def t_newline(t):
     t.lexer.lineno += len (t.value)
 
 #EJEMPLOS JOSELYN HOLGUIN
-cadena = "++$hola $var 4+5"
-analizadorJ = lex.lex()
-analizadorJ.input(cadena)
+#cadena = "++$hola $var 4+5"
+#analizadorJ = lex.lex()
+#analizadorJ.input(cadena)
 
-cadena1 = "--$var $pol ($a>2) && ($b<3) 2*4 "
-analizadorJ = lex.lex()
-analizadorJ.input(cadena1)
+#cadena1 = "--$var $pol ($a>2) && ($b<3) 2*4 "
+#analizadorJ = lex.lex()
+#analizadorJ.input(cadena1)
 
-cadena2 = "($a>2) || ($b<3) 6%2 $r1==$r2 $a1===$a1 && $s ! $s1"
-analizadorJ = lex.lex()
-analizadorJ.input(cadena2)
+#cadena2 = "($a>2) || ($b<3) 6%2 $r1==$r2 $a1===$a1 && $s ! $s1"
+#analizadorJ = lex.lex()
+#analizadorJ.input(cadena2)
 
-while True:
-    tokenRec = analizadorJ.token()
-    if tokenRec != None:
-        print (tokenRec)
-    else:
-        break
+#while True:
+#tokenRec = analizadorJ.token()
+    #   if tokenRec != None:
+#print (tokenRec)
+        #   else:
+#       break
 
 #EJEMPLOS KEVIN  BRIONES
-cadena3 = "if($var1 == $var2 and === 1)"
-analizadorK = lex.lex()
-analizadorK.input(cadena3)
+#cadena3 = "if($var1 == $var2 and === 1)"
+#analizadorK = lex.lex()
+#analizadorK.input(cadena3)
 
-cadena4 = "foreach (array(1, 2, 3, 4) as $valor) {$valor * 2;}"
-analizadorK = lex.lex()
-analizadorK.input(cadena4)
+#cadena4 = "foreach (array(1, 2, 3, 4) as $valor) {$valor * 2;}"
+#analizadorK = lex.lex()
+#analizadorK.input(cadena4)
 
-cadena5 = "{ $aMemberVar = \'aMemberVar Member Variable\'; $aFuncName = \'aMemberFunc\';"
-analizadorK = lex.lex()
-analizadorK.input(cadena5)
+#cadena5 = "{ $aMemberVar = \'aMemberVar Member Variable\'; $aFuncName = \'aMemberFunc\';"
+#analizadorK = lex.lex()
+#analizadorK.input(cadena5)
 
 
-while True:
-    tokenRed = analizadorK.token()
-    if tokenRed != None:
-        print (tokenRed)
-    else:
-        break
+#while True:
+#    tokenRed = analizadorK.token()
+    #    if tokenRed != None:
+#        print (tokenRed)
+        #    else:
+#        break
 
 #EJEMPLOS DAVID LEON
-cadena7 = "$VAR = \'soy una variable\'"
-analizadorD = lex.lex()
-analizadorD.input(cadena7)
+#cadena7 = "$VAR = \'soy una variable\'"
+#analizadorD = lex.lex()
+#analizadorD.input(cadena7)
 
-cadena8 = "trim($cadena) count($frutitas) "
-analizadorD = lex.lex()
-analizadorD.input(cadena8)
+#cadena8 = "trim($cadena) count($frutitas) "
+#analizadorD = lex.lex()
+#analizadorD.input(cadena8)
 
-cadena9 = "next($dulces) $archivo = fopen(\"archivo.txt\", \"r\");"
-analizadorD = lex.lex()
-analizadorD.input(cadena9)
+#cadena9 = "next($dulces) $archivo = fopen(\"archivo.txt\", \"r\");"
+#analizadorD = lex.lex()
+#analizadorD.input(cadena9)
 
-cadenaCaptura = "print (\"hola mundo\");while($a<4 && $b>5){echo floor(-5.46);if($a<$b){$VAR = [\"foo\", \"bar\", \"bar\", \"foo\"]; echo \"hola\";}elseif($a>4 || $b<4){$a=\"hola mundo1\"; echo $a;}else{for($a=3;$a<4;$a++){$a=4;$a++;}}}"
-analizadorD = lex.lex()
-analizadorD.input(cadenaCaptura)
-while True:
-    tokenPru = analizadorD.token()
-
-    if tokenPru != None:
-        print (tokenPru)
-    else:
-        break
+#cadenaCaptura = "print (\"hola mundo\");while($a<4 && $b>5){echo floor(-5.46);if($a<$b){$VAR = [\"foo\", \"bar\", \"bar\", \"foo\"]; echo \"hola\";}elseif($a>4 || $b<4){$a=\"hola mundo1\"; echo $a;}else{for($a=3;$a<4;$a++){$a=4;$a++;}}}"
+#analizadorD = lex.lex()
+#analizadorD.input(cadenaCaptura)
+#while True:
+    #   tokenPru = analizadorD.token()
+    #
+        #if tokenPru != None:
+    #print (tokenPru)
+        #else:
+#break

@@ -113,58 +113,59 @@ Rule 107   min -> MIN LPAREN elements RPAREN
 Rule 108   number_format -> NUMBER_FORMAT LPAREN VARIABLE RPAREN
 Rule 109   number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN
 Rule 110   number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
-Rule 111   funciones -> trim
-Rule 112   funciones -> substr
-Rule 113   funciones -> wordwrap
-Rule 114   funciones -> fopen
-Rule 115   funciones -> fpassthru
-Rule 116   funciones -> feof
-Rule 117   funciones -> fgets
-Rule 118   funciones -> nl2br
-Rule 119   funciones -> VARIABLE IGUAL next
-Rule 120   funciones -> lista
-Rule 121   funciones -> arrays
-Rule 122   rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN
-Rule 123   rand -> RAND LPAREN RPAREN
-Rule 124   funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
-Rule 125   funciones -> max
-Rule 126   funciones -> min
-Rule 127   funciones -> sort
-Rule 128   funciones -> count
-Rule 129   funciones -> number_format
-Rule 130   funciones -> floor
-Rule 131   funciones -> round
-Rule 132   funciones -> ceil
-Rule 133   funciones -> rand
-Rule 134   funciones -> fmod
-Rule 135   trim -> TRIM LPAREN VARIABLE RPAREN
-Rule 136   trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
-Rule 137   trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
-Rule 138   substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
-Rule 139   substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
-Rule 140   substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
-Rule 141   substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
-Rule 142   wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
-Rule 143   sort -> SORT LPAREN VARIABLE RPAREN
-Rule 144   sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN
-Rule 145   count -> COUNT LPAREN VARIABLE RPAREN
-Rule 146   next -> NEXT LPAREN VARIABLE RPAREN
-Rule 147   funciones -> getclass
-Rule 148   funciones -> is_a
-Rule 149   getclass -> GETCLASS LPAREN VARIABLE RPAREN
-Rule 150   is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
+Rule 111   number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
+Rule 112   funciones -> trim
+Rule 113   funciones -> substr
+Rule 114   funciones -> wordwrap
+Rule 115   funciones -> fopen
+Rule 116   funciones -> fpassthru
+Rule 117   funciones -> feof
+Rule 118   funciones -> fgets
+Rule 119   funciones -> nl2br
+Rule 120   funciones -> VARIABLE IGUAL next
+Rule 121   funciones -> lista
+Rule 122   funciones -> arrays
+Rule 123   rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN
+Rule 124   rand -> RAND LPAREN RPAREN
+Rule 125   funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
+Rule 126   funciones -> max
+Rule 127   funciones -> min
+Rule 128   funciones -> sort
+Rule 129   funciones -> count
+Rule 130   funciones -> number_format
+Rule 131   funciones -> floor
+Rule 132   funciones -> round
+Rule 133   funciones -> ceil
+Rule 134   funciones -> rand
+Rule 135   funciones -> fmod
+Rule 136   trim -> TRIM LPAREN VARIABLE RPAREN
+Rule 137   trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
+Rule 138   trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
+Rule 139   substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
+Rule 140   substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
+Rule 141   substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
+Rule 142   substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
+Rule 143   wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+Rule 144   sort -> SORT LPAREN VARIABLE RPAREN
+Rule 145   sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN
+Rule 146   count -> COUNT LPAREN VARIABLE RPAREN
+Rule 147   next -> NEXT LPAREN VARIABLE RPAREN
+Rule 148   funciones -> getclass
+Rule 149   funciones -> is_a
+Rule 150   getclass -> GETCLASS LPAREN VARIABLE RPAREN
+Rule 151   is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
 
 Terminals, with rules where they appear
 
 AND                  : 59
 ANDAND               : 58
 ARRAY                : 105
-BOOLEAN              : 68 77 79 142
-CADENADOBLE          : 66 70 70 71 76 77 78 136 139 141 142 150
-CADENASIMPLE         : 65 71 110 110 137
+BOOLEAN              : 68 77 79 143
+CADENADOBLE          : 66 70 70 71 76 77 78 111 111 137 140 142 143 151
+CADENASIMPLE         : 65 71 110 110 138
 CEIL                 : 92 93 94 95
-COMA                 : 70 71 74 76 77 79 80 84 85 86 87 96 100 101 109 110 110 110 122 124 136 137 138 138 139 139 140 141 142 142 142 144 150
-COUNT                : 145
+COMA                 : 70 71 74 76 77 79 80 84 85 86 87 96 100 101 109 110 110 110 111 111 111 123 125 137 138 139 139 140 140 141 142 143 143 143 145 151
+COUNT                : 146
 DECIMAL              : 64 82 83 84 85 86 87 88 89 90 92 93
 DISTINTO             : 49
 DIVISION             : 41
@@ -174,21 +175,21 @@ ELSEIF               : 29 30
 EXPONENCIACION       : 43
 FEOF                 : 73
 FGETS                : 74 75
-FLAG                 : 144
+FLAG                 : 145
 FLOOR                : 88 89 90 91
 FMOD                 : 96
 FOPEN                : 70 71
 FOR                  : 11
 FPASSTHRU            : 72
-GETCLASS             : 149
+GETCLASS             : 150
 IDENTICO             : 48
 IF                   : 26 27 28
-IGUAL                : 32 33 35 119
+IGUAL                : 32 33 35 120
 IGUAL_IGUAL          : 47
-IS_A                 : 150
+IS_A                 : 151
 LCORC                : 106
 LIST                 : 97
-LPAREN               : 11 12 17 22 23 26 27 28 29 30 45 46 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 104 105 107 108 109 110 122 123 124 135 136 137 138 139 140 141 142 143 144 145 146 149 150
+LPAREN               : 11 12 17 22 23 26 27 28 29 30 45 46 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 104 105 107 108 109 110 111 123 124 125 136 137 138 139 140 141 142 143 144 145 146 147 150 151
 L_LLAVE              : 11 12 26 27 28 29 30 31
 MAS                  : 38
 MAX                  : 104
@@ -199,84 +200,84 @@ MENORQUE             : 50
 MENOS                : 39 83 85 86 86 87 89 92
 MIN                  : 107
 MODULO               : 42
-NEXT                 : 146
+NEXT                 : 147
 NL2BR                : 76 77 78 79 80 81
 NO                   : 46
-NUMBER_FORMAT        : 108 109 110
-NUMEROS              : 63 74 84 85 86 87 90 95 109 110 122 122 124 124 138 138 139 139 140 141 142
+NUMBER_FORMAT        : 108 109 110 111
+NUMEROS              : 63 74 84 85 86 87 90 95 109 110 111 123 123 125 125 139 139 140 140 141 142 143
 OBJECT               : 17
 OR                   : 60
 OROR                 : 61
 POSTDECREMENTO       : 16
 POSTINCREMENTO       : 14
-POTENCIA             : 124
+POTENCIA             : 125
 PREDECREMENTO        : 15
 PREINCREMENTO        : 13
 PRINT                : 22 23 24 25
 PRODUCTO             : 40 90 95
 PUNTOCOMA            : 11 20 21 22 23 32 33 34 35
-RAND                 : 122 123
+RAND                 : 123 124
 RCORC                : 106
 ROUND                : 82 83 84 85 86 87
-RPAREN               : 11 12 17 22 23 26 27 28 29 30 45 46 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 104 105 107 108 109 110 122 123 124 135 136 137 138 139 140 141 142 143 144 145 146 149 150
+RPAREN               : 11 12 17 22 23 26 27 28 29 30 45 46 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 104 105 107 108 109 110 111 123 124 125 136 137 138 139 140 141 142 143 144 145 146 147 150 151
 R_LLAVE              : 11 12 26 27 28 29 30 31
-SORT                 : 143 144
-SUBSTR               : 138 139 140 141
-TRIM                 : 135 136 137
-VARIABLE             : 32 33 35 67 72 73 74 75 76 79 80 80 81 91 94 95 96 96 108 109 110 119 135 136 137 138 140 142 143 144 145 146 149 150
+SORT                 : 144 145
+SUBSTR               : 139 140 141 142
+TRIM                 : 136 137 138
+VARIABLE             : 32 33 35 67 72 73 74 75 76 79 80 80 81 91 94 95 96 96 108 109 110 111 120 136 137 138 139 141 143 144 145 146 147 150 151
 WHILE                : 12
-WORDWRAP             : 142
+WORDWRAP             : 143
 XOR                  : 57
 error                : 
 
 Nonterminals, with rules where they appear
 
 anado                : 55
-arrays               : 102 121
+arrays               : 102 122
 asignacion           : 1 6 11
-ceil                 : 132
+ceil                 : 133
 comparacion          : 54 55
 comparaciones        : 11 12 26 27 28 29 30 55
 condicion            : 56
 condiciones          : 44 45 46
-count                : 128
+count                : 129
 element              : 99 101
 elements             : 97 100 101 104 105 106 107
 else                 : 27 28
 elseif               : 28 30
 expresion            : 32 36 69
 factor               : 20 22 24 33 47 47 48 48 49 49 50 50 51 51 52 52 53 53 62 98 100
-feof                 : 116
-fgets                : 117
-floor                : 130
-fmod                 : 134
-fopen                : 114
+feof                 : 117
+fgets                : 118
+floor                : 131
+fmod                 : 135
+fopen                : 115
 for                  : 4 9
-fpassthru            : 115
+fpassthru            : 116
 funciones            : 21 23 25 35
-getclass             : 147
+getclass             : 148
 if                   : 3 8
 imprimir             : 18
 incremento_decremento : 11 34
-is_a                 : 148
-lista                : 103 120
-max                  : 125
+is_a                 : 149
+lista                : 103 121
+max                  : 126
 metodos              : 2 7
-min                  : 126
-next                 : 119
-nl2br                : 118
-number_format        : 129
+min                  : 127
+next                 : 120
+nl2br                : 119
+number_format        : 130
 object               : 19
 operadores           : 36
-rand                 : 133
-round                : 131
+rand                 : 134
+round                : 132
 sentencias           : 1 2 3 4 5 11 12 26 27 28 29 30 31 0
-sort                 : 127
-substr               : 112
+sort                 : 128
+substr               : 113
 term                 : 17 36 37
-trim                 : 111
+trim                 : 112
 while                : 5 10
-wordwrap             : 113
+wordwrap             : 114
 
 Parsing method: LALR
 
@@ -612,38 +613,38 @@ state 19
     (67) factor -> . VARIABLE
     (68) factor -> . BOOLEAN
     (69) factor -> . LPAREN expresion RPAREN
-    (111) funciones -> . trim
-    (112) funciones -> . substr
-    (113) funciones -> . wordwrap
-    (114) funciones -> . fopen
-    (115) funciones -> . fpassthru
-    (116) funciones -> . feof
-    (117) funciones -> . fgets
-    (118) funciones -> . nl2br
-    (119) funciones -> . VARIABLE IGUAL next
-    (120) funciones -> . lista
-    (121) funciones -> . arrays
-    (124) funciones -> . POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
-    (125) funciones -> . max
-    (126) funciones -> . min
-    (127) funciones -> . sort
-    (128) funciones -> . count
-    (129) funciones -> . number_format
-    (130) funciones -> . floor
-    (131) funciones -> . round
-    (132) funciones -> . ceil
-    (133) funciones -> . rand
-    (134) funciones -> . fmod
-    (147) funciones -> . getclass
-    (148) funciones -> . is_a
-    (135) trim -> . TRIM LPAREN VARIABLE RPAREN
-    (136) trim -> . TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
-    (137) trim -> . TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
-    (138) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
-    (139) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
-    (141) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
-    (142) wordwrap -> . WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (112) funciones -> . trim
+    (113) funciones -> . substr
+    (114) funciones -> . wordwrap
+    (115) funciones -> . fopen
+    (116) funciones -> . fpassthru
+    (117) funciones -> . feof
+    (118) funciones -> . fgets
+    (119) funciones -> . nl2br
+    (120) funciones -> . VARIABLE IGUAL next
+    (121) funciones -> . lista
+    (122) funciones -> . arrays
+    (125) funciones -> . POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
+    (126) funciones -> . max
+    (127) funciones -> . min
+    (128) funciones -> . sort
+    (129) funciones -> . count
+    (130) funciones -> . number_format
+    (131) funciones -> . floor
+    (132) funciones -> . round
+    (133) funciones -> . ceil
+    (134) funciones -> . rand
+    (135) funciones -> . fmod
+    (148) funciones -> . getclass
+    (149) funciones -> . is_a
+    (136) trim -> . TRIM LPAREN VARIABLE RPAREN
+    (137) trim -> . TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (138) trim -> . TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
+    (139) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
+    (140) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
+    (142) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
+    (143) wordwrap -> . WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
     (70) fopen -> . FOPEN LPAREN CADENADOBLE COMA CADENADOBLE RPAREN
     (71) fopen -> . FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN
     (72) fpassthru -> . FPASSTHRU LPAREN VARIABLE RPAREN
@@ -661,12 +662,13 @@ state 19
     (106) arrays -> . LCORC elements RCORC
     (104) max -> . MAX LPAREN elements RPAREN
     (107) min -> . MIN LPAREN elements RPAREN
-    (143) sort -> . SORT LPAREN VARIABLE RPAREN
-    (144) sort -> . SORT LPAREN VARIABLE COMA FLAG RPAREN
-    (145) count -> . COUNT LPAREN VARIABLE RPAREN
+    (144) sort -> . SORT LPAREN VARIABLE RPAREN
+    (145) sort -> . SORT LPAREN VARIABLE COMA FLAG RPAREN
+    (146) count -> . COUNT LPAREN VARIABLE RPAREN
     (108) number_format -> . NUMBER_FORMAT LPAREN VARIABLE RPAREN
     (109) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN
     (110) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
     (88) floor -> . FLOOR LPAREN DECIMAL RPAREN
     (89) floor -> . FLOOR LPAREN MENOS DECIMAL RPAREN
     (90) floor -> . FLOOR LPAREN DECIMAL PRODUCTO NUMEROS RPAREN
@@ -681,11 +683,11 @@ state 19
     (93) ceil -> . CEIL LPAREN DECIMAL RPAREN
     (94) ceil -> . CEIL LPAREN VARIABLE RPAREN
     (95) ceil -> . CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN
-    (122) rand -> . RAND LPAREN NUMEROS COMA NUMEROS RPAREN
-    (123) rand -> . RAND LPAREN RPAREN
+    (123) rand -> . RAND LPAREN NUMEROS COMA NUMEROS RPAREN
+    (124) rand -> . RAND LPAREN RPAREN
     (96) fmod -> . FMOD LPAREN VARIABLE COMA VARIABLE RPAREN
-    (149) getclass -> . GETCLASS LPAREN VARIABLE RPAREN
-    (150) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (150) getclass -> . GETCLASS LPAREN VARIABLE RPAREN
+    (151) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
 
     NUMEROS         shift and go to state 34
     DECIMAL         shift and go to state 35
@@ -757,38 +759,38 @@ state 20
     (67) factor -> . VARIABLE
     (68) factor -> . BOOLEAN
     (69) factor -> . LPAREN expresion RPAREN
-    (111) funciones -> . trim
-    (112) funciones -> . substr
-    (113) funciones -> . wordwrap
-    (114) funciones -> . fopen
-    (115) funciones -> . fpassthru
-    (116) funciones -> . feof
-    (117) funciones -> . fgets
-    (118) funciones -> . nl2br
-    (119) funciones -> . VARIABLE IGUAL next
-    (120) funciones -> . lista
-    (121) funciones -> . arrays
-    (124) funciones -> . POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
-    (125) funciones -> . max
-    (126) funciones -> . min
-    (127) funciones -> . sort
-    (128) funciones -> . count
-    (129) funciones -> . number_format
-    (130) funciones -> . floor
-    (131) funciones -> . round
-    (132) funciones -> . ceil
-    (133) funciones -> . rand
-    (134) funciones -> . fmod
-    (147) funciones -> . getclass
-    (148) funciones -> . is_a
-    (135) trim -> . TRIM LPAREN VARIABLE RPAREN
-    (136) trim -> . TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
-    (137) trim -> . TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
-    (138) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
-    (139) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
-    (141) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
-    (142) wordwrap -> . WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (112) funciones -> . trim
+    (113) funciones -> . substr
+    (114) funciones -> . wordwrap
+    (115) funciones -> . fopen
+    (116) funciones -> . fpassthru
+    (117) funciones -> . feof
+    (118) funciones -> . fgets
+    (119) funciones -> . nl2br
+    (120) funciones -> . VARIABLE IGUAL next
+    (121) funciones -> . lista
+    (122) funciones -> . arrays
+    (125) funciones -> . POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
+    (126) funciones -> . max
+    (127) funciones -> . min
+    (128) funciones -> . sort
+    (129) funciones -> . count
+    (130) funciones -> . number_format
+    (131) funciones -> . floor
+    (132) funciones -> . round
+    (133) funciones -> . ceil
+    (134) funciones -> . rand
+    (135) funciones -> . fmod
+    (148) funciones -> . getclass
+    (149) funciones -> . is_a
+    (136) trim -> . TRIM LPAREN VARIABLE RPAREN
+    (137) trim -> . TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (138) trim -> . TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
+    (139) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
+    (140) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
+    (142) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
+    (143) wordwrap -> . WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
     (70) fopen -> . FOPEN LPAREN CADENADOBLE COMA CADENADOBLE RPAREN
     (71) fopen -> . FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN
     (72) fpassthru -> . FPASSTHRU LPAREN VARIABLE RPAREN
@@ -806,12 +808,13 @@ state 20
     (106) arrays -> . LCORC elements RCORC
     (104) max -> . MAX LPAREN elements RPAREN
     (107) min -> . MIN LPAREN elements RPAREN
-    (143) sort -> . SORT LPAREN VARIABLE RPAREN
-    (144) sort -> . SORT LPAREN VARIABLE COMA FLAG RPAREN
-    (145) count -> . COUNT LPAREN VARIABLE RPAREN
+    (144) sort -> . SORT LPAREN VARIABLE RPAREN
+    (145) sort -> . SORT LPAREN VARIABLE COMA FLAG RPAREN
+    (146) count -> . COUNT LPAREN VARIABLE RPAREN
     (108) number_format -> . NUMBER_FORMAT LPAREN VARIABLE RPAREN
     (109) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN
     (110) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
     (88) floor -> . FLOOR LPAREN DECIMAL RPAREN
     (89) floor -> . FLOOR LPAREN MENOS DECIMAL RPAREN
     (90) floor -> . FLOOR LPAREN DECIMAL PRODUCTO NUMEROS RPAREN
@@ -826,11 +829,11 @@ state 20
     (93) ceil -> . CEIL LPAREN DECIMAL RPAREN
     (94) ceil -> . CEIL LPAREN VARIABLE RPAREN
     (95) ceil -> . CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN
-    (122) rand -> . RAND LPAREN NUMEROS COMA NUMEROS RPAREN
-    (123) rand -> . RAND LPAREN RPAREN
+    (123) rand -> . RAND LPAREN NUMEROS COMA NUMEROS RPAREN
+    (124) rand -> . RAND LPAREN RPAREN
     (96) fmod -> . FMOD LPAREN VARIABLE COMA VARIABLE RPAREN
-    (149) getclass -> . GETCLASS LPAREN VARIABLE RPAREN
-    (150) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (150) getclass -> . GETCLASS LPAREN VARIABLE RPAREN
+    (151) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
 
     LPAREN          shift and go to state 87
     NUMEROS         shift and go to state 34
@@ -998,39 +1001,39 @@ state 26
     (67) factor -> . VARIABLE
     (68) factor -> . BOOLEAN
     (69) factor -> . LPAREN expresion RPAREN
-    (111) funciones -> . trim
-    (112) funciones -> . substr
-    (113) funciones -> . wordwrap
-    (114) funciones -> . fopen
-    (115) funciones -> . fpassthru
-    (116) funciones -> . feof
-    (117) funciones -> . fgets
-    (118) funciones -> . nl2br
-    (119) funciones -> . VARIABLE IGUAL next
-    (120) funciones -> . lista
-    (121) funciones -> . arrays
-    (124) funciones -> . POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
-    (125) funciones -> . max
-    (126) funciones -> . min
-    (127) funciones -> . sort
-    (128) funciones -> . count
-    (129) funciones -> . number_format
-    (130) funciones -> . floor
-    (131) funciones -> . round
-    (132) funciones -> . ceil
-    (133) funciones -> . rand
-    (134) funciones -> . fmod
-    (147) funciones -> . getclass
-    (148) funciones -> . is_a
+    (112) funciones -> . trim
+    (113) funciones -> . substr
+    (114) funciones -> . wordwrap
+    (115) funciones -> . fopen
+    (116) funciones -> . fpassthru
+    (117) funciones -> . feof
+    (118) funciones -> . fgets
+    (119) funciones -> . nl2br
+    (120) funciones -> . VARIABLE IGUAL next
+    (121) funciones -> . lista
+    (122) funciones -> . arrays
+    (125) funciones -> . POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
+    (126) funciones -> . max
+    (127) funciones -> . min
+    (128) funciones -> . sort
+    (129) funciones -> . count
+    (130) funciones -> . number_format
+    (131) funciones -> . floor
+    (132) funciones -> . round
+    (133) funciones -> . ceil
+    (134) funciones -> . rand
+    (135) funciones -> . fmod
+    (148) funciones -> . getclass
+    (149) funciones -> . is_a
     (62) term -> . factor
-    (135) trim -> . TRIM LPAREN VARIABLE RPAREN
-    (136) trim -> . TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
-    (137) trim -> . TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
-    (138) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
-    (139) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
-    (141) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
-    (142) wordwrap -> . WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (136) trim -> . TRIM LPAREN VARIABLE RPAREN
+    (137) trim -> . TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (138) trim -> . TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
+    (139) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
+    (140) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
+    (142) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
+    (143) wordwrap -> . WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
     (70) fopen -> . FOPEN LPAREN CADENADOBLE COMA CADENADOBLE RPAREN
     (71) fopen -> . FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN
     (72) fpassthru -> . FPASSTHRU LPAREN VARIABLE RPAREN
@@ -1048,12 +1051,13 @@ state 26
     (106) arrays -> . LCORC elements RCORC
     (104) max -> . MAX LPAREN elements RPAREN
     (107) min -> . MIN LPAREN elements RPAREN
-    (143) sort -> . SORT LPAREN VARIABLE RPAREN
-    (144) sort -> . SORT LPAREN VARIABLE COMA FLAG RPAREN
-    (145) count -> . COUNT LPAREN VARIABLE RPAREN
+    (144) sort -> . SORT LPAREN VARIABLE RPAREN
+    (145) sort -> . SORT LPAREN VARIABLE COMA FLAG RPAREN
+    (146) count -> . COUNT LPAREN VARIABLE RPAREN
     (108) number_format -> . NUMBER_FORMAT LPAREN VARIABLE RPAREN
     (109) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN
     (110) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
     (88) floor -> . FLOOR LPAREN DECIMAL RPAREN
     (89) floor -> . FLOOR LPAREN MENOS DECIMAL RPAREN
     (90) floor -> . FLOOR LPAREN DECIMAL PRODUCTO NUMEROS RPAREN
@@ -1068,11 +1072,11 @@ state 26
     (93) ceil -> . CEIL LPAREN DECIMAL RPAREN
     (94) ceil -> . CEIL LPAREN VARIABLE RPAREN
     (95) ceil -> . CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN
-    (122) rand -> . RAND LPAREN NUMEROS COMA NUMEROS RPAREN
-    (123) rand -> . RAND LPAREN RPAREN
+    (123) rand -> . RAND LPAREN NUMEROS COMA NUMEROS RPAREN
+    (124) rand -> . RAND LPAREN RPAREN
     (96) fmod -> . FMOD LPAREN VARIABLE COMA VARIABLE RPAREN
-    (149) getclass -> . GETCLASS LPAREN VARIABLE RPAREN
-    (150) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (150) getclass -> . GETCLASS LPAREN VARIABLE RPAREN
+    (151) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
 
     NUMEROS         shift and go to state 34
     DECIMAL         shift and go to state 35
@@ -1443,7 +1447,7 @@ state 37
 state 38
 
     (67) factor -> VARIABLE .
-    (119) funciones -> VARIABLE . IGUAL next
+    (120) funciones -> VARIABLE . IGUAL next
 
     PUNTOCOMA       reduce using rule 67 (factor -> VARIABLE .)
     VARIABLE        reduce using rule 67 (factor -> VARIABLE .)
@@ -1538,495 +1542,495 @@ state 40
 
 state 41
 
-    (111) funciones -> trim .
+    (112) funciones -> trim .
 
-    PUNTOCOMA       reduce using rule 111 (funciones -> trim .)
-    VARIABLE        reduce using rule 111 (funciones -> trim .)
-    IF              reduce using rule 111 (funciones -> trim .)
-    FOR             reduce using rule 111 (funciones -> trim .)
-    WHILE           reduce using rule 111 (funciones -> trim .)
-    PREINCREMENTO   reduce using rule 111 (funciones -> trim .)
-    POSTINCREMENTO  reduce using rule 111 (funciones -> trim .)
-    PREDECREMENTO   reduce using rule 111 (funciones -> trim .)
-    POSTDECREMENTO  reduce using rule 111 (funciones -> trim .)
-    ECHO            reduce using rule 111 (funciones -> trim .)
-    PRINT           reduce using rule 111 (funciones -> trim .)
-    LPAREN          reduce using rule 111 (funciones -> trim .)
-    $end            reduce using rule 111 (funciones -> trim .)
-    R_LLAVE         reduce using rule 111 (funciones -> trim .)
-    RPAREN          reduce using rule 111 (funciones -> trim .)
+    PUNTOCOMA       reduce using rule 112 (funciones -> trim .)
+    VARIABLE        reduce using rule 112 (funciones -> trim .)
+    IF              reduce using rule 112 (funciones -> trim .)
+    FOR             reduce using rule 112 (funciones -> trim .)
+    WHILE           reduce using rule 112 (funciones -> trim .)
+    PREINCREMENTO   reduce using rule 112 (funciones -> trim .)
+    POSTINCREMENTO  reduce using rule 112 (funciones -> trim .)
+    PREDECREMENTO   reduce using rule 112 (funciones -> trim .)
+    POSTDECREMENTO  reduce using rule 112 (funciones -> trim .)
+    ECHO            reduce using rule 112 (funciones -> trim .)
+    PRINT           reduce using rule 112 (funciones -> trim .)
+    LPAREN          reduce using rule 112 (funciones -> trim .)
+    $end            reduce using rule 112 (funciones -> trim .)
+    R_LLAVE         reduce using rule 112 (funciones -> trim .)
+    RPAREN          reduce using rule 112 (funciones -> trim .)
 
 
 state 42
 
-    (112) funciones -> substr .
+    (113) funciones -> substr .
 
-    PUNTOCOMA       reduce using rule 112 (funciones -> substr .)
-    VARIABLE        reduce using rule 112 (funciones -> substr .)
-    IF              reduce using rule 112 (funciones -> substr .)
-    FOR             reduce using rule 112 (funciones -> substr .)
-    WHILE           reduce using rule 112 (funciones -> substr .)
-    PREINCREMENTO   reduce using rule 112 (funciones -> substr .)
-    POSTINCREMENTO  reduce using rule 112 (funciones -> substr .)
-    PREDECREMENTO   reduce using rule 112 (funciones -> substr .)
-    POSTDECREMENTO  reduce using rule 112 (funciones -> substr .)
-    ECHO            reduce using rule 112 (funciones -> substr .)
-    PRINT           reduce using rule 112 (funciones -> substr .)
-    LPAREN          reduce using rule 112 (funciones -> substr .)
-    $end            reduce using rule 112 (funciones -> substr .)
-    R_LLAVE         reduce using rule 112 (funciones -> substr .)
-    RPAREN          reduce using rule 112 (funciones -> substr .)
+    PUNTOCOMA       reduce using rule 113 (funciones -> substr .)
+    VARIABLE        reduce using rule 113 (funciones -> substr .)
+    IF              reduce using rule 113 (funciones -> substr .)
+    FOR             reduce using rule 113 (funciones -> substr .)
+    WHILE           reduce using rule 113 (funciones -> substr .)
+    PREINCREMENTO   reduce using rule 113 (funciones -> substr .)
+    POSTINCREMENTO  reduce using rule 113 (funciones -> substr .)
+    PREDECREMENTO   reduce using rule 113 (funciones -> substr .)
+    POSTDECREMENTO  reduce using rule 113 (funciones -> substr .)
+    ECHO            reduce using rule 113 (funciones -> substr .)
+    PRINT           reduce using rule 113 (funciones -> substr .)
+    LPAREN          reduce using rule 113 (funciones -> substr .)
+    $end            reduce using rule 113 (funciones -> substr .)
+    R_LLAVE         reduce using rule 113 (funciones -> substr .)
+    RPAREN          reduce using rule 113 (funciones -> substr .)
 
 
 state 43
 
-    (113) funciones -> wordwrap .
+    (114) funciones -> wordwrap .
 
-    PUNTOCOMA       reduce using rule 113 (funciones -> wordwrap .)
-    VARIABLE        reduce using rule 113 (funciones -> wordwrap .)
-    IF              reduce using rule 113 (funciones -> wordwrap .)
-    FOR             reduce using rule 113 (funciones -> wordwrap .)
-    WHILE           reduce using rule 113 (funciones -> wordwrap .)
-    PREINCREMENTO   reduce using rule 113 (funciones -> wordwrap .)
-    POSTINCREMENTO  reduce using rule 113 (funciones -> wordwrap .)
-    PREDECREMENTO   reduce using rule 113 (funciones -> wordwrap .)
-    POSTDECREMENTO  reduce using rule 113 (funciones -> wordwrap .)
-    ECHO            reduce using rule 113 (funciones -> wordwrap .)
-    PRINT           reduce using rule 113 (funciones -> wordwrap .)
-    LPAREN          reduce using rule 113 (funciones -> wordwrap .)
-    $end            reduce using rule 113 (funciones -> wordwrap .)
-    R_LLAVE         reduce using rule 113 (funciones -> wordwrap .)
-    RPAREN          reduce using rule 113 (funciones -> wordwrap .)
+    PUNTOCOMA       reduce using rule 114 (funciones -> wordwrap .)
+    VARIABLE        reduce using rule 114 (funciones -> wordwrap .)
+    IF              reduce using rule 114 (funciones -> wordwrap .)
+    FOR             reduce using rule 114 (funciones -> wordwrap .)
+    WHILE           reduce using rule 114 (funciones -> wordwrap .)
+    PREINCREMENTO   reduce using rule 114 (funciones -> wordwrap .)
+    POSTINCREMENTO  reduce using rule 114 (funciones -> wordwrap .)
+    PREDECREMENTO   reduce using rule 114 (funciones -> wordwrap .)
+    POSTDECREMENTO  reduce using rule 114 (funciones -> wordwrap .)
+    ECHO            reduce using rule 114 (funciones -> wordwrap .)
+    PRINT           reduce using rule 114 (funciones -> wordwrap .)
+    LPAREN          reduce using rule 114 (funciones -> wordwrap .)
+    $end            reduce using rule 114 (funciones -> wordwrap .)
+    R_LLAVE         reduce using rule 114 (funciones -> wordwrap .)
+    RPAREN          reduce using rule 114 (funciones -> wordwrap .)
 
 
 state 44
 
-    (114) funciones -> fopen .
+    (115) funciones -> fopen .
 
-    PUNTOCOMA       reduce using rule 114 (funciones -> fopen .)
-    VARIABLE        reduce using rule 114 (funciones -> fopen .)
-    IF              reduce using rule 114 (funciones -> fopen .)
-    FOR             reduce using rule 114 (funciones -> fopen .)
-    WHILE           reduce using rule 114 (funciones -> fopen .)
-    PREINCREMENTO   reduce using rule 114 (funciones -> fopen .)
-    POSTINCREMENTO  reduce using rule 114 (funciones -> fopen .)
-    PREDECREMENTO   reduce using rule 114 (funciones -> fopen .)
-    POSTDECREMENTO  reduce using rule 114 (funciones -> fopen .)
-    ECHO            reduce using rule 114 (funciones -> fopen .)
-    PRINT           reduce using rule 114 (funciones -> fopen .)
-    LPAREN          reduce using rule 114 (funciones -> fopen .)
-    $end            reduce using rule 114 (funciones -> fopen .)
-    R_LLAVE         reduce using rule 114 (funciones -> fopen .)
-    RPAREN          reduce using rule 114 (funciones -> fopen .)
+    PUNTOCOMA       reduce using rule 115 (funciones -> fopen .)
+    VARIABLE        reduce using rule 115 (funciones -> fopen .)
+    IF              reduce using rule 115 (funciones -> fopen .)
+    FOR             reduce using rule 115 (funciones -> fopen .)
+    WHILE           reduce using rule 115 (funciones -> fopen .)
+    PREINCREMENTO   reduce using rule 115 (funciones -> fopen .)
+    POSTINCREMENTO  reduce using rule 115 (funciones -> fopen .)
+    PREDECREMENTO   reduce using rule 115 (funciones -> fopen .)
+    POSTDECREMENTO  reduce using rule 115 (funciones -> fopen .)
+    ECHO            reduce using rule 115 (funciones -> fopen .)
+    PRINT           reduce using rule 115 (funciones -> fopen .)
+    LPAREN          reduce using rule 115 (funciones -> fopen .)
+    $end            reduce using rule 115 (funciones -> fopen .)
+    R_LLAVE         reduce using rule 115 (funciones -> fopen .)
+    RPAREN          reduce using rule 115 (funciones -> fopen .)
 
 
 state 45
 
-    (115) funciones -> fpassthru .
+    (116) funciones -> fpassthru .
 
-    PUNTOCOMA       reduce using rule 115 (funciones -> fpassthru .)
-    VARIABLE        reduce using rule 115 (funciones -> fpassthru .)
-    IF              reduce using rule 115 (funciones -> fpassthru .)
-    FOR             reduce using rule 115 (funciones -> fpassthru .)
-    WHILE           reduce using rule 115 (funciones -> fpassthru .)
-    PREINCREMENTO   reduce using rule 115 (funciones -> fpassthru .)
-    POSTINCREMENTO  reduce using rule 115 (funciones -> fpassthru .)
-    PREDECREMENTO   reduce using rule 115 (funciones -> fpassthru .)
-    POSTDECREMENTO  reduce using rule 115 (funciones -> fpassthru .)
-    ECHO            reduce using rule 115 (funciones -> fpassthru .)
-    PRINT           reduce using rule 115 (funciones -> fpassthru .)
-    LPAREN          reduce using rule 115 (funciones -> fpassthru .)
-    $end            reduce using rule 115 (funciones -> fpassthru .)
-    R_LLAVE         reduce using rule 115 (funciones -> fpassthru .)
-    RPAREN          reduce using rule 115 (funciones -> fpassthru .)
+    PUNTOCOMA       reduce using rule 116 (funciones -> fpassthru .)
+    VARIABLE        reduce using rule 116 (funciones -> fpassthru .)
+    IF              reduce using rule 116 (funciones -> fpassthru .)
+    FOR             reduce using rule 116 (funciones -> fpassthru .)
+    WHILE           reduce using rule 116 (funciones -> fpassthru .)
+    PREINCREMENTO   reduce using rule 116 (funciones -> fpassthru .)
+    POSTINCREMENTO  reduce using rule 116 (funciones -> fpassthru .)
+    PREDECREMENTO   reduce using rule 116 (funciones -> fpassthru .)
+    POSTDECREMENTO  reduce using rule 116 (funciones -> fpassthru .)
+    ECHO            reduce using rule 116 (funciones -> fpassthru .)
+    PRINT           reduce using rule 116 (funciones -> fpassthru .)
+    LPAREN          reduce using rule 116 (funciones -> fpassthru .)
+    $end            reduce using rule 116 (funciones -> fpassthru .)
+    R_LLAVE         reduce using rule 116 (funciones -> fpassthru .)
+    RPAREN          reduce using rule 116 (funciones -> fpassthru .)
 
 
 state 46
 
-    (116) funciones -> feof .
+    (117) funciones -> feof .
 
-    PUNTOCOMA       reduce using rule 116 (funciones -> feof .)
-    VARIABLE        reduce using rule 116 (funciones -> feof .)
-    IF              reduce using rule 116 (funciones -> feof .)
-    FOR             reduce using rule 116 (funciones -> feof .)
-    WHILE           reduce using rule 116 (funciones -> feof .)
-    PREINCREMENTO   reduce using rule 116 (funciones -> feof .)
-    POSTINCREMENTO  reduce using rule 116 (funciones -> feof .)
-    PREDECREMENTO   reduce using rule 116 (funciones -> feof .)
-    POSTDECREMENTO  reduce using rule 116 (funciones -> feof .)
-    ECHO            reduce using rule 116 (funciones -> feof .)
-    PRINT           reduce using rule 116 (funciones -> feof .)
-    LPAREN          reduce using rule 116 (funciones -> feof .)
-    $end            reduce using rule 116 (funciones -> feof .)
-    R_LLAVE         reduce using rule 116 (funciones -> feof .)
-    RPAREN          reduce using rule 116 (funciones -> feof .)
+    PUNTOCOMA       reduce using rule 117 (funciones -> feof .)
+    VARIABLE        reduce using rule 117 (funciones -> feof .)
+    IF              reduce using rule 117 (funciones -> feof .)
+    FOR             reduce using rule 117 (funciones -> feof .)
+    WHILE           reduce using rule 117 (funciones -> feof .)
+    PREINCREMENTO   reduce using rule 117 (funciones -> feof .)
+    POSTINCREMENTO  reduce using rule 117 (funciones -> feof .)
+    PREDECREMENTO   reduce using rule 117 (funciones -> feof .)
+    POSTDECREMENTO  reduce using rule 117 (funciones -> feof .)
+    ECHO            reduce using rule 117 (funciones -> feof .)
+    PRINT           reduce using rule 117 (funciones -> feof .)
+    LPAREN          reduce using rule 117 (funciones -> feof .)
+    $end            reduce using rule 117 (funciones -> feof .)
+    R_LLAVE         reduce using rule 117 (funciones -> feof .)
+    RPAREN          reduce using rule 117 (funciones -> feof .)
 
 
 state 47
 
-    (117) funciones -> fgets .
+    (118) funciones -> fgets .
 
-    PUNTOCOMA       reduce using rule 117 (funciones -> fgets .)
-    VARIABLE        reduce using rule 117 (funciones -> fgets .)
-    IF              reduce using rule 117 (funciones -> fgets .)
-    FOR             reduce using rule 117 (funciones -> fgets .)
-    WHILE           reduce using rule 117 (funciones -> fgets .)
-    PREINCREMENTO   reduce using rule 117 (funciones -> fgets .)
-    POSTINCREMENTO  reduce using rule 117 (funciones -> fgets .)
-    PREDECREMENTO   reduce using rule 117 (funciones -> fgets .)
-    POSTDECREMENTO  reduce using rule 117 (funciones -> fgets .)
-    ECHO            reduce using rule 117 (funciones -> fgets .)
-    PRINT           reduce using rule 117 (funciones -> fgets .)
-    LPAREN          reduce using rule 117 (funciones -> fgets .)
-    $end            reduce using rule 117 (funciones -> fgets .)
-    R_LLAVE         reduce using rule 117 (funciones -> fgets .)
-    RPAREN          reduce using rule 117 (funciones -> fgets .)
+    PUNTOCOMA       reduce using rule 118 (funciones -> fgets .)
+    VARIABLE        reduce using rule 118 (funciones -> fgets .)
+    IF              reduce using rule 118 (funciones -> fgets .)
+    FOR             reduce using rule 118 (funciones -> fgets .)
+    WHILE           reduce using rule 118 (funciones -> fgets .)
+    PREINCREMENTO   reduce using rule 118 (funciones -> fgets .)
+    POSTINCREMENTO  reduce using rule 118 (funciones -> fgets .)
+    PREDECREMENTO   reduce using rule 118 (funciones -> fgets .)
+    POSTDECREMENTO  reduce using rule 118 (funciones -> fgets .)
+    ECHO            reduce using rule 118 (funciones -> fgets .)
+    PRINT           reduce using rule 118 (funciones -> fgets .)
+    LPAREN          reduce using rule 118 (funciones -> fgets .)
+    $end            reduce using rule 118 (funciones -> fgets .)
+    R_LLAVE         reduce using rule 118 (funciones -> fgets .)
+    RPAREN          reduce using rule 118 (funciones -> fgets .)
 
 
 state 48
 
-    (118) funciones -> nl2br .
+    (119) funciones -> nl2br .
 
-    PUNTOCOMA       reduce using rule 118 (funciones -> nl2br .)
-    VARIABLE        reduce using rule 118 (funciones -> nl2br .)
-    IF              reduce using rule 118 (funciones -> nl2br .)
-    FOR             reduce using rule 118 (funciones -> nl2br .)
-    WHILE           reduce using rule 118 (funciones -> nl2br .)
-    PREINCREMENTO   reduce using rule 118 (funciones -> nl2br .)
-    POSTINCREMENTO  reduce using rule 118 (funciones -> nl2br .)
-    PREDECREMENTO   reduce using rule 118 (funciones -> nl2br .)
-    POSTDECREMENTO  reduce using rule 118 (funciones -> nl2br .)
-    ECHO            reduce using rule 118 (funciones -> nl2br .)
-    PRINT           reduce using rule 118 (funciones -> nl2br .)
-    LPAREN          reduce using rule 118 (funciones -> nl2br .)
-    $end            reduce using rule 118 (funciones -> nl2br .)
-    R_LLAVE         reduce using rule 118 (funciones -> nl2br .)
-    RPAREN          reduce using rule 118 (funciones -> nl2br .)
+    PUNTOCOMA       reduce using rule 119 (funciones -> nl2br .)
+    VARIABLE        reduce using rule 119 (funciones -> nl2br .)
+    IF              reduce using rule 119 (funciones -> nl2br .)
+    FOR             reduce using rule 119 (funciones -> nl2br .)
+    WHILE           reduce using rule 119 (funciones -> nl2br .)
+    PREINCREMENTO   reduce using rule 119 (funciones -> nl2br .)
+    POSTINCREMENTO  reduce using rule 119 (funciones -> nl2br .)
+    PREDECREMENTO   reduce using rule 119 (funciones -> nl2br .)
+    POSTDECREMENTO  reduce using rule 119 (funciones -> nl2br .)
+    ECHO            reduce using rule 119 (funciones -> nl2br .)
+    PRINT           reduce using rule 119 (funciones -> nl2br .)
+    LPAREN          reduce using rule 119 (funciones -> nl2br .)
+    $end            reduce using rule 119 (funciones -> nl2br .)
+    R_LLAVE         reduce using rule 119 (funciones -> nl2br .)
+    RPAREN          reduce using rule 119 (funciones -> nl2br .)
 
 
 state 49
 
-    (120) funciones -> lista .
+    (121) funciones -> lista .
 
-    PUNTOCOMA       reduce using rule 120 (funciones -> lista .)
-    VARIABLE        reduce using rule 120 (funciones -> lista .)
-    IF              reduce using rule 120 (funciones -> lista .)
-    FOR             reduce using rule 120 (funciones -> lista .)
-    WHILE           reduce using rule 120 (funciones -> lista .)
-    PREINCREMENTO   reduce using rule 120 (funciones -> lista .)
-    POSTINCREMENTO  reduce using rule 120 (funciones -> lista .)
-    PREDECREMENTO   reduce using rule 120 (funciones -> lista .)
-    POSTDECREMENTO  reduce using rule 120 (funciones -> lista .)
-    ECHO            reduce using rule 120 (funciones -> lista .)
-    PRINT           reduce using rule 120 (funciones -> lista .)
-    LPAREN          reduce using rule 120 (funciones -> lista .)
-    $end            reduce using rule 120 (funciones -> lista .)
-    R_LLAVE         reduce using rule 120 (funciones -> lista .)
-    RPAREN          reduce using rule 120 (funciones -> lista .)
+    PUNTOCOMA       reduce using rule 121 (funciones -> lista .)
+    VARIABLE        reduce using rule 121 (funciones -> lista .)
+    IF              reduce using rule 121 (funciones -> lista .)
+    FOR             reduce using rule 121 (funciones -> lista .)
+    WHILE           reduce using rule 121 (funciones -> lista .)
+    PREINCREMENTO   reduce using rule 121 (funciones -> lista .)
+    POSTINCREMENTO  reduce using rule 121 (funciones -> lista .)
+    PREDECREMENTO   reduce using rule 121 (funciones -> lista .)
+    POSTDECREMENTO  reduce using rule 121 (funciones -> lista .)
+    ECHO            reduce using rule 121 (funciones -> lista .)
+    PRINT           reduce using rule 121 (funciones -> lista .)
+    LPAREN          reduce using rule 121 (funciones -> lista .)
+    $end            reduce using rule 121 (funciones -> lista .)
+    R_LLAVE         reduce using rule 121 (funciones -> lista .)
+    RPAREN          reduce using rule 121 (funciones -> lista .)
 
 
 state 50
 
-    (121) funciones -> arrays .
+    (122) funciones -> arrays .
 
-    PUNTOCOMA       reduce using rule 121 (funciones -> arrays .)
-    VARIABLE        reduce using rule 121 (funciones -> arrays .)
-    IF              reduce using rule 121 (funciones -> arrays .)
-    FOR             reduce using rule 121 (funciones -> arrays .)
-    WHILE           reduce using rule 121 (funciones -> arrays .)
-    PREINCREMENTO   reduce using rule 121 (funciones -> arrays .)
-    POSTINCREMENTO  reduce using rule 121 (funciones -> arrays .)
-    PREDECREMENTO   reduce using rule 121 (funciones -> arrays .)
-    POSTDECREMENTO  reduce using rule 121 (funciones -> arrays .)
-    ECHO            reduce using rule 121 (funciones -> arrays .)
-    PRINT           reduce using rule 121 (funciones -> arrays .)
-    LPAREN          reduce using rule 121 (funciones -> arrays .)
-    $end            reduce using rule 121 (funciones -> arrays .)
-    R_LLAVE         reduce using rule 121 (funciones -> arrays .)
-    RPAREN          reduce using rule 121 (funciones -> arrays .)
+    PUNTOCOMA       reduce using rule 122 (funciones -> arrays .)
+    VARIABLE        reduce using rule 122 (funciones -> arrays .)
+    IF              reduce using rule 122 (funciones -> arrays .)
+    FOR             reduce using rule 122 (funciones -> arrays .)
+    WHILE           reduce using rule 122 (funciones -> arrays .)
+    PREINCREMENTO   reduce using rule 122 (funciones -> arrays .)
+    POSTINCREMENTO  reduce using rule 122 (funciones -> arrays .)
+    PREDECREMENTO   reduce using rule 122 (funciones -> arrays .)
+    POSTDECREMENTO  reduce using rule 122 (funciones -> arrays .)
+    ECHO            reduce using rule 122 (funciones -> arrays .)
+    PRINT           reduce using rule 122 (funciones -> arrays .)
+    LPAREN          reduce using rule 122 (funciones -> arrays .)
+    $end            reduce using rule 122 (funciones -> arrays .)
+    R_LLAVE         reduce using rule 122 (funciones -> arrays .)
+    RPAREN          reduce using rule 122 (funciones -> arrays .)
 
 
 state 51
 
-    (124) funciones -> POTENCIA . LPAREN NUMEROS COMA NUMEROS RPAREN
+    (125) funciones -> POTENCIA . LPAREN NUMEROS COMA NUMEROS RPAREN
 
     LPAREN          shift and go to state 109
 
 
 state 52
 
-    (125) funciones -> max .
+    (126) funciones -> max .
 
-    PUNTOCOMA       reduce using rule 125 (funciones -> max .)
-    VARIABLE        reduce using rule 125 (funciones -> max .)
-    IF              reduce using rule 125 (funciones -> max .)
-    FOR             reduce using rule 125 (funciones -> max .)
-    WHILE           reduce using rule 125 (funciones -> max .)
-    PREINCREMENTO   reduce using rule 125 (funciones -> max .)
-    POSTINCREMENTO  reduce using rule 125 (funciones -> max .)
-    PREDECREMENTO   reduce using rule 125 (funciones -> max .)
-    POSTDECREMENTO  reduce using rule 125 (funciones -> max .)
-    ECHO            reduce using rule 125 (funciones -> max .)
-    PRINT           reduce using rule 125 (funciones -> max .)
-    LPAREN          reduce using rule 125 (funciones -> max .)
-    $end            reduce using rule 125 (funciones -> max .)
-    R_LLAVE         reduce using rule 125 (funciones -> max .)
-    RPAREN          reduce using rule 125 (funciones -> max .)
+    PUNTOCOMA       reduce using rule 126 (funciones -> max .)
+    VARIABLE        reduce using rule 126 (funciones -> max .)
+    IF              reduce using rule 126 (funciones -> max .)
+    FOR             reduce using rule 126 (funciones -> max .)
+    WHILE           reduce using rule 126 (funciones -> max .)
+    PREINCREMENTO   reduce using rule 126 (funciones -> max .)
+    POSTINCREMENTO  reduce using rule 126 (funciones -> max .)
+    PREDECREMENTO   reduce using rule 126 (funciones -> max .)
+    POSTDECREMENTO  reduce using rule 126 (funciones -> max .)
+    ECHO            reduce using rule 126 (funciones -> max .)
+    PRINT           reduce using rule 126 (funciones -> max .)
+    LPAREN          reduce using rule 126 (funciones -> max .)
+    $end            reduce using rule 126 (funciones -> max .)
+    R_LLAVE         reduce using rule 126 (funciones -> max .)
+    RPAREN          reduce using rule 126 (funciones -> max .)
 
 
 state 53
 
-    (126) funciones -> min .
+    (127) funciones -> min .
 
-    PUNTOCOMA       reduce using rule 126 (funciones -> min .)
-    VARIABLE        reduce using rule 126 (funciones -> min .)
-    IF              reduce using rule 126 (funciones -> min .)
-    FOR             reduce using rule 126 (funciones -> min .)
-    WHILE           reduce using rule 126 (funciones -> min .)
-    PREINCREMENTO   reduce using rule 126 (funciones -> min .)
-    POSTINCREMENTO  reduce using rule 126 (funciones -> min .)
-    PREDECREMENTO   reduce using rule 126 (funciones -> min .)
-    POSTDECREMENTO  reduce using rule 126 (funciones -> min .)
-    ECHO            reduce using rule 126 (funciones -> min .)
-    PRINT           reduce using rule 126 (funciones -> min .)
-    LPAREN          reduce using rule 126 (funciones -> min .)
-    $end            reduce using rule 126 (funciones -> min .)
-    R_LLAVE         reduce using rule 126 (funciones -> min .)
-    RPAREN          reduce using rule 126 (funciones -> min .)
+    PUNTOCOMA       reduce using rule 127 (funciones -> min .)
+    VARIABLE        reduce using rule 127 (funciones -> min .)
+    IF              reduce using rule 127 (funciones -> min .)
+    FOR             reduce using rule 127 (funciones -> min .)
+    WHILE           reduce using rule 127 (funciones -> min .)
+    PREINCREMENTO   reduce using rule 127 (funciones -> min .)
+    POSTINCREMENTO  reduce using rule 127 (funciones -> min .)
+    PREDECREMENTO   reduce using rule 127 (funciones -> min .)
+    POSTDECREMENTO  reduce using rule 127 (funciones -> min .)
+    ECHO            reduce using rule 127 (funciones -> min .)
+    PRINT           reduce using rule 127 (funciones -> min .)
+    LPAREN          reduce using rule 127 (funciones -> min .)
+    $end            reduce using rule 127 (funciones -> min .)
+    R_LLAVE         reduce using rule 127 (funciones -> min .)
+    RPAREN          reduce using rule 127 (funciones -> min .)
 
 
 state 54
 
-    (127) funciones -> sort .
+    (128) funciones -> sort .
 
-    PUNTOCOMA       reduce using rule 127 (funciones -> sort .)
-    VARIABLE        reduce using rule 127 (funciones -> sort .)
-    IF              reduce using rule 127 (funciones -> sort .)
-    FOR             reduce using rule 127 (funciones -> sort .)
-    WHILE           reduce using rule 127 (funciones -> sort .)
-    PREINCREMENTO   reduce using rule 127 (funciones -> sort .)
-    POSTINCREMENTO  reduce using rule 127 (funciones -> sort .)
-    PREDECREMENTO   reduce using rule 127 (funciones -> sort .)
-    POSTDECREMENTO  reduce using rule 127 (funciones -> sort .)
-    ECHO            reduce using rule 127 (funciones -> sort .)
-    PRINT           reduce using rule 127 (funciones -> sort .)
-    LPAREN          reduce using rule 127 (funciones -> sort .)
-    $end            reduce using rule 127 (funciones -> sort .)
-    R_LLAVE         reduce using rule 127 (funciones -> sort .)
-    RPAREN          reduce using rule 127 (funciones -> sort .)
+    PUNTOCOMA       reduce using rule 128 (funciones -> sort .)
+    VARIABLE        reduce using rule 128 (funciones -> sort .)
+    IF              reduce using rule 128 (funciones -> sort .)
+    FOR             reduce using rule 128 (funciones -> sort .)
+    WHILE           reduce using rule 128 (funciones -> sort .)
+    PREINCREMENTO   reduce using rule 128 (funciones -> sort .)
+    POSTINCREMENTO  reduce using rule 128 (funciones -> sort .)
+    PREDECREMENTO   reduce using rule 128 (funciones -> sort .)
+    POSTDECREMENTO  reduce using rule 128 (funciones -> sort .)
+    ECHO            reduce using rule 128 (funciones -> sort .)
+    PRINT           reduce using rule 128 (funciones -> sort .)
+    LPAREN          reduce using rule 128 (funciones -> sort .)
+    $end            reduce using rule 128 (funciones -> sort .)
+    R_LLAVE         reduce using rule 128 (funciones -> sort .)
+    RPAREN          reduce using rule 128 (funciones -> sort .)
 
 
 state 55
 
-    (128) funciones -> count .
+    (129) funciones -> count .
 
-    PUNTOCOMA       reduce using rule 128 (funciones -> count .)
-    VARIABLE        reduce using rule 128 (funciones -> count .)
-    IF              reduce using rule 128 (funciones -> count .)
-    FOR             reduce using rule 128 (funciones -> count .)
-    WHILE           reduce using rule 128 (funciones -> count .)
-    PREINCREMENTO   reduce using rule 128 (funciones -> count .)
-    POSTINCREMENTO  reduce using rule 128 (funciones -> count .)
-    PREDECREMENTO   reduce using rule 128 (funciones -> count .)
-    POSTDECREMENTO  reduce using rule 128 (funciones -> count .)
-    ECHO            reduce using rule 128 (funciones -> count .)
-    PRINT           reduce using rule 128 (funciones -> count .)
-    LPAREN          reduce using rule 128 (funciones -> count .)
-    $end            reduce using rule 128 (funciones -> count .)
-    R_LLAVE         reduce using rule 128 (funciones -> count .)
-    RPAREN          reduce using rule 128 (funciones -> count .)
+    PUNTOCOMA       reduce using rule 129 (funciones -> count .)
+    VARIABLE        reduce using rule 129 (funciones -> count .)
+    IF              reduce using rule 129 (funciones -> count .)
+    FOR             reduce using rule 129 (funciones -> count .)
+    WHILE           reduce using rule 129 (funciones -> count .)
+    PREINCREMENTO   reduce using rule 129 (funciones -> count .)
+    POSTINCREMENTO  reduce using rule 129 (funciones -> count .)
+    PREDECREMENTO   reduce using rule 129 (funciones -> count .)
+    POSTDECREMENTO  reduce using rule 129 (funciones -> count .)
+    ECHO            reduce using rule 129 (funciones -> count .)
+    PRINT           reduce using rule 129 (funciones -> count .)
+    LPAREN          reduce using rule 129 (funciones -> count .)
+    $end            reduce using rule 129 (funciones -> count .)
+    R_LLAVE         reduce using rule 129 (funciones -> count .)
+    RPAREN          reduce using rule 129 (funciones -> count .)
 
 
 state 56
 
-    (129) funciones -> number_format .
+    (130) funciones -> number_format .
 
-    PUNTOCOMA       reduce using rule 129 (funciones -> number_format .)
-    VARIABLE        reduce using rule 129 (funciones -> number_format .)
-    IF              reduce using rule 129 (funciones -> number_format .)
-    FOR             reduce using rule 129 (funciones -> number_format .)
-    WHILE           reduce using rule 129 (funciones -> number_format .)
-    PREINCREMENTO   reduce using rule 129 (funciones -> number_format .)
-    POSTINCREMENTO  reduce using rule 129 (funciones -> number_format .)
-    PREDECREMENTO   reduce using rule 129 (funciones -> number_format .)
-    POSTDECREMENTO  reduce using rule 129 (funciones -> number_format .)
-    ECHO            reduce using rule 129 (funciones -> number_format .)
-    PRINT           reduce using rule 129 (funciones -> number_format .)
-    LPAREN          reduce using rule 129 (funciones -> number_format .)
-    $end            reduce using rule 129 (funciones -> number_format .)
-    R_LLAVE         reduce using rule 129 (funciones -> number_format .)
-    RPAREN          reduce using rule 129 (funciones -> number_format .)
+    PUNTOCOMA       reduce using rule 130 (funciones -> number_format .)
+    VARIABLE        reduce using rule 130 (funciones -> number_format .)
+    IF              reduce using rule 130 (funciones -> number_format .)
+    FOR             reduce using rule 130 (funciones -> number_format .)
+    WHILE           reduce using rule 130 (funciones -> number_format .)
+    PREINCREMENTO   reduce using rule 130 (funciones -> number_format .)
+    POSTINCREMENTO  reduce using rule 130 (funciones -> number_format .)
+    PREDECREMENTO   reduce using rule 130 (funciones -> number_format .)
+    POSTDECREMENTO  reduce using rule 130 (funciones -> number_format .)
+    ECHO            reduce using rule 130 (funciones -> number_format .)
+    PRINT           reduce using rule 130 (funciones -> number_format .)
+    LPAREN          reduce using rule 130 (funciones -> number_format .)
+    $end            reduce using rule 130 (funciones -> number_format .)
+    R_LLAVE         reduce using rule 130 (funciones -> number_format .)
+    RPAREN          reduce using rule 130 (funciones -> number_format .)
 
 
 state 57
 
-    (130) funciones -> floor .
+    (131) funciones -> floor .
 
-    PUNTOCOMA       reduce using rule 130 (funciones -> floor .)
-    VARIABLE        reduce using rule 130 (funciones -> floor .)
-    IF              reduce using rule 130 (funciones -> floor .)
-    FOR             reduce using rule 130 (funciones -> floor .)
-    WHILE           reduce using rule 130 (funciones -> floor .)
-    PREINCREMENTO   reduce using rule 130 (funciones -> floor .)
-    POSTINCREMENTO  reduce using rule 130 (funciones -> floor .)
-    PREDECREMENTO   reduce using rule 130 (funciones -> floor .)
-    POSTDECREMENTO  reduce using rule 130 (funciones -> floor .)
-    ECHO            reduce using rule 130 (funciones -> floor .)
-    PRINT           reduce using rule 130 (funciones -> floor .)
-    LPAREN          reduce using rule 130 (funciones -> floor .)
-    $end            reduce using rule 130 (funciones -> floor .)
-    R_LLAVE         reduce using rule 130 (funciones -> floor .)
-    RPAREN          reduce using rule 130 (funciones -> floor .)
+    PUNTOCOMA       reduce using rule 131 (funciones -> floor .)
+    VARIABLE        reduce using rule 131 (funciones -> floor .)
+    IF              reduce using rule 131 (funciones -> floor .)
+    FOR             reduce using rule 131 (funciones -> floor .)
+    WHILE           reduce using rule 131 (funciones -> floor .)
+    PREINCREMENTO   reduce using rule 131 (funciones -> floor .)
+    POSTINCREMENTO  reduce using rule 131 (funciones -> floor .)
+    PREDECREMENTO   reduce using rule 131 (funciones -> floor .)
+    POSTDECREMENTO  reduce using rule 131 (funciones -> floor .)
+    ECHO            reduce using rule 131 (funciones -> floor .)
+    PRINT           reduce using rule 131 (funciones -> floor .)
+    LPAREN          reduce using rule 131 (funciones -> floor .)
+    $end            reduce using rule 131 (funciones -> floor .)
+    R_LLAVE         reduce using rule 131 (funciones -> floor .)
+    RPAREN          reduce using rule 131 (funciones -> floor .)
 
 
 state 58
 
-    (131) funciones -> round .
+    (132) funciones -> round .
 
-    PUNTOCOMA       reduce using rule 131 (funciones -> round .)
-    VARIABLE        reduce using rule 131 (funciones -> round .)
-    IF              reduce using rule 131 (funciones -> round .)
-    FOR             reduce using rule 131 (funciones -> round .)
-    WHILE           reduce using rule 131 (funciones -> round .)
-    PREINCREMENTO   reduce using rule 131 (funciones -> round .)
-    POSTINCREMENTO  reduce using rule 131 (funciones -> round .)
-    PREDECREMENTO   reduce using rule 131 (funciones -> round .)
-    POSTDECREMENTO  reduce using rule 131 (funciones -> round .)
-    ECHO            reduce using rule 131 (funciones -> round .)
-    PRINT           reduce using rule 131 (funciones -> round .)
-    LPAREN          reduce using rule 131 (funciones -> round .)
-    $end            reduce using rule 131 (funciones -> round .)
-    R_LLAVE         reduce using rule 131 (funciones -> round .)
-    RPAREN          reduce using rule 131 (funciones -> round .)
+    PUNTOCOMA       reduce using rule 132 (funciones -> round .)
+    VARIABLE        reduce using rule 132 (funciones -> round .)
+    IF              reduce using rule 132 (funciones -> round .)
+    FOR             reduce using rule 132 (funciones -> round .)
+    WHILE           reduce using rule 132 (funciones -> round .)
+    PREINCREMENTO   reduce using rule 132 (funciones -> round .)
+    POSTINCREMENTO  reduce using rule 132 (funciones -> round .)
+    PREDECREMENTO   reduce using rule 132 (funciones -> round .)
+    POSTDECREMENTO  reduce using rule 132 (funciones -> round .)
+    ECHO            reduce using rule 132 (funciones -> round .)
+    PRINT           reduce using rule 132 (funciones -> round .)
+    LPAREN          reduce using rule 132 (funciones -> round .)
+    $end            reduce using rule 132 (funciones -> round .)
+    R_LLAVE         reduce using rule 132 (funciones -> round .)
+    RPAREN          reduce using rule 132 (funciones -> round .)
 
 
 state 59
 
-    (132) funciones -> ceil .
+    (133) funciones -> ceil .
 
-    PUNTOCOMA       reduce using rule 132 (funciones -> ceil .)
-    VARIABLE        reduce using rule 132 (funciones -> ceil .)
-    IF              reduce using rule 132 (funciones -> ceil .)
-    FOR             reduce using rule 132 (funciones -> ceil .)
-    WHILE           reduce using rule 132 (funciones -> ceil .)
-    PREINCREMENTO   reduce using rule 132 (funciones -> ceil .)
-    POSTINCREMENTO  reduce using rule 132 (funciones -> ceil .)
-    PREDECREMENTO   reduce using rule 132 (funciones -> ceil .)
-    POSTDECREMENTO  reduce using rule 132 (funciones -> ceil .)
-    ECHO            reduce using rule 132 (funciones -> ceil .)
-    PRINT           reduce using rule 132 (funciones -> ceil .)
-    LPAREN          reduce using rule 132 (funciones -> ceil .)
-    $end            reduce using rule 132 (funciones -> ceil .)
-    R_LLAVE         reduce using rule 132 (funciones -> ceil .)
-    RPAREN          reduce using rule 132 (funciones -> ceil .)
+    PUNTOCOMA       reduce using rule 133 (funciones -> ceil .)
+    VARIABLE        reduce using rule 133 (funciones -> ceil .)
+    IF              reduce using rule 133 (funciones -> ceil .)
+    FOR             reduce using rule 133 (funciones -> ceil .)
+    WHILE           reduce using rule 133 (funciones -> ceil .)
+    PREINCREMENTO   reduce using rule 133 (funciones -> ceil .)
+    POSTINCREMENTO  reduce using rule 133 (funciones -> ceil .)
+    PREDECREMENTO   reduce using rule 133 (funciones -> ceil .)
+    POSTDECREMENTO  reduce using rule 133 (funciones -> ceil .)
+    ECHO            reduce using rule 133 (funciones -> ceil .)
+    PRINT           reduce using rule 133 (funciones -> ceil .)
+    LPAREN          reduce using rule 133 (funciones -> ceil .)
+    $end            reduce using rule 133 (funciones -> ceil .)
+    R_LLAVE         reduce using rule 133 (funciones -> ceil .)
+    RPAREN          reduce using rule 133 (funciones -> ceil .)
 
 
 state 60
 
-    (133) funciones -> rand .
+    (134) funciones -> rand .
 
-    PUNTOCOMA       reduce using rule 133 (funciones -> rand .)
-    VARIABLE        reduce using rule 133 (funciones -> rand .)
-    IF              reduce using rule 133 (funciones -> rand .)
-    FOR             reduce using rule 133 (funciones -> rand .)
-    WHILE           reduce using rule 133 (funciones -> rand .)
-    PREINCREMENTO   reduce using rule 133 (funciones -> rand .)
-    POSTINCREMENTO  reduce using rule 133 (funciones -> rand .)
-    PREDECREMENTO   reduce using rule 133 (funciones -> rand .)
-    POSTDECREMENTO  reduce using rule 133 (funciones -> rand .)
-    ECHO            reduce using rule 133 (funciones -> rand .)
-    PRINT           reduce using rule 133 (funciones -> rand .)
-    LPAREN          reduce using rule 133 (funciones -> rand .)
-    $end            reduce using rule 133 (funciones -> rand .)
-    R_LLAVE         reduce using rule 133 (funciones -> rand .)
-    RPAREN          reduce using rule 133 (funciones -> rand .)
+    PUNTOCOMA       reduce using rule 134 (funciones -> rand .)
+    VARIABLE        reduce using rule 134 (funciones -> rand .)
+    IF              reduce using rule 134 (funciones -> rand .)
+    FOR             reduce using rule 134 (funciones -> rand .)
+    WHILE           reduce using rule 134 (funciones -> rand .)
+    PREINCREMENTO   reduce using rule 134 (funciones -> rand .)
+    POSTINCREMENTO  reduce using rule 134 (funciones -> rand .)
+    PREDECREMENTO   reduce using rule 134 (funciones -> rand .)
+    POSTDECREMENTO  reduce using rule 134 (funciones -> rand .)
+    ECHO            reduce using rule 134 (funciones -> rand .)
+    PRINT           reduce using rule 134 (funciones -> rand .)
+    LPAREN          reduce using rule 134 (funciones -> rand .)
+    $end            reduce using rule 134 (funciones -> rand .)
+    R_LLAVE         reduce using rule 134 (funciones -> rand .)
+    RPAREN          reduce using rule 134 (funciones -> rand .)
 
 
 state 61
 
-    (134) funciones -> fmod .
+    (135) funciones -> fmod .
 
-    PUNTOCOMA       reduce using rule 134 (funciones -> fmod .)
-    VARIABLE        reduce using rule 134 (funciones -> fmod .)
-    IF              reduce using rule 134 (funciones -> fmod .)
-    FOR             reduce using rule 134 (funciones -> fmod .)
-    WHILE           reduce using rule 134 (funciones -> fmod .)
-    PREINCREMENTO   reduce using rule 134 (funciones -> fmod .)
-    POSTINCREMENTO  reduce using rule 134 (funciones -> fmod .)
-    PREDECREMENTO   reduce using rule 134 (funciones -> fmod .)
-    POSTDECREMENTO  reduce using rule 134 (funciones -> fmod .)
-    ECHO            reduce using rule 134 (funciones -> fmod .)
-    PRINT           reduce using rule 134 (funciones -> fmod .)
-    LPAREN          reduce using rule 134 (funciones -> fmod .)
-    $end            reduce using rule 134 (funciones -> fmod .)
-    R_LLAVE         reduce using rule 134 (funciones -> fmod .)
-    RPAREN          reduce using rule 134 (funciones -> fmod .)
+    PUNTOCOMA       reduce using rule 135 (funciones -> fmod .)
+    VARIABLE        reduce using rule 135 (funciones -> fmod .)
+    IF              reduce using rule 135 (funciones -> fmod .)
+    FOR             reduce using rule 135 (funciones -> fmod .)
+    WHILE           reduce using rule 135 (funciones -> fmod .)
+    PREINCREMENTO   reduce using rule 135 (funciones -> fmod .)
+    POSTINCREMENTO  reduce using rule 135 (funciones -> fmod .)
+    PREDECREMENTO   reduce using rule 135 (funciones -> fmod .)
+    POSTDECREMENTO  reduce using rule 135 (funciones -> fmod .)
+    ECHO            reduce using rule 135 (funciones -> fmod .)
+    PRINT           reduce using rule 135 (funciones -> fmod .)
+    LPAREN          reduce using rule 135 (funciones -> fmod .)
+    $end            reduce using rule 135 (funciones -> fmod .)
+    R_LLAVE         reduce using rule 135 (funciones -> fmod .)
+    RPAREN          reduce using rule 135 (funciones -> fmod .)
 
 
 state 62
 
-    (147) funciones -> getclass .
+    (148) funciones -> getclass .
 
-    PUNTOCOMA       reduce using rule 147 (funciones -> getclass .)
-    VARIABLE        reduce using rule 147 (funciones -> getclass .)
-    IF              reduce using rule 147 (funciones -> getclass .)
-    FOR             reduce using rule 147 (funciones -> getclass .)
-    WHILE           reduce using rule 147 (funciones -> getclass .)
-    PREINCREMENTO   reduce using rule 147 (funciones -> getclass .)
-    POSTINCREMENTO  reduce using rule 147 (funciones -> getclass .)
-    PREDECREMENTO   reduce using rule 147 (funciones -> getclass .)
-    POSTDECREMENTO  reduce using rule 147 (funciones -> getclass .)
-    ECHO            reduce using rule 147 (funciones -> getclass .)
-    PRINT           reduce using rule 147 (funciones -> getclass .)
-    LPAREN          reduce using rule 147 (funciones -> getclass .)
-    $end            reduce using rule 147 (funciones -> getclass .)
-    R_LLAVE         reduce using rule 147 (funciones -> getclass .)
-    RPAREN          reduce using rule 147 (funciones -> getclass .)
+    PUNTOCOMA       reduce using rule 148 (funciones -> getclass .)
+    VARIABLE        reduce using rule 148 (funciones -> getclass .)
+    IF              reduce using rule 148 (funciones -> getclass .)
+    FOR             reduce using rule 148 (funciones -> getclass .)
+    WHILE           reduce using rule 148 (funciones -> getclass .)
+    PREINCREMENTO   reduce using rule 148 (funciones -> getclass .)
+    POSTINCREMENTO  reduce using rule 148 (funciones -> getclass .)
+    PREDECREMENTO   reduce using rule 148 (funciones -> getclass .)
+    POSTDECREMENTO  reduce using rule 148 (funciones -> getclass .)
+    ECHO            reduce using rule 148 (funciones -> getclass .)
+    PRINT           reduce using rule 148 (funciones -> getclass .)
+    LPAREN          reduce using rule 148 (funciones -> getclass .)
+    $end            reduce using rule 148 (funciones -> getclass .)
+    R_LLAVE         reduce using rule 148 (funciones -> getclass .)
+    RPAREN          reduce using rule 148 (funciones -> getclass .)
 
 
 state 63
 
-    (148) funciones -> is_a .
+    (149) funciones -> is_a .
 
-    PUNTOCOMA       reduce using rule 148 (funciones -> is_a .)
-    VARIABLE        reduce using rule 148 (funciones -> is_a .)
-    IF              reduce using rule 148 (funciones -> is_a .)
-    FOR             reduce using rule 148 (funciones -> is_a .)
-    WHILE           reduce using rule 148 (funciones -> is_a .)
-    PREINCREMENTO   reduce using rule 148 (funciones -> is_a .)
-    POSTINCREMENTO  reduce using rule 148 (funciones -> is_a .)
-    PREDECREMENTO   reduce using rule 148 (funciones -> is_a .)
-    POSTDECREMENTO  reduce using rule 148 (funciones -> is_a .)
-    ECHO            reduce using rule 148 (funciones -> is_a .)
-    PRINT           reduce using rule 148 (funciones -> is_a .)
-    LPAREN          reduce using rule 148 (funciones -> is_a .)
-    $end            reduce using rule 148 (funciones -> is_a .)
-    R_LLAVE         reduce using rule 148 (funciones -> is_a .)
-    RPAREN          reduce using rule 148 (funciones -> is_a .)
+    PUNTOCOMA       reduce using rule 149 (funciones -> is_a .)
+    VARIABLE        reduce using rule 149 (funciones -> is_a .)
+    IF              reduce using rule 149 (funciones -> is_a .)
+    FOR             reduce using rule 149 (funciones -> is_a .)
+    WHILE           reduce using rule 149 (funciones -> is_a .)
+    PREINCREMENTO   reduce using rule 149 (funciones -> is_a .)
+    POSTINCREMENTO  reduce using rule 149 (funciones -> is_a .)
+    PREDECREMENTO   reduce using rule 149 (funciones -> is_a .)
+    POSTDECREMENTO  reduce using rule 149 (funciones -> is_a .)
+    ECHO            reduce using rule 149 (funciones -> is_a .)
+    PRINT           reduce using rule 149 (funciones -> is_a .)
+    LPAREN          reduce using rule 149 (funciones -> is_a .)
+    $end            reduce using rule 149 (funciones -> is_a .)
+    R_LLAVE         reduce using rule 149 (funciones -> is_a .)
+    RPAREN          reduce using rule 149 (funciones -> is_a .)
 
 
 state 64
 
-    (135) trim -> TRIM . LPAREN VARIABLE RPAREN
-    (136) trim -> TRIM . LPAREN VARIABLE COMA CADENADOBLE RPAREN
-    (137) trim -> TRIM . LPAREN VARIABLE COMA CADENASIMPLE RPAREN
+    (136) trim -> TRIM . LPAREN VARIABLE RPAREN
+    (137) trim -> TRIM . LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (138) trim -> TRIM . LPAREN VARIABLE COMA CADENASIMPLE RPAREN
 
     LPAREN          shift and go to state 110
 
 
 state 65
 
-    (138) substr -> SUBSTR . LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
-    (139) substr -> SUBSTR . LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> SUBSTR . LPAREN VARIABLE COMA NUMEROS RPAREN
-    (141) substr -> SUBSTR . LPAREN CADENADOBLE COMA NUMEROS RPAREN
+    (139) substr -> SUBSTR . LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
+    (140) substr -> SUBSTR . LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> SUBSTR . LPAREN VARIABLE COMA NUMEROS RPAREN
+    (142) substr -> SUBSTR . LPAREN CADENADOBLE COMA NUMEROS RPAREN
 
     LPAREN          shift and go to state 111
 
 
 state 66
 
-    (142) wordwrap -> WORDWRAP . LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (143) wordwrap -> WORDWRAP . LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
 
     LPAREN          shift and go to state 112
 
@@ -2140,15 +2144,15 @@ state 76
 
 state 77
 
-    (143) sort -> SORT . LPAREN VARIABLE RPAREN
-    (144) sort -> SORT . LPAREN VARIABLE COMA FLAG RPAREN
+    (144) sort -> SORT . LPAREN VARIABLE RPAREN
+    (145) sort -> SORT . LPAREN VARIABLE COMA FLAG RPAREN
 
     LPAREN          shift and go to state 127
 
 
 state 78
 
-    (145) count -> COUNT . LPAREN VARIABLE RPAREN
+    (146) count -> COUNT . LPAREN VARIABLE RPAREN
 
     LPAREN          shift and go to state 128
 
@@ -2158,6 +2162,7 @@ state 79
     (108) number_format -> NUMBER_FORMAT . LPAREN VARIABLE RPAREN
     (109) number_format -> NUMBER_FORMAT . LPAREN VARIABLE COMA NUMEROS RPAREN
     (110) number_format -> NUMBER_FORMAT . LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> NUMBER_FORMAT . LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
 
     LPAREN          shift and go to state 129
 
@@ -2196,8 +2201,8 @@ state 82
 
 state 83
 
-    (122) rand -> RAND . LPAREN NUMEROS COMA NUMEROS RPAREN
-    (123) rand -> RAND . LPAREN RPAREN
+    (123) rand -> RAND . LPAREN NUMEROS COMA NUMEROS RPAREN
+    (124) rand -> RAND . LPAREN RPAREN
 
     LPAREN          shift and go to state 133
 
@@ -2211,14 +2216,14 @@ state 84
 
 state 85
 
-    (149) getclass -> GETCLASS . LPAREN VARIABLE RPAREN
+    (150) getclass -> GETCLASS . LPAREN VARIABLE RPAREN
 
     LPAREN          shift and go to state 135
 
 
 state 86
 
-    (150) is_a -> IS_A . LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (151) is_a -> IS_A . LPAREN VARIABLE COMA CADENADOBLE RPAREN
 
     LPAREN          shift and go to state 136
 
@@ -2235,40 +2240,40 @@ state 87
     (67) factor -> . VARIABLE
     (68) factor -> . BOOLEAN
     (69) factor -> . LPAREN expresion RPAREN
-    (111) funciones -> . trim
-    (112) funciones -> . substr
-    (113) funciones -> . wordwrap
-    (114) funciones -> . fopen
-    (115) funciones -> . fpassthru
-    (116) funciones -> . feof
-    (117) funciones -> . fgets
-    (118) funciones -> . nl2br
-    (119) funciones -> . VARIABLE IGUAL next
-    (120) funciones -> . lista
-    (121) funciones -> . arrays
-    (124) funciones -> . POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
-    (125) funciones -> . max
-    (126) funciones -> . min
-    (127) funciones -> . sort
-    (128) funciones -> . count
-    (129) funciones -> . number_format
-    (130) funciones -> . floor
-    (131) funciones -> . round
-    (132) funciones -> . ceil
-    (133) funciones -> . rand
-    (134) funciones -> . fmod
-    (147) funciones -> . getclass
-    (148) funciones -> . is_a
+    (112) funciones -> . trim
+    (113) funciones -> . substr
+    (114) funciones -> . wordwrap
+    (115) funciones -> . fopen
+    (116) funciones -> . fpassthru
+    (117) funciones -> . feof
+    (118) funciones -> . fgets
+    (119) funciones -> . nl2br
+    (120) funciones -> . VARIABLE IGUAL next
+    (121) funciones -> . lista
+    (122) funciones -> . arrays
+    (125) funciones -> . POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN
+    (126) funciones -> . max
+    (127) funciones -> . min
+    (128) funciones -> . sort
+    (129) funciones -> . count
+    (130) funciones -> . number_format
+    (131) funciones -> . floor
+    (132) funciones -> . round
+    (133) funciones -> . ceil
+    (134) funciones -> . rand
+    (135) funciones -> . fmod
+    (148) funciones -> . getclass
+    (149) funciones -> . is_a
     (36) expresion -> . expresion operadores term
     (37) expresion -> . term
-    (135) trim -> . TRIM LPAREN VARIABLE RPAREN
-    (136) trim -> . TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
-    (137) trim -> . TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
-    (138) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
-    (139) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
-    (141) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
-    (142) wordwrap -> . WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (136) trim -> . TRIM LPAREN VARIABLE RPAREN
+    (137) trim -> . TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (138) trim -> . TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN
+    (139) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
+    (140) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> . SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN
+    (142) substr -> . SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN
+    (143) wordwrap -> . WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
     (70) fopen -> . FOPEN LPAREN CADENADOBLE COMA CADENADOBLE RPAREN
     (71) fopen -> . FOPEN LPAREN CADENASIMPLE COMA CADENADOBLE RPAREN
     (72) fpassthru -> . FPASSTHRU LPAREN VARIABLE RPAREN
@@ -2286,12 +2291,13 @@ state 87
     (106) arrays -> . LCORC elements RCORC
     (104) max -> . MAX LPAREN elements RPAREN
     (107) min -> . MIN LPAREN elements RPAREN
-    (143) sort -> . SORT LPAREN VARIABLE RPAREN
-    (144) sort -> . SORT LPAREN VARIABLE COMA FLAG RPAREN
-    (145) count -> . COUNT LPAREN VARIABLE RPAREN
+    (144) sort -> . SORT LPAREN VARIABLE RPAREN
+    (145) sort -> . SORT LPAREN VARIABLE COMA FLAG RPAREN
+    (146) count -> . COUNT LPAREN VARIABLE RPAREN
     (108) number_format -> . NUMBER_FORMAT LPAREN VARIABLE RPAREN
     (109) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN
     (110) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> . NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
     (88) floor -> . FLOOR LPAREN DECIMAL RPAREN
     (89) floor -> . FLOOR LPAREN MENOS DECIMAL RPAREN
     (90) floor -> . FLOOR LPAREN DECIMAL PRODUCTO NUMEROS RPAREN
@@ -2306,11 +2312,11 @@ state 87
     (93) ceil -> . CEIL LPAREN DECIMAL RPAREN
     (94) ceil -> . CEIL LPAREN VARIABLE RPAREN
     (95) ceil -> . CEIL LPAREN VARIABLE PRODUCTO NUMEROS RPAREN
-    (122) rand -> . RAND LPAREN NUMEROS COMA NUMEROS RPAREN
-    (123) rand -> . RAND LPAREN RPAREN
+    (123) rand -> . RAND LPAREN NUMEROS COMA NUMEROS RPAREN
+    (124) rand -> . RAND LPAREN RPAREN
     (96) fmod -> . FMOD LPAREN VARIABLE COMA VARIABLE RPAREN
-    (149) getclass -> . GETCLASS LPAREN VARIABLE RPAREN
-    (150) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
+    (150) getclass -> . GETCLASS LPAREN VARIABLE RPAREN
+    (151) is_a -> . IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN
     (62) term -> . factor
 
     NUMEROS         shift and go to state 34
@@ -2741,8 +2747,8 @@ state 105
 
 state 106
 
-    (119) funciones -> VARIABLE IGUAL . next
-    (146) next -> . NEXT LPAREN VARIABLE RPAREN
+    (120) funciones -> VARIABLE IGUAL . next
+    (147) next -> . NEXT LPAREN VARIABLE RPAREN
 
     NEXT            shift and go to state 171
 
@@ -2798,26 +2804,26 @@ state 108
 
 state 109
 
-    (124) funciones -> POTENCIA LPAREN . NUMEROS COMA NUMEROS RPAREN
+    (125) funciones -> POTENCIA LPAREN . NUMEROS COMA NUMEROS RPAREN
 
     NUMEROS         shift and go to state 173
 
 
 state 110
 
-    (135) trim -> TRIM LPAREN . VARIABLE RPAREN
-    (136) trim -> TRIM LPAREN . VARIABLE COMA CADENADOBLE RPAREN
-    (137) trim -> TRIM LPAREN . VARIABLE COMA CADENASIMPLE RPAREN
+    (136) trim -> TRIM LPAREN . VARIABLE RPAREN
+    (137) trim -> TRIM LPAREN . VARIABLE COMA CADENADOBLE RPAREN
+    (138) trim -> TRIM LPAREN . VARIABLE COMA CADENASIMPLE RPAREN
 
     VARIABLE        shift and go to state 174
 
 
 state 111
 
-    (138) substr -> SUBSTR LPAREN . VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
-    (139) substr -> SUBSTR LPAREN . CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> SUBSTR LPAREN . VARIABLE COMA NUMEROS RPAREN
-    (141) substr -> SUBSTR LPAREN . CADENADOBLE COMA NUMEROS RPAREN
+    (139) substr -> SUBSTR LPAREN . VARIABLE COMA NUMEROS COMA NUMEROS RPAREN
+    (140) substr -> SUBSTR LPAREN . CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> SUBSTR LPAREN . VARIABLE COMA NUMEROS RPAREN
+    (142) substr -> SUBSTR LPAREN . CADENADOBLE COMA NUMEROS RPAREN
 
     VARIABLE        shift and go to state 175
     CADENADOBLE     shift and go to state 176
@@ -2825,7 +2831,7 @@ state 111
 
 state 112
 
-    (142) wordwrap -> WORDWRAP LPAREN . VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (143) wordwrap -> WORDWRAP LPAREN . VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
 
     VARIABLE        shift and go to state 177
 
@@ -3070,15 +3076,15 @@ state 126
 
 state 127
 
-    (143) sort -> SORT LPAREN . VARIABLE RPAREN
-    (144) sort -> SORT LPAREN . VARIABLE COMA FLAG RPAREN
+    (144) sort -> SORT LPAREN . VARIABLE RPAREN
+    (145) sort -> SORT LPAREN . VARIABLE COMA FLAG RPAREN
 
     VARIABLE        shift and go to state 191
 
 
 state 128
 
-    (145) count -> COUNT LPAREN . VARIABLE RPAREN
+    (146) count -> COUNT LPAREN . VARIABLE RPAREN
 
     VARIABLE        shift and go to state 192
 
@@ -3088,6 +3094,7 @@ state 129
     (108) number_format -> NUMBER_FORMAT LPAREN . VARIABLE RPAREN
     (109) number_format -> NUMBER_FORMAT LPAREN . VARIABLE COMA NUMEROS RPAREN
     (110) number_format -> NUMBER_FORMAT LPAREN . VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> NUMBER_FORMAT LPAREN . VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
 
     VARIABLE        shift and go to state 193
 
@@ -3131,8 +3138,8 @@ state 132
 
 state 133
 
-    (122) rand -> RAND LPAREN . NUMEROS COMA NUMEROS RPAREN
-    (123) rand -> RAND LPAREN . RPAREN
+    (123) rand -> RAND LPAREN . NUMEROS COMA NUMEROS RPAREN
+    (124) rand -> RAND LPAREN . RPAREN
 
     NUMEROS         shift and go to state 202
     RPAREN          shift and go to state 203
@@ -3147,14 +3154,14 @@ state 134
 
 state 135
 
-    (149) getclass -> GETCLASS LPAREN . VARIABLE RPAREN
+    (150) getclass -> GETCLASS LPAREN . VARIABLE RPAREN
 
     VARIABLE        shift and go to state 205
 
 
 state 136
 
-    (150) is_a -> IS_A LPAREN . VARIABLE COMA CADENADOBLE RPAREN
+    (151) is_a -> IS_A LPAREN . VARIABLE COMA CADENADOBLE RPAREN
 
     VARIABLE        shift and go to state 206
 
@@ -3745,28 +3752,28 @@ state 169
 
 state 170
 
-    (119) funciones -> VARIABLE IGUAL next .
+    (120) funciones -> VARIABLE IGUAL next .
 
-    PUNTOCOMA       reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    VARIABLE        reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    IF              reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    FOR             reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    WHILE           reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    PREINCREMENTO   reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    POSTINCREMENTO  reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    PREDECREMENTO   reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    POSTDECREMENTO  reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    ECHO            reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    PRINT           reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    LPAREN          reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    $end            reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    R_LLAVE         reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
-    RPAREN          reduce using rule 119 (funciones -> VARIABLE IGUAL next .)
+    PUNTOCOMA       reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    VARIABLE        reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    IF              reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    FOR             reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    WHILE           reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    PREINCREMENTO   reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    POSTINCREMENTO  reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    PREDECREMENTO   reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    POSTDECREMENTO  reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    ECHO            reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    PRINT           reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    LPAREN          reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    $end            reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    R_LLAVE         reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
+    RPAREN          reduce using rule 120 (funciones -> VARIABLE IGUAL next .)
 
 
 state 171
 
-    (146) next -> NEXT . LPAREN VARIABLE RPAREN
+    (147) next -> NEXT . LPAREN VARIABLE RPAREN
 
     LPAREN          shift and go to state 223
 
@@ -3814,16 +3821,16 @@ state 172
 
 state 173
 
-    (124) funciones -> POTENCIA LPAREN NUMEROS . COMA NUMEROS RPAREN
+    (125) funciones -> POTENCIA LPAREN NUMEROS . COMA NUMEROS RPAREN
 
     COMA            shift and go to state 224
 
 
 state 174
 
-    (135) trim -> TRIM LPAREN VARIABLE . RPAREN
-    (136) trim -> TRIM LPAREN VARIABLE . COMA CADENADOBLE RPAREN
-    (137) trim -> TRIM LPAREN VARIABLE . COMA CADENASIMPLE RPAREN
+    (136) trim -> TRIM LPAREN VARIABLE . RPAREN
+    (137) trim -> TRIM LPAREN VARIABLE . COMA CADENADOBLE RPAREN
+    (138) trim -> TRIM LPAREN VARIABLE . COMA CADENASIMPLE RPAREN
 
     RPAREN          shift and go to state 225
     COMA            shift and go to state 226
@@ -3831,23 +3838,23 @@ state 174
 
 state 175
 
-    (138) substr -> SUBSTR LPAREN VARIABLE . COMA NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> SUBSTR LPAREN VARIABLE . COMA NUMEROS RPAREN
+    (139) substr -> SUBSTR LPAREN VARIABLE . COMA NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> SUBSTR LPAREN VARIABLE . COMA NUMEROS RPAREN
 
     COMA            shift and go to state 227
 
 
 state 176
 
-    (139) substr -> SUBSTR LPAREN CADENADOBLE . COMA NUMEROS COMA NUMEROS RPAREN
-    (141) substr -> SUBSTR LPAREN CADENADOBLE . COMA NUMEROS RPAREN
+    (140) substr -> SUBSTR LPAREN CADENADOBLE . COMA NUMEROS COMA NUMEROS RPAREN
+    (142) substr -> SUBSTR LPAREN CADENADOBLE . COMA NUMEROS RPAREN
 
     COMA            shift and go to state 228
 
 
 state 177
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE . COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (143) wordwrap -> WORDWRAP LPAREN VARIABLE . COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
 
     COMA            shift and go to state 229
 
@@ -4007,8 +4014,8 @@ state 190
 
 state 191
 
-    (143) sort -> SORT LPAREN VARIABLE . RPAREN
-    (144) sort -> SORT LPAREN VARIABLE . COMA FLAG RPAREN
+    (144) sort -> SORT LPAREN VARIABLE . RPAREN
+    (145) sort -> SORT LPAREN VARIABLE . COMA FLAG RPAREN
 
     RPAREN          shift and go to state 246
     COMA            shift and go to state 247
@@ -4016,7 +4023,7 @@ state 191
 
 state 192
 
-    (145) count -> COUNT LPAREN VARIABLE . RPAREN
+    (146) count -> COUNT LPAREN VARIABLE . RPAREN
 
     RPAREN          shift and go to state 248
 
@@ -4026,6 +4033,7 @@ state 193
     (108) number_format -> NUMBER_FORMAT LPAREN VARIABLE . RPAREN
     (109) number_format -> NUMBER_FORMAT LPAREN VARIABLE . COMA NUMEROS RPAREN
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE . COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> NUMBER_FORMAT LPAREN VARIABLE . COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
 
     RPAREN          shift and go to state 249
     COMA            shift and go to state 250
@@ -4098,30 +4106,30 @@ state 201
 
 state 202
 
-    (122) rand -> RAND LPAREN NUMEROS . COMA NUMEROS RPAREN
+    (123) rand -> RAND LPAREN NUMEROS . COMA NUMEROS RPAREN
 
     COMA            shift and go to state 262
 
 
 state 203
 
-    (123) rand -> RAND LPAREN RPAREN .
+    (124) rand -> RAND LPAREN RPAREN .
 
-    PUNTOCOMA       reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    VARIABLE        reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    IF              reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    FOR             reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    WHILE           reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    PREINCREMENTO   reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    POSTINCREMENTO  reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    PREDECREMENTO   reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    POSTDECREMENTO  reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    ECHO            reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    PRINT           reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    LPAREN          reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    $end            reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    R_LLAVE         reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
-    RPAREN          reduce using rule 123 (rand -> RAND LPAREN RPAREN .)
+    PUNTOCOMA       reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    VARIABLE        reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    IF              reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    FOR             reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    WHILE           reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    PREINCREMENTO   reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    POSTINCREMENTO  reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    PREDECREMENTO   reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    POSTDECREMENTO  reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    ECHO            reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    PRINT           reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    LPAREN          reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    $end            reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    R_LLAVE         reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
+    RPAREN          reduce using rule 124 (rand -> RAND LPAREN RPAREN .)
 
 
 state 204
@@ -4133,14 +4141,14 @@ state 204
 
 state 205
 
-    (149) getclass -> GETCLASS LPAREN VARIABLE . RPAREN
+    (150) getclass -> GETCLASS LPAREN VARIABLE . RPAREN
 
     RPAREN          shift and go to state 264
 
 
 state 206
 
-    (150) is_a -> IS_A LPAREN VARIABLE . COMA CADENADOBLE RPAREN
+    (151) is_a -> IS_A LPAREN VARIABLE . COMA CADENADOBLE RPAREN
 
     COMA            shift and go to state 265
 
@@ -4432,43 +4440,43 @@ state 222
 
 state 223
 
-    (146) next -> NEXT LPAREN . VARIABLE RPAREN
+    (147) next -> NEXT LPAREN . VARIABLE RPAREN
 
     VARIABLE        shift and go to state 272
 
 
 state 224
 
-    (124) funciones -> POTENCIA LPAREN NUMEROS COMA . NUMEROS RPAREN
+    (125) funciones -> POTENCIA LPAREN NUMEROS COMA . NUMEROS RPAREN
 
     NUMEROS         shift and go to state 273
 
 
 state 225
 
-    (135) trim -> TRIM LPAREN VARIABLE RPAREN .
+    (136) trim -> TRIM LPAREN VARIABLE RPAREN .
 
-    PUNTOCOMA       reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    VARIABLE        reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    IF              reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    FOR             reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    WHILE           reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    PREINCREMENTO   reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    PREDECREMENTO   reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    ECHO            reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    PRINT           reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    LPAREN          reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    $end            reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    R_LLAVE         reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
-    RPAREN          reduce using rule 135 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    PUNTOCOMA       reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    VARIABLE        reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    IF              reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    FOR             reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    WHILE           reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    PREINCREMENTO   reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    PREDECREMENTO   reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    ECHO            reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    PRINT           reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    LPAREN          reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    $end            reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    R_LLAVE         reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
+    RPAREN          reduce using rule 136 (trim -> TRIM LPAREN VARIABLE RPAREN .)
 
 
 state 226
 
-    (136) trim -> TRIM LPAREN VARIABLE COMA . CADENADOBLE RPAREN
-    (137) trim -> TRIM LPAREN VARIABLE COMA . CADENASIMPLE RPAREN
+    (137) trim -> TRIM LPAREN VARIABLE COMA . CADENADOBLE RPAREN
+    (138) trim -> TRIM LPAREN VARIABLE COMA . CADENASIMPLE RPAREN
 
     CADENADOBLE     shift and go to state 274
     CADENASIMPLE    shift and go to state 275
@@ -4476,23 +4484,23 @@ state 226
 
 state 227
 
-    (138) substr -> SUBSTR LPAREN VARIABLE COMA . NUMEROS COMA NUMEROS RPAREN
-    (140) substr -> SUBSTR LPAREN VARIABLE COMA . NUMEROS RPAREN
+    (139) substr -> SUBSTR LPAREN VARIABLE COMA . NUMEROS COMA NUMEROS RPAREN
+    (141) substr -> SUBSTR LPAREN VARIABLE COMA . NUMEROS RPAREN
 
     NUMEROS         shift and go to state 276
 
 
 state 228
 
-    (139) substr -> SUBSTR LPAREN CADENADOBLE COMA . NUMEROS COMA NUMEROS RPAREN
-    (141) substr -> SUBSTR LPAREN CADENADOBLE COMA . NUMEROS RPAREN
+    (140) substr -> SUBSTR LPAREN CADENADOBLE COMA . NUMEROS COMA NUMEROS RPAREN
+    (142) substr -> SUBSTR LPAREN CADENADOBLE COMA . NUMEROS RPAREN
 
     NUMEROS         shift and go to state 277
 
 
 state 229
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA . NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (143) wordwrap -> WORDWRAP LPAREN VARIABLE COMA . NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN
 
     NUMEROS         shift and go to state 278
 
@@ -4749,51 +4757,51 @@ state 245
 
 state 246
 
-    (143) sort -> SORT LPAREN VARIABLE RPAREN .
+    (144) sort -> SORT LPAREN VARIABLE RPAREN .
 
-    PUNTOCOMA       reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    VARIABLE        reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    IF              reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    FOR             reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    WHILE           reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    PREINCREMENTO   reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    PREDECREMENTO   reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    ECHO            reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    PRINT           reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    LPAREN          reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    $end            reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    R_LLAVE         reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
-    RPAREN          reduce using rule 143 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    PUNTOCOMA       reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    VARIABLE        reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    IF              reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    FOR             reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    WHILE           reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    PREINCREMENTO   reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    PREDECREMENTO   reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    ECHO            reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    PRINT           reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    LPAREN          reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    $end            reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    R_LLAVE         reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
+    RPAREN          reduce using rule 144 (sort -> SORT LPAREN VARIABLE RPAREN .)
 
 
 state 247
 
-    (144) sort -> SORT LPAREN VARIABLE COMA . FLAG RPAREN
+    (145) sort -> SORT LPAREN VARIABLE COMA . FLAG RPAREN
 
     FLAG            shift and go to state 286
 
 
 state 248
 
-    (145) count -> COUNT LPAREN VARIABLE RPAREN .
+    (146) count -> COUNT LPAREN VARIABLE RPAREN .
 
-    PUNTOCOMA       reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    VARIABLE        reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    IF              reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    FOR             reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    WHILE           reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    PREINCREMENTO   reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    PREDECREMENTO   reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    ECHO            reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    PRINT           reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    LPAREN          reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    $end            reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    R_LLAVE         reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
-    RPAREN          reduce using rule 145 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    PUNTOCOMA       reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    VARIABLE        reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    IF              reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    FOR             reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    WHILE           reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    PREINCREMENTO   reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    PREDECREMENTO   reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    ECHO            reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    PRINT           reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    LPAREN          reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    $end            reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    R_LLAVE         reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
+    RPAREN          reduce using rule 146 (count -> COUNT LPAREN VARIABLE RPAREN .)
 
 
 state 249
@@ -4821,6 +4829,7 @@ state 250
 
     (109) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA . NUMEROS RPAREN
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA . NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA . NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN
 
     NUMEROS         shift and go to state 287
 
@@ -4979,7 +4988,7 @@ state 261
 
 state 262
 
-    (122) rand -> RAND LPAREN NUMEROS COMA . NUMEROS RPAREN
+    (123) rand -> RAND LPAREN NUMEROS COMA . NUMEROS RPAREN
 
     NUMEROS         shift and go to state 296
 
@@ -4993,28 +5002,28 @@ state 263
 
 state 264
 
-    (149) getclass -> GETCLASS LPAREN VARIABLE RPAREN .
+    (150) getclass -> GETCLASS LPAREN VARIABLE RPAREN .
 
-    PUNTOCOMA       reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    VARIABLE        reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    IF              reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    FOR             reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    WHILE           reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    PREINCREMENTO   reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    PREDECREMENTO   reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    ECHO            reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    PRINT           reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    LPAREN          reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    $end            reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    R_LLAVE         reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
-    RPAREN          reduce using rule 149 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    PUNTOCOMA       reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    VARIABLE        reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    IF              reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    FOR             reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    WHILE           reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    PREINCREMENTO   reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    PREDECREMENTO   reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    ECHO            reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    PRINT           reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    LPAREN          reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    $end            reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    R_LLAVE         reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
+    RPAREN          reduce using rule 150 (getclass -> GETCLASS LPAREN VARIABLE RPAREN .)
 
 
 state 265
 
-    (150) is_a -> IS_A LPAREN VARIABLE COMA . CADENADOBLE RPAREN
+    (151) is_a -> IS_A LPAREN VARIABLE COMA . CADENADOBLE RPAREN
 
     CADENADOBLE     shift and go to state 298
 
@@ -5187,36 +5196,36 @@ state 271
 
 state 272
 
-    (146) next -> NEXT LPAREN VARIABLE . RPAREN
+    (147) next -> NEXT LPAREN VARIABLE . RPAREN
 
     RPAREN          shift and go to state 302
 
 
 state 273
 
-    (124) funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS . RPAREN
+    (125) funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS . RPAREN
 
     RPAREN          shift and go to state 303
 
 
 state 274
 
-    (136) trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE . RPAREN
+    (137) trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE . RPAREN
 
     RPAREN          shift and go to state 304
 
 
 state 275
 
-    (137) trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE . RPAREN
+    (138) trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE . RPAREN
 
     RPAREN          shift and go to state 305
 
 
 state 276
 
-    (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS . COMA NUMEROS RPAREN
-    (140) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS . RPAREN
+    (139) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS . COMA NUMEROS RPAREN
+    (141) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS . RPAREN
 
     COMA            shift and go to state 306
     RPAREN          shift and go to state 307
@@ -5224,8 +5233,8 @@ state 276
 
 state 277
 
-    (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS . COMA NUMEROS RPAREN
-    (141) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS . RPAREN
+    (140) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS . COMA NUMEROS RPAREN
+    (142) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS . RPAREN
 
     COMA            shift and go to state 308
     RPAREN          shift and go to state 309
@@ -5233,7 +5242,7 @@ state 277
 
 state 278
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS . COMA CADENADOBLE COMA BOOLEAN RPAREN
+    (143) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS . COMA CADENADOBLE COMA BOOLEAN RPAREN
 
     COMA            shift and go to state 310
 
@@ -5289,7 +5298,7 @@ state 285
 
 state 286
 
-    (144) sort -> SORT LPAREN VARIABLE COMA FLAG . RPAREN
+    (145) sort -> SORT LPAREN VARIABLE COMA FLAG . RPAREN
 
     RPAREN          shift and go to state 318
 
@@ -5298,6 +5307,7 @@ state 287
 
     (109) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS . RPAREN
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS . COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS . COMA CADENADOBLE COMA CADENADOBLE RPAREN
 
     RPAREN          shift and go to state 320
     COMA            shift and go to state 319
@@ -5405,7 +5415,7 @@ state 295
 
 state 296
 
-    (122) rand -> RAND LPAREN NUMEROS COMA NUMEROS . RPAREN
+    (123) rand -> RAND LPAREN NUMEROS COMA NUMEROS . RPAREN
 
     RPAREN          shift and go to state 327
 
@@ -5419,7 +5429,7 @@ state 297
 
 state 298
 
-    (150) is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE . RPAREN
+    (151) is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE . RPAREN
 
     RPAREN          shift and go to state 329
 
@@ -5480,147 +5490,147 @@ state 301
 
 state 302
 
-    (146) next -> NEXT LPAREN VARIABLE RPAREN .
+    (147) next -> NEXT LPAREN VARIABLE RPAREN .
 
-    PUNTOCOMA       reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    VARIABLE        reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    IF              reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    FOR             reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    WHILE           reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    PREINCREMENTO   reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    PREDECREMENTO   reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    ECHO            reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    PRINT           reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    LPAREN          reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    $end            reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    R_LLAVE         reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
-    RPAREN          reduce using rule 146 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    PUNTOCOMA       reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    VARIABLE        reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    IF              reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    FOR             reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    WHILE           reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    PREINCREMENTO   reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    PREDECREMENTO   reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    ECHO            reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    PRINT           reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    LPAREN          reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    $end            reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    R_LLAVE         reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
+    RPAREN          reduce using rule 147 (next -> NEXT LPAREN VARIABLE RPAREN .)
 
 
 state 303
 
-    (124) funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .
+    (125) funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .
 
-    PUNTOCOMA       reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    VARIABLE        reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    IF              reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    FOR             reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    WHILE           reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    PREINCREMENTO   reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    POSTINCREMENTO  reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    PREDECREMENTO   reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    POSTDECREMENTO  reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    ECHO            reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    PRINT           reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    LPAREN          reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    $end            reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    R_LLAVE         reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    RPAREN          reduce using rule 124 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    PUNTOCOMA       reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    VARIABLE        reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    IF              reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    FOR             reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    WHILE           reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    PREINCREMENTO   reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    POSTINCREMENTO  reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    PREDECREMENTO   reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    POSTDECREMENTO  reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    ECHO            reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    PRINT           reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    LPAREN          reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    $end            reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    R_LLAVE         reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    RPAREN          reduce using rule 125 (funciones -> POTENCIA LPAREN NUMEROS COMA NUMEROS RPAREN .)
 
 
 state 304
 
-    (136) trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .
+    (137) trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .
 
-    PUNTOCOMA       reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    VARIABLE        reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    IF              reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    FOR             reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    WHILE           reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    PREINCREMENTO   reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    PREDECREMENTO   reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    ECHO            reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    PRINT           reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    LPAREN          reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    $end            reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    R_LLAVE         reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    RPAREN          reduce using rule 136 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    PUNTOCOMA       reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    VARIABLE        reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    IF              reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    FOR             reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    WHILE           reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    PREINCREMENTO   reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    PREDECREMENTO   reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    ECHO            reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    PRINT           reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    LPAREN          reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    $end            reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    R_LLAVE         reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    RPAREN          reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
 
 
 state 305
 
-    (137) trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .
+    (138) trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .
 
-    PUNTOCOMA       reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    VARIABLE        reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    IF              reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    FOR             reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    WHILE           reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    PREINCREMENTO   reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    PREDECREMENTO   reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    ECHO            reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    PRINT           reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    LPAREN          reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    $end            reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    R_LLAVE         reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
-    RPAREN          reduce using rule 137 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    PUNTOCOMA       reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    VARIABLE        reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    IF              reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    FOR             reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    WHILE           reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    PREINCREMENTO   reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    PREDECREMENTO   reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    ECHO            reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    PRINT           reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    LPAREN          reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    $end            reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    R_LLAVE         reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
+    RPAREN          reduce using rule 138 (trim -> TRIM LPAREN VARIABLE COMA CADENASIMPLE RPAREN .)
 
 
 state 306
 
-    (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA . NUMEROS RPAREN
+    (139) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA . NUMEROS RPAREN
 
     NUMEROS         shift and go to state 335
 
 
 state 307
 
-    (140) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .
+    (141) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .
 
-    PUNTOCOMA       reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    VARIABLE        reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    IF              reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    FOR             reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    WHILE           reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    PREINCREMENTO   reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    POSTINCREMENTO  reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    PREDECREMENTO   reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    POSTDECREMENTO  reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    ECHO            reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    PRINT           reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    LPAREN          reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    $end            reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    R_LLAVE         reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
-    RPAREN          reduce using rule 140 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    PUNTOCOMA       reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    VARIABLE        reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    IF              reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    FOR             reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    WHILE           reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    PREINCREMENTO   reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    POSTINCREMENTO  reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    PREDECREMENTO   reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    POSTDECREMENTO  reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    ECHO            reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    PRINT           reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    LPAREN          reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    $end            reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    R_LLAVE         reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
+    RPAREN          reduce using rule 141 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS RPAREN .)
 
 
 state 308
 
-    (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA . NUMEROS RPAREN
+    (140) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA . NUMEROS RPAREN
 
     NUMEROS         shift and go to state 336
 
 
 state 309
 
-    (141) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .
+    (142) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .
 
-    PUNTOCOMA       reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    VARIABLE        reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    IF              reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    FOR             reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    WHILE           reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    PREINCREMENTO   reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    POSTINCREMENTO  reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    PREDECREMENTO   reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    POSTDECREMENTO  reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    ECHO            reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    PRINT           reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    LPAREN          reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    $end            reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    R_LLAVE         reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
-    RPAREN          reduce using rule 141 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    PUNTOCOMA       reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    VARIABLE        reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    IF              reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    FOR             reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    WHILE           reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    PREINCREMENTO   reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    POSTINCREMENTO  reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    PREDECREMENTO   reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    POSTDECREMENTO  reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    ECHO            reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    PRINT           reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    LPAREN          reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    $end            reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    R_LLAVE         reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
+    RPAREN          reduce using rule 142 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS RPAREN .)
 
 
 state 310
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA . CADENADOBLE COMA BOOLEAN RPAREN
+    (143) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA . CADENADOBLE COMA BOOLEAN RPAREN
 
     CADENADOBLE     shift and go to state 337
 
@@ -5774,30 +5784,32 @@ state 317
 
 state 318
 
-    (144) sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .
+    (145) sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .
 
-    PUNTOCOMA       reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    VARIABLE        reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    IF              reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    FOR             reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    WHILE           reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    PREINCREMENTO   reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    POSTINCREMENTO  reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    PREDECREMENTO   reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    POSTDECREMENTO  reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    ECHO            reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    PRINT           reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    LPAREN          reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    $end            reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    R_LLAVE         reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
-    RPAREN          reduce using rule 144 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    PUNTOCOMA       reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    VARIABLE        reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    IF              reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    FOR             reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    WHILE           reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    PREINCREMENTO   reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    POSTINCREMENTO  reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    PREDECREMENTO   reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    POSTDECREMENTO  reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    ECHO            reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    PRINT           reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    LPAREN          reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    $end            reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    R_LLAVE         reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
+    RPAREN          reduce using rule 145 (sort -> SORT LPAREN VARIABLE COMA FLAG RPAREN .)
 
 
 state 319
 
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA . CADENASIMPLE COMA CADENASIMPLE RPAREN
+    (111) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA . CADENADOBLE COMA CADENADOBLE RPAREN
 
     CADENASIMPLE    shift and go to state 338
+    CADENADOBLE     shift and go to state 339
 
 
 state 320
@@ -5867,21 +5879,21 @@ state 323
 
     (85) round -> ROUND LPAREN DECIMAL COMA MENOS NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 339
+    RPAREN          shift and go to state 340
 
 
 state 324
 
     (86) round -> ROUND LPAREN MENOS DECIMAL COMA MENOS . NUMEROS RPAREN
 
-    NUMEROS         shift and go to state 340
+    NUMEROS         shift and go to state 341
 
 
 state 325
 
     (87) round -> ROUND LPAREN MENOS DECIMAL COMA NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 341
+    RPAREN          shift and go to state 342
 
 
 state 326
@@ -5907,23 +5919,23 @@ state 326
 
 state 327
 
-    (122) rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .
+    (123) rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .
 
-    PUNTOCOMA       reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    VARIABLE        reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    IF              reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    FOR             reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    WHILE           reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    PREINCREMENTO   reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    POSTINCREMENTO  reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    PREDECREMENTO   reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    POSTDECREMENTO  reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    ECHO            reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    PRINT           reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    LPAREN          reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    $end            reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    R_LLAVE         reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
-    RPAREN          reduce using rule 122 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    PUNTOCOMA       reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    VARIABLE        reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    IF              reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    FOR             reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    WHILE           reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    PREINCREMENTO   reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    POSTINCREMENTO  reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    PREDECREMENTO   reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    POSTDECREMENTO  reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    ECHO            reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    PRINT           reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    LPAREN          reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    $end            reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    R_LLAVE         reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
+    RPAREN          reduce using rule 123 (rand -> RAND LPAREN NUMEROS COMA NUMEROS RPAREN .)
 
 
 state 328
@@ -5949,23 +5961,23 @@ state 328
 
 state 329
 
-    (150) is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .
+    (151) is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .
 
-    PUNTOCOMA       reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    VARIABLE        reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    IF              reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    FOR             reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    WHILE           reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    PREINCREMENTO   reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    POSTINCREMENTO  reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    PREDECREMENTO   reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    POSTDECREMENTO  reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    ECHO            reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    PRINT           reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    LPAREN          reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    $end            reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    R_LLAVE         reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
-    RPAREN          reduce using rule 150 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    PUNTOCOMA       reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    VARIABLE        reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    IF              reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    FOR             reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    WHILE           reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    PREINCREMENTO   reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    PREDECREMENTO   reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    ECHO            reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    PRINT           reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    LPAREN          reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    $end            reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    R_LLAVE         reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
+    RPAREN          reduce using rule 151 (is_a -> IS_A LPAREN VARIABLE COMA CADENADOBLE RPAREN .)
 
 
 state 330
@@ -5993,23 +6005,23 @@ state 331
     (30) elseif -> elseif . ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
     (31) else -> . ELSE L_LLAVE sentencias R_LLAVE
 
-    ELSEIF          shift and go to state 343
+    ELSEIF          shift and go to state 344
     ELSE            shift and go to state 332
 
-    else                           shift and go to state 342
+    else                           shift and go to state 343
 
 state 332
 
     (31) else -> ELSE . L_LLAVE sentencias R_LLAVE
 
-    L_LLAVE         shift and go to state 344
+    L_LLAVE         shift and go to state 345
 
 
 state 333
 
     (29) elseif -> ELSEIF . LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
 
-    LPAREN          shift and go to state 345
+    LPAREN          shift and go to state 346
 
 
 state 334
@@ -6062,7 +6074,7 @@ state 334
 
     asignacion                     shift and go to state 2
     incremento_decremento          shift and go to state 8
-    sentencias                     shift and go to state 346
+    sentencias                     shift and go to state 347
     metodos                        shift and go to state 3
     if                             shift and go to state 4
     for                            shift and go to state 5
@@ -6072,33 +6084,40 @@ state 334
 
 state 335
 
-    (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS . RPAREN
-
-    RPAREN          shift and go to state 347
-
-
-state 336
-
-    (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS . RPAREN
+    (139) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS . RPAREN
 
     RPAREN          shift and go to state 348
 
 
+state 336
+
+    (140) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS . RPAREN
+
+    RPAREN          shift and go to state 349
+
+
 state 337
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE . COMA BOOLEAN RPAREN
+    (143) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE . COMA BOOLEAN RPAREN
 
-    COMA            shift and go to state 349
+    COMA            shift and go to state 350
 
 
 state 338
 
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE . COMA CADENASIMPLE RPAREN
 
-    COMA            shift and go to state 350
+    COMA            shift and go to state 351
 
 
 state 339
+
+    (111) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE . COMA CADENADOBLE RPAREN
+
+    COMA            shift and go to state 352
+
+
+state 340
 
     (85) round -> ROUND LPAREN DECIMAL COMA MENOS NUMEROS RPAREN .
 
@@ -6119,14 +6138,14 @@ state 339
     RPAREN          reduce using rule 85 (round -> ROUND LPAREN DECIMAL COMA MENOS NUMEROS RPAREN .)
 
 
-state 340
+state 341
 
     (86) round -> ROUND LPAREN MENOS DECIMAL COMA MENOS NUMEROS . RPAREN
 
-    RPAREN          shift and go to state 351
+    RPAREN          shift and go to state 353
 
 
-state 341
+state 342
 
     (87) round -> ROUND LPAREN MENOS DECIMAL COMA NUMEROS RPAREN .
 
@@ -6147,7 +6166,7 @@ state 341
     RPAREN          reduce using rule 87 (round -> ROUND LPAREN MENOS DECIMAL COMA NUMEROS RPAREN .)
 
 
-state 342
+state 343
 
     (28) if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif else .
 
@@ -6166,14 +6185,14 @@ state 342
     R_LLAVE         reduce using rule 28 (if -> IF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE elseif else .)
 
 
-state 343
+state 344
 
     (30) elseif -> elseif ELSEIF . LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE
 
-    LPAREN          shift and go to state 352
+    LPAREN          shift and go to state 354
 
 
-state 344
+state 345
 
     (31) else -> ELSE L_LLAVE . sentencias R_LLAVE
     (1) sentencias -> . sentencias asignacion
@@ -6221,7 +6240,7 @@ state 344
     PRINT           shift and go to state 20
     LPAREN          shift and go to state 12
 
-    sentencias                     shift and go to state 353
+    sentencias                     shift and go to state 355
     asignacion                     shift and go to state 2
     metodos                        shift and go to state 3
     if                             shift and go to state 4
@@ -6231,7 +6250,7 @@ state 344
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 345
+state 346
 
     (29) elseif -> ELSEIF LPAREN . comparaciones RPAREN L_LLAVE sentencias R_LLAVE
     (54) comparaciones -> . comparacion
@@ -6263,12 +6282,12 @@ state 345
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
 
-    comparaciones                  shift and go to state 354
+    comparaciones                  shift and go to state 356
     comparacion                    shift and go to state 96
     condiciones                    shift and go to state 97
     factor                         shift and go to state 99
 
-state 346
+state 347
 
     (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -6299,7 +6318,7 @@ state 346
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 355
+    R_LLAVE         shift and go to state 357
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -6321,63 +6340,70 @@ state 346
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 347
-
-    (138) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .
-
-    PUNTOCOMA       reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    VARIABLE        reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    IF              reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    FOR             reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    WHILE           reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    PREINCREMENTO   reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    POSTINCREMENTO  reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    PREDECREMENTO   reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    POSTDECREMENTO  reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    ECHO            reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    PRINT           reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    LPAREN          reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    $end            reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    R_LLAVE         reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    RPAREN          reduce using rule 138 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
-
-
 state 348
 
-    (139) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .
+    (139) substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .
 
-    PUNTOCOMA       reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    VARIABLE        reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    IF              reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    FOR             reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    WHILE           reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    PREINCREMENTO   reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    POSTINCREMENTO  reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    PREDECREMENTO   reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    POSTDECREMENTO  reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    ECHO            reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    PRINT           reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    LPAREN          reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    $end            reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    R_LLAVE         reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
-    RPAREN          reduce using rule 139 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    PUNTOCOMA       reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    VARIABLE        reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    IF              reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    FOR             reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    WHILE           reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    PREINCREMENTO   reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    POSTINCREMENTO  reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    PREDECREMENTO   reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    POSTDECREMENTO  reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    ECHO            reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    PRINT           reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    LPAREN          reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    $end            reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    R_LLAVE         reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    RPAREN          reduce using rule 139 (substr -> SUBSTR LPAREN VARIABLE COMA NUMEROS COMA NUMEROS RPAREN .)
 
 
 state 349
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA . BOOLEAN RPAREN
+    (140) substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .
 
-    BOOLEAN         shift and go to state 356
+    PUNTOCOMA       reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    VARIABLE        reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    IF              reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    FOR             reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    WHILE           reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    PREINCREMENTO   reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    POSTINCREMENTO  reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    PREDECREMENTO   reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    POSTDECREMENTO  reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    ECHO            reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    PRINT           reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    LPAREN          reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    $end            reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    R_LLAVE         reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
+    RPAREN          reduce using rule 140 (substr -> SUBSTR LPAREN CADENADOBLE COMA NUMEROS COMA NUMEROS RPAREN .)
 
 
 state 350
 
-    (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA . CADENASIMPLE RPAREN
+    (143) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA . BOOLEAN RPAREN
 
-    CADENASIMPLE    shift and go to state 357
+    BOOLEAN         shift and go to state 358
 
 
 state 351
+
+    (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA . CADENASIMPLE RPAREN
+
+    CADENASIMPLE    shift and go to state 359
+
+
+state 352
+
+    (111) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA . CADENADOBLE RPAREN
+
+    CADENADOBLE     shift and go to state 360
+
+
+state 353
 
     (86) round -> ROUND LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN .
 
@@ -6398,7 +6424,7 @@ state 351
     RPAREN          reduce using rule 86 (round -> ROUND LPAREN MENOS DECIMAL COMA MENOS NUMEROS RPAREN .)
 
 
-state 352
+state 354
 
     (30) elseif -> elseif ELSEIF LPAREN . comparaciones RPAREN L_LLAVE sentencias R_LLAVE
     (54) comparaciones -> . comparacion
@@ -6430,12 +6456,12 @@ state 352
     VARIABLE        shift and go to state 100
     BOOLEAN         shift and go to state 39
 
-    comparaciones                  shift and go to state 358
+    comparaciones                  shift and go to state 361
     comparacion                    shift and go to state 96
     condiciones                    shift and go to state 97
     factor                         shift and go to state 99
 
-state 353
+state 355
 
     (31) else -> ELSE L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -6466,7 +6492,7 @@ state 353
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 359
+    R_LLAVE         shift and go to state 362
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -6488,63 +6514,9 @@ state 353
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 354
-
-    (29) elseif -> ELSEIF LPAREN comparaciones . RPAREN L_LLAVE sentencias R_LLAVE
-    (55) comparaciones -> comparaciones . anado comparacion
-    (56) anado -> . condicion
-    (57) condicion -> . XOR
-    (58) condicion -> . ANDAND
-    (59) condicion -> . AND
-    (60) condicion -> . OR
-    (61) condicion -> . OROR
-
-    RPAREN          shift and go to state 360
-    XOR             shift and go to state 154
-    ANDAND          shift and go to state 155
-    AND             shift and go to state 156
-    OR              shift and go to state 157
-    OROR            shift and go to state 158
-
-    anado                          shift and go to state 152
-    condicion                      shift and go to state 153
-
-state 355
-
-    (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .
-
-    VARIABLE        reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    IF              reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    FOR             reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    WHILE           reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    PREINCREMENTO   reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    POSTINCREMENTO  reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    PREDECREMENTO   reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    POSTDECREMENTO  reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    ECHO            reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    PRINT           reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    LPAREN          reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    $end            reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-    R_LLAVE         reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
-
-
 state 356
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN . RPAREN
-
-    RPAREN          shift and go to state 361
-
-
-state 357
-
-    (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE . RPAREN
-
-    RPAREN          shift and go to state 362
-
-
-state 358
-
-    (30) elseif -> elseif ELSEIF LPAREN comparaciones . RPAREN L_LLAVE sentencias R_LLAVE
+    (29) elseif -> ELSEIF LPAREN comparaciones . RPAREN L_LLAVE sentencias R_LLAVE
     (55) comparaciones -> comparaciones . anado comparacion
     (56) anado -> . condicion
     (57) condicion -> . XOR
@@ -6563,7 +6535,68 @@ state 358
     anado                          shift and go to state 152
     condicion                      shift and go to state 153
 
+state 357
+
+    (11) for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .
+
+    VARIABLE        reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    IF              reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    FOR             reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    WHILE           reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    PREINCREMENTO   reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    POSTINCREMENTO  reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    PREDECREMENTO   reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    POSTDECREMENTO  reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    ECHO            reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    PRINT           reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    LPAREN          reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    $end            reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+    R_LLAVE         reduce using rule 11 (for -> FOR LPAREN asignacion comparaciones PUNTOCOMA incremento_decremento RPAREN L_LLAVE sentencias R_LLAVE .)
+
+
+state 358
+
+    (143) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN . RPAREN
+
+    RPAREN          shift and go to state 364
+
+
 state 359
+
+    (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE . RPAREN
+
+    RPAREN          shift and go to state 365
+
+
+state 360
+
+    (111) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE . RPAREN
+
+    RPAREN          shift and go to state 366
+
+
+state 361
+
+    (30) elseif -> elseif ELSEIF LPAREN comparaciones . RPAREN L_LLAVE sentencias R_LLAVE
+    (55) comparaciones -> comparaciones . anado comparacion
+    (56) anado -> . condicion
+    (57) condicion -> . XOR
+    (58) condicion -> . ANDAND
+    (59) condicion -> . AND
+    (60) condicion -> . OR
+    (61) condicion -> . OROR
+
+    RPAREN          shift and go to state 367
+    XOR             shift and go to state 154
+    ANDAND          shift and go to state 155
+    AND             shift and go to state 156
+    OR              shift and go to state 157
+    OROR            shift and go to state 158
+
+    anado                          shift and go to state 152
+    condicion                      shift and go to state 153
+
+state 362
 
     (31) else -> ELSE L_LLAVE sentencias R_LLAVE .
 
@@ -6582,35 +6615,35 @@ state 359
     R_LLAVE         reduce using rule 31 (else -> ELSE L_LLAVE sentencias R_LLAVE .)
 
 
-state 360
+state 363
 
     (29) elseif -> ELSEIF LPAREN comparaciones RPAREN . L_LLAVE sentencias R_LLAVE
 
-    L_LLAVE         shift and go to state 364
+    L_LLAVE         shift and go to state 368
 
 
-state 361
+state 364
 
-    (142) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .
+    (143) wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .
 
-    PUNTOCOMA       reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    VARIABLE        reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    IF              reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    FOR             reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    WHILE           reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    PREINCREMENTO   reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    POSTINCREMENTO  reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    PREDECREMENTO   reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    POSTDECREMENTO  reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    ECHO            reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    PRINT           reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    LPAREN          reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    $end            reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    R_LLAVE         reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
-    RPAREN          reduce using rule 142 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    PUNTOCOMA       reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    VARIABLE        reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    IF              reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    FOR             reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    WHILE           reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    PREINCREMENTO   reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    POSTINCREMENTO  reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    PREDECREMENTO   reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    POSTDECREMENTO  reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    ECHO            reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    PRINT           reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    LPAREN          reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    $end            reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    R_LLAVE         reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
+    RPAREN          reduce using rule 143 (wordwrap -> WORDWRAP LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA BOOLEAN RPAREN .)
 
 
-state 362
+state 365
 
     (110) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN .
 
@@ -6631,14 +6664,35 @@ state 362
     RPAREN          reduce using rule 110 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN .)
 
 
-state 363
+state 366
+
+    (111) number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .
+
+    PUNTOCOMA       reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    VARIABLE        reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    IF              reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    FOR             reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    WHILE           reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    PREINCREMENTO   reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    POSTINCREMENTO  reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    PREDECREMENTO   reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    POSTDECREMENTO  reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    ECHO            reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    PRINT           reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    LPAREN          reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    $end            reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    R_LLAVE         reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+    RPAREN          reduce using rule 111 (number_format -> NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN .)
+
+
+state 367
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones RPAREN . L_LLAVE sentencias R_LLAVE
 
-    L_LLAVE         shift and go to state 365
+    L_LLAVE         shift and go to state 369
 
 
-state 364
+state 368
 
     (29) elseif -> ELSEIF LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE
     (1) sentencias -> . sentencias asignacion
@@ -6686,7 +6740,7 @@ state 364
     PRINT           shift and go to state 20
     LPAREN          shift and go to state 12
 
-    sentencias                     shift and go to state 366
+    sentencias                     shift and go to state 370
     asignacion                     shift and go to state 2
     metodos                        shift and go to state 3
     if                             shift and go to state 4
@@ -6696,7 +6750,7 @@ state 364
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 365
+state 369
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones RPAREN L_LLAVE . sentencias R_LLAVE
     (1) sentencias -> . sentencias asignacion
@@ -6744,7 +6798,7 @@ state 365
     PRINT           shift and go to state 20
     LPAREN          shift and go to state 12
 
-    sentencias                     shift and go to state 367
+    sentencias                     shift and go to state 371
     asignacion                     shift and go to state 2
     metodos                        shift and go to state 3
     if                             shift and go to state 4
@@ -6754,7 +6808,7 @@ state 365
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 366
+state 370
 
     (29) elseif -> ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -6785,7 +6839,7 @@ state 366
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 368
+    R_LLAVE         shift and go to state 372
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -6807,7 +6861,7 @@ state 366
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 367
+state 371
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias . R_LLAVE
     (1) sentencias -> sentencias . asignacion
@@ -6838,7 +6892,7 @@ state 367
     (25) imprimir -> . PRINT funciones
     (17) object -> . LPAREN OBJECT RPAREN term
 
-    R_LLAVE         shift and go to state 369
+    R_LLAVE         shift and go to state 373
     VARIABLE        shift and go to state 7
     IF              shift and go to state 11
     FOR             shift and go to state 13
@@ -6860,7 +6914,7 @@ state 367
     imprimir                       shift and go to state 9
     object                         shift and go to state 10
 
-state 368
+state 372
 
     (29) elseif -> ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .
 
@@ -6868,7 +6922,7 @@ state 368
     ELSE            reduce using rule 29 (elseif -> ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .)
 
 
-state 369
+state 373
 
     (30) elseif -> elseif ELSEIF LPAREN comparaciones RPAREN L_LLAVE sentencias R_LLAVE .
 

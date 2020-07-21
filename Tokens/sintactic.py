@@ -232,7 +232,8 @@ def p_number_format_2(p):
     'number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS RPAREN'
 
 def p_number_format_4(p):
-    'number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN'
+    '''number_format : NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENASIMPLE COMA CADENASIMPLE RPAREN
+    | NUMBER_FORMAT LPAREN VARIABLE COMA NUMEROS COMA CADENADOBLE COMA CADENADOBLE RPAREN'''
 
 def p_funciones_s(p):
     '''funciones : trim
@@ -315,17 +316,18 @@ def p_error(p):
     else:
         print("Error de definicion")
         bandera = False
-parser = sintaxis.yacc()
 
-while True:
-    try:
-        s = input('<php?> ')
-    except EOFError:
-        break
-    if not s:
-        continue
-    result = parser.parse(s)
-    print(result)
+#parser = sintaxis.yacc()
+
+#while True:
+ #   try:
+  #      s = input('<php?> ')
+   # except EOFError:
+    #    break
+    #if not s:
+    #    continue
+    #result = parser.parse(s)
+    #print(result)
 
 #Ejemplos para probar con IF
 #if $var==5 { echo 3; }

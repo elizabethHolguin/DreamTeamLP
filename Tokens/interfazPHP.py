@@ -1,22 +1,17 @@
 import sys
+import ply.yacc as sintaxis
 import ply.lex as lex
-from practica import *
-#from sintactic import *
-from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtWidgets import QErrorMessage
-from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QLabel
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtWidgets import QGridLayout
-from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtWidgets import QVBoxLayout
 from PyQt5.QtWidgets import QHBoxLayout
-from PyQt5.QtWidgets import QLineEdit
+from PyQt5.QtWidgets import QLabel
 from PyQt5.QtWidgets import QPlainTextEdit
+from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtWidgets import QSizePolicy
+from PyQt5.QtWidgets import QVBoxLayout
+from PyQt5.QtWidgets import QWidget
+from practica import *
+from sintactic import *
 
 #Creando instancia de QApplication
 app = QApplication(sys.argv)
@@ -26,9 +21,13 @@ window.setWindowTitle('ANALIZADOR LÉXICO Y SINTÁCTICO PHP')
 window.setGeometry(70, 80, 820, 400)
 window.move(60, 15)
 #Colocar botones
-btnvalidar = QPushButton()
-btnvalidar.setText('Validar')
-btnvalidar.setStyleSheet('QPushButton {background-color: #A3C1DA}')
+btnvalidarlex = QPushButton()
+btnvalidarlex.setText('Validar Lexico')
+btnvalidarlex.setStyleSheet('QPushButton {background-color: #A3C1DA}')
+
+btnvalidarsin = QPushButton()
+btnvalidarsin.setText('Validar Sintactico')
+btnvalidarsin.setStyleSheet('QPushButton {background-color: #A3C1DA}')
 
 btnlimpiar = QPushButton()
 btnlimpiar.setText('Limpiar')
@@ -44,7 +43,7 @@ cod.setSizePolicy(texto)
 
 lblAnalizador = QLabel()
 lblAnalizador.setText("VERIFIQUE SU ANALIZADOR")
-lblAnalizador.setAlignment(Qt.AlignLeft)
+
 
 lblLexico = QLabel()
 lblLexico.setText("LÉXICO: ")
@@ -69,7 +68,8 @@ layoutPrinTer = QHBoxLayout()
 
 layoutButtons = QVBoxLayout()
 
-layoutButtons.addWidget(btnvalidar)
+layoutButtons.addWidget(btnvalidarlex)
+layoutButtons.addWidget(btnvalidarsin)
 layoutButtons.addWidget(btnlimpiar)
 
 layoutCodFuente.addWidget(lblFuente)
@@ -109,25 +109,38 @@ btnlimpiar.clicked.connect(limpiar)
 
 
 
-def analisisLexSint():
+def analisisLex():
     tex = cod.toPlainText()
     lexico.clear()
     sintactico.clear()
     analizadorLexico = lex.lex()
     analizadorLexico.input(tex)
 
+
     while True:
         tokenRec = analizadorLexico.token()
         if tokenRec != None:
             lexico.appendPlainText(str(tokenRec))
             print(tokenRec)
+
         else:
             break
 
     #lexSintactico=lex.sintactic(tex)
     #sintactic.appendPlaintText(lexSintactico)
 
-btnvalidar.clicked.connect(analisisLexSint)
+btnvalidarlex.clicked.connect(analisisLex)
+
+
+def analisisSin():
+    tex = cod.toPlainText()
+    sintactico.clear()
+    parser = sintaxis.yacc()
+    result = parser.parse(tex)
+    sintactico.appendPlainText(str(result))
+    print(result)
+
+btnvalidarsin.clicked.connect(analisisSin)
 
 
 
